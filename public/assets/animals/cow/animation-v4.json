@@ -1,0 +1,128 @@
+{
+  "frameWidth": 256,
+  "frameHeight": 192,
+  "footY": 184,
+  "scale": 0.4871060171919771,
+  "frames": [
+    {
+      "name": "idle",
+      "sourceCell": [
+        0,
+        0,
+        443,
+        443
+      ],
+      "contentBounds": [
+        24,
+        53,
+        423,
+        386
+      ]
+    },
+    {
+      "name": "blink",
+      "sourceCell": [
+        443,
+        0,
+        887,
+        443
+      ],
+      "contentBounds": [
+        24,
+        53,
+        423,
+        386
+      ]
+    },
+    {
+      "name": "walk-left",
+      "sourceCell": [
+        887,
+        0,
+        1330,
+        443
+      ],
+      "contentBounds": [
+        17,
+        55,
+        423,
+        374
+      ]
+    },
+    {
+      "name": "walk-right",
+      "sourceCell": [
+        1330,
+        0,
+        1774,
+        443
+      ],
+      "contentBounds": [
+        18,
+        55,
+        425,
+        375
+      ]
+    },
+    {
+      "name": "eat",
+      "sourceCell": [
+        0,
+        443,
+        443,
+        887
+      ],
+      "contentBounds": [
+        25,
+        102,
+        426,
+        362
+      ]
+    },
+    {
+      "name": "chew",
+      "sourceCell": [
+        443,
+        443,
+        887,
+        887
+      ],
+      "contentBounds": [
+        26,
+        102,
+        428,
+        362
+      ]
+    },
+    {
+      "name": "rest",
+      "sourceCell": [
+        887,
+        443,
+        1330,
+        887
+      ],
+      "contentBounds": [
+        40,
+        92,
+        410,
+        348
+      ]
+    },
+    {
+      "name": "tail",
+      "sourceCell": [
+        1330,
+        443,
+        1774,
+        887
+      ],
+      "contentBounds": [
+        14,
+        32,
+        423,
+        381
+      ]
+    }
+  ]
+}

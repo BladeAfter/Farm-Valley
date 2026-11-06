@@ -1,0 +1,128 @@
+{
+  "frameWidth": 256,
+  "frameHeight": 192,
+  "footY": 184,
+  "scale": 0.45576407506702415,
+  "frames": [
+    {
+      "name": "idle",
+      "sourceRect": [
+        30,
+        65,
+        383,
+        478
+      ],
+      "contentBounds": [
+        20,
+        21,
+        340,
+        391
+      ]
+    },
+    {
+      "name": "blink",
+      "sourceRect": [
+        417,
+        65,
+        770,
+        478
+      ],
+      "contentBounds": [
+        18,
+        23,
+        336,
+        391
+      ]
+    },
+    {
+      "name": "walk-left",
+      "sourceRect": [
+        794,
+        65,
+        1154,
+        478
+      ],
+      "contentBounds": [
+        7,
+        26,
+        342,
+        391
+      ]
+    },
+    {
+      "name": "walk-right",
+      "sourceRect": [
+        1157,
+        65,
+        1536,
+        478
+      ],
+      "contentBounds": [
+        7,
+        24,
+        365,
+        384
+      ]
+    },
+    {
+      "name": "graze",
+      "sourceRect": [
+        17,
+        574,
+        393,
+        926
+      ],
+      "contentBounds": [
+        16,
+        23,
+        366,
+        330
+      ]
+    },
+    {
+      "name": "chew",
+      "sourceRect": [
+        407,
+        574,
+        790,
+        926
+      ],
+      "contentBounds": [
+        23,
+        23,
+        369,
+        330
+      ]
+    },
+    {
+      "name": "rest",
+      "sourceRect": [
+        795,
+        584,
+        1158,
+        922
+      ],
+      "contentBounds": [
+        19,
+        23,
+        350,
+        314
+      ]
+    },
+    {
+      "name": "alert",
+      "sourceRect": [
+        1160,
+        520,
+        1536,
+        936
+      ],
+      "contentBounds": [
+        41,
+        25,
+        350,
+        398
+      ]
+    }
+  ]
+}

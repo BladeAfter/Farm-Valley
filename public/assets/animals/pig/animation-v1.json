@@ -1,0 +1,128 @@
+{
+  "frameWidth": 256,
+  "frameHeight": 192,
+  "footY": 184,
+  "scale": 0.5120481927710844,
+  "frames": [
+    {
+      "name": "idle",
+      "sourceRect": [
+        0,
+        0,
+        443,
+        443
+      ],
+      "contentBounds": [
+        63,
+        93,
+        418,
+        383
+      ]
+    },
+    {
+      "name": "blink",
+      "sourceRect": [
+        443,
+        0,
+        887,
+        443
+      ],
+      "contentBounds": [
+        60,
+        93,
+        417,
+        383
+      ]
+    },
+    {
+      "name": "walk-left",
+      "sourceRect": [
+        887,
+        0,
+        1330,
+        443
+      ],
+      "contentBounds": [
+        25,
+        93,
+        412,
+        381
+      ]
+    },
+    {
+      "name": "walk-right",
+      "sourceRect": [
+        1330,
+        0,
+        1774,
+        443
+      ],
+      "contentBounds": [
+        23,
+        91,
+        409,
+        381
+      ]
+    },
+    {
+      "name": "eat",
+      "sourceRect": [
+        0,
+        443,
+        443,
+        887
+      ],
+      "contentBounds": [
+        60,
+        71,
+        438,
+        346
+      ]
+    },
+    {
+      "name": "forage",
+      "sourceRect": [
+        443,
+        443,
+        887,
+        887
+      ],
+      "contentBounds": [
+        62,
+        64,
+        428,
+        337
+      ]
+    },
+    {
+      "name": "rest",
+      "sourceRect": [
+        887,
+        443,
+        1330,
+        887
+      ],
+      "contentBounds": [
+        31,
+        144,
+        415,
+        335
+      ]
+    },
+    {
+      "name": "ears",
+      "sourceRect": [
+        1330,
+        443,
+        1774,
+        887
+      ],
+      "contentBounds": [
+        50,
+        26,
+        408,
+        358
+      ]
+    }
+  ]
+}

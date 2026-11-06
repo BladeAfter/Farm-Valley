@@ -1,0 +1,1402 @@
+:root {
+  --game-cream: #fff7e3;
+  --game-paper: #f5e8c8;
+  --game-wood: #8c623b;
+  --game-ink: #674c30;
+  --game-muted: #897352;
+  --game-green: #739545;
+  --game-gold: #c7953e;
+  --game-blue: #688d9a;
+  --game-danger: #b16b56;
+}
+.scrim {
+  background: #203c245c;
+  backdrop-filter: blur(2px);
+  padding: max(14px, env(safe-area-inset-top))
+    max(14px, env(safe-area-inset-right)) max(14px, env(safe-area-inset-bottom))
+    max(14px, env(safe-area-inset-left));
+}
+.modal.game-modal {
+  width: min(620px, 96vw);
+  max-height: min(640px, calc(100dvh - 32px));
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 22px;
+  border: 3px solid #fff0cb;
+  outline: 1px solid #9c7748;
+  color: var(--game-ink);
+  background: linear-gradient(125deg, #fff9e9, #f4e7c7);
+  box-shadow:
+    0 5px 0 #987344,
+    0 18px 48px #203b2945;
+  animation: panel-enter 160ms ease-out;
+}
+.modal.game-modal-small {
+  width: min(380px, 96vw);
+}
+.modal.game-modal-large {
+  width: min(790px, 96vw);
+}
+.game-modal-header {
+  flex: 0 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 17px 21px 13px;
+  border-bottom: 1px solid #d9c5a0;
+  background: linear-gradient(#fff9e6, #f4e4bb);
+}
+.game-modal-header h2 {
+  font-size: 24px;
+  margin: 4px 0 0;
+  line-height: 1.14;
+}
+.game-modal-header .eyebrow {
+  font-size: 8px;
+  letter-spacing: 2.2px;
+}
+.game-modal-header .close {
+  position: static;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  border: 1px solid #cfac73;
+  background: linear-gradient(#f5e1b5, #e1c28b);
+}
+.game-modal-body {
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 16px 20px 18px;
+  scrollbar-width: thin;
+  scrollbar-color: #c5ac79 transparent;
+}
+.game-modal-body h3 {
+  margin: 0;
+  color: var(--game-ink);
+  font-size: 16px;
+}
+.game-modal .primary {
+  min-height: 42px;
+  padding: 9px 14px;
+  border-radius: 12px;
+  font-size: 12px;
+  background: linear-gradient(#98b663, #719344);
+  box-shadow:
+    inset 0 1px #d9e7ac,
+    0 3px #547333;
+  color: #fffbea;
+  border: 1px solid #739247;
+}
+.game-modal .secondary {
+  min-height: 40px;
+  padding: 8px 12px;
+  border-radius: 11px;
+  font-size: 11px;
+  background: linear-gradient(#f7e9c8, #e5d1a3);
+  color: #7d603a;
+  box-shadow:
+    inset 0 1px #fff9e4,
+    0 2px #c3a571;
+  border: 1px solid #d4b985;
+}
+.game-modal button:disabled {
+  opacity: 0.48;
+  box-shadow: none;
+}
+.game-modal button:focus-visible,
+.game-modal input:focus-visible {
+  outline: 3px solid var(--game-blue);
+  outline-offset: 2px;
+}
+.game-modal p {
+  line-height: 1.5;
+  color: var(--game-muted);
+}
+.game-tabs {
+  gap: 6px;
+  margin: 0 0 12px;
+}
+.game-tabs button {
+  min-height: 42px;
+  font-size: 12px;
+  padding: 5px 9px;
+  transition:
+    background 140ms ease,
+    border-color 140ms ease;
+}
+.game-tabs button.active {
+  color: #506b31;
+}
+.level-lock {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #9b8056;
+}
+.reward-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid #e3c88e;
+  background: #f8e9bd;
+  border-radius: 12px;
+  padding: 5px 8px;
+  white-space: nowrap;
+}
+.reward-badge > img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+.reward-badge b {
+  font-size: 15px;
+  color: #86602a;
+}
+.reward-badge small {
+  font-size: 10px;
+  color: #9c7d44;
+}
+.reward-xp {
+  background: #e5eddf;
+  border-color: #bdcdb6;
+}
+.reward-xp b,
+.reward-xp small {
+  color: #6a855d;
+}
+.text-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 40px;
+  padding: 8px;
+  background: transparent;
+  color: var(--game-blue);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* The catalog owns its scroll area; the selected item and purchase stay visible. */
+.modal-shop .game-modal-body,
+.modal-buildings .game-modal-body {
+  padding: 0;
+  overflow: hidden;
+}
+.farm-shop {
+  display: grid;
+  grid-template-columns: 102px minmax(0, 1fr);
+  height: min(440px, calc(100dvh - 122px));
+  min-height: 0;
+}
+.catalog-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding: 10px 7px;
+  background: #e7d3a8;
+  border-right: 1px solid #cdb183;
+}
+.catalog-categories button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 5px 2px;
+  min-height: 54px;
+  border-radius: 10px;
+  color: #82623e;
+  border: 1px solid transparent;
+  background: transparent;
+  flex-shrink: 0;
+}
+.catalog-categories button.active {
+  background: #fff5dc;
+  border-color: #cfb37f;
+  box-shadow: 0 2px #bd9f6b;
+}
+.catalog-categories img {
+  width: 38px;
+  height: 30px;
+  object-fit: contain;
+}
+.catalog-categories span {
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.catalog-content {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 14px 14px;
+}
+.catalog-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.catalog-heading b {
+  font-size: 14px;
+}
+.catalog-heading small {
+  font-size: 10px;
+  color: var(--game-muted);
+}
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  min-height: 0;
+  flex: 1;
+  align-content: start;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #c9b080 transparent;
+  padding: 2px 3px 5px;
+}
+.building-card {
+  min-width: 0;
+  position: relative;
+  min-height: 124px;
+  border: 1px solid #deca9f;
+  background: linear-gradient(#fffdf4, #f3e5c2);
+  border-radius: 13px;
+  padding: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: var(--game-ink);
+  transition:
+    background 140ms ease,
+    transform 140ms ease;
+}
+.building-card.selected {
+  background: #e9efcf;
+  border-color: #879e56;
+  outline: 1px solid #9aaf6a;
+}
+.building-card-art {
+  display: block;
+  flex: 0 0 70px;
+  height: 70px;
+  width: 100%;
+  min-height: 0;
+}
+.building-card-art img {
+  display: block;
+  width: 100%;
+  height: 70px;
+  max-height: 70px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 2px #8e784225);
+}
+.building-card.locked .building-card-art {
+  filter: saturate(0.45);
+  opacity: 0.7;
+}
+.building-card > b {
+  font-size: 12px;
+  line-height: 1.15;
+  text-align: center;
+}
+.building-card .owned-tag {
+  color: #708246;
+  font-size: 10px;
+}
+.card-price {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+  color: #96702e;
+  font-weight: 700;
+}
+.card-price img {
+  width: 18px;
+  height: 18px;
+}
+.catalog-detail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  margin-top: 10px;
+  padding: 10px 0 0;
+  border-top: 1px solid #dcc79d;
+  min-width: 0;
+}
+.catalog-detail > img {
+  width: 66px;
+  height: 66px;
+  object-fit: contain;
+  flex: 0 0 66px;
+}
+.catalog-detail > div:not(.catalog-action) {
+  flex: 1;
+  min-width: 0;
+}
+.catalog-detail h3 {
+  font-size: 14px;
+}
+.catalog-detail p {
+  font-size: 11px;
+  margin: 5px 0;
+  line-height: 1.35;
+}
+.catalog-detail small {
+  font-size: 10px;
+}
+.catalog-warning {
+  color: var(--game-danger);
+}
+.catalog-hint {
+  color: #73894a;
+}
+.catalog-action {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  flex: 0 0 100px;
+}
+.catalog-action .reward-badge {
+  justify-content: center;
+  padding: 2px 5px;
+  border: 0;
+  background: transparent;
+}
+.catalog-action .reward-badge small {
+  display: none;
+}
+
+/* Production: recipes and queue are separate from mastery. */
+.modal-machine .game-modal-body {
+  padding: 10px 18px 14px;
+}
+.factory-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #decaa2;
+}
+.factory-banner > img {
+  width: 72px;
+  height: 58px;
+  object-fit: contain;
+}
+.factory-banner > div {
+  flex: 1;
+}
+.mastery-stars {
+  display: inline-flex;
+  color: #cda54e;
+  gap: 3px;
+}
+.factory-status {
+  display: block;
+  font-size: 11px;
+  margin-top: 3px;
+  color: var(--game-muted);
+}
+.factory-status.working {
+  color: #64853e;
+}
+.factory-status.working::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 5px;
+  background: #8da858;
+  border-radius: 50%;
+}
+.factory-workbench {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 16px;
+  padding-top: 12px;
+}
+.factory-recipes {
+  min-width: 0;
+}
+.factory-recipes .game-tabs {
+  margin-bottom: 9px;
+  gap: 4px;
+}
+.factory-recipes .game-tabs button {
+  font-size: 10px;
+  min-height: 36px;
+  padding: 5px;
+}
+.factory-recipes .recipe-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  max-height: 204px;
+  scrollbar-width: thin;
+  padding: 2px;
+}
+.recipe-grid .recipe-card {
+  position: relative;
+  min-width: 0;
+  padding: 7px 3px;
+  min-height: 91px;
+}
+.recipe-grid .recipe-card img {
+  width: 38px;
+  height: 38px;
+}
+.recipe-card .recipe-stock {
+  position: absolute;
+  right: 4px;
+  top: 3px;
+  padding: 1px 4px;
+  font-size: 9px;
+  color: #fff5dd;
+  background: #a28a5b;
+  border-radius: 5px;
+}
+.recipe-card .level-lock {
+  font-size: 9px;
+  margin-top: 4px;
+}
+.recipe-card .level-lock svg {
+  width: 10px;
+}
+.recipe-empty {
+  grid-column: 1 / -1;
+  padding: 16px 6px;
+  font-size: 11px !important;
+  text-align: center;
+}
+.factory-queue-area {
+  min-width: 0;
+}
+.factory-queue-area .production-heading {
+  margin: 0 0 10px;
+  min-height: 36px;
+}
+.production-heading h3 {
+  font-size: 13px;
+}
+.production-heading > span {
+  font-size: 11px;
+  color: #8a744c;
+  background: #e8d8b5;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+.factory-queue-area .production-queue {
+  grid-template-columns: 1fr;
+  gap: 6px;
+  max-height: 204px;
+  scrollbar-width: thin;
+  padding: 2px;
+}
+.production-queue article {
+  padding: 8px;
+  gap: 8px;
+  min-height: 65px;
+}
+.production-queue b {
+  font-size: 11px;
+}
+.production-queue small {
+  font-size: 10px;
+}
+.production-queue article > img {
+  width: 36px;
+  height: 36px;
+}
+.production-queue article .primary {
+  min-height: 38px;
+  padding: 6px 8px;
+  font-size: 10px;
+}
+.production-queue .queue-cancel {
+  width: 36px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.production-queue .empty-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 65px;
+  font-size: 10px;
+  background: #f9f0d8;
+}
+.production-queue .ready {
+  background: #e9efd3;
+}
+.queue-limit {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-size: 10px;
+  color: #9c885f;
+  margin-top: 5px;
+}
+.factory-recipe-detail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 12px;
+  margin-top: 12px;
+  border-top: 1px solid #dcc89e;
+}
+.selected-recipe {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+.selected-recipe > img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+.selected-recipe b {
+  display: block;
+  font-size: 12px;
+}
+.selected-recipe small {
+  display: block;
+  font-size: 10px;
+  margin-top: 3px;
+  color: var(--game-muted);
+}
+.factory-recipe-detail .recipe-ingredients {
+  gap: 7px;
+  padding: 0;
+}
+.factory-recipe-detail .recipe-ingredients > span {
+  flex-direction: column;
+  gap: 0;
+}
+.factory-recipe-detail .recipe-ingredients img {
+  width: 26px;
+  height: 26px;
+}
+.factory-recipe-detail .recipe-ingredients small {
+  font-size: 10px;
+}
+.factory-panel .machine-footer {
+  margin-top: 12px;
+  padding-top: 10px;
+}
+.factory-panel .machine-footer > small {
+  max-width: 52%;
+  font-size: 10px;
+  color: var(--game-muted);
+}
+.mastery-detail {
+  padding: 16px 0 4px;
+}
+.mastery-detail .game-progress {
+  margin: 16px 0;
+}
+.mastery-benefit {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #a88742;
+  background: #f4e9c9;
+  padding: 12px;
+  border-radius: 12px;
+  margin-top: 15px;
+}
+.mastery-benefit b {
+  color: var(--game-ink);
+  font-size: 13px;
+}
+.mastery-benefit small {
+  display: block;
+  font-size: 11px;
+  margin-top: 4px;
+  color: var(--game-muted);
+}
+
+/* Paddocks: portraits and product states, with actions shared by species. */
+.paddock-summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f0e2be;
+  border-radius: 12px;
+  padding: 9px;
+  margin-bottom: 12px;
+}
+.paddock-summary > img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+.paddock-summary > div {
+  flex: 1;
+}
+.paddock-summary b {
+  font-size: 12px;
+}
+.paddock-summary small {
+  display: block;
+  color: var(--game-muted);
+  font-size: 10px;
+  margin-top: 3px;
+}
+.paddock-summary > span {
+  font-size: 10px;
+  color: #957b4e;
+}
+.animal-paddock-panel .animal-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  max-height: 270px;
+  overflow: auto;
+  scrollbar-width: thin;
+  margin: 0;
+  padding: 2px 2px 5px;
+}
+.animal-paddock-panel .animal-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  background: linear-gradient(#fffaf0, #f4e9ce);
+  border: 1px solid #ddc79c;
+  border-radius: 15px;
+  padding: 10px;
+  min-width: 0;
+}
+.animal-paddock-panel .animal-card.ready {
+  background: linear-gradient(#f8fbe9, #e9edce);
+  border-color: #a2b376;
+}
+.animal-card .animal-portrait {
+  width: 100%;
+  height: 86px;
+  position: relative;
+  flex: none;
+  display: grid;
+  place-items: center;
+}
+.animal-portrait > img:first-child {
+  width: 100%;
+  height: 86px;
+  object-fit: contain;
+}
+.animal-portrait .animal-product {
+  position: absolute;
+  right: 0;
+  bottom: -2px;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  border: 1px solid #d9c59e;
+  border-radius: 50%;
+  background: #fff7dc;
+  object-fit: contain;
+}
+.animal-card .animal-card-info {
+  text-align: center;
+  flex: none;
+}
+.animal-card .animal-card-info b {
+  display: block;
+  font-size: 14px;
+}
+.animal-state {
+  display: block;
+  font-size: 11px;
+  line-height: 1.35;
+  margin-top: 3px;
+  color: var(--game-muted);
+}
+.animal-card.ready .animal-state {
+  color: #6a893f;
+}
+.animal-paddock-panel .animal-card .primary {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px;
+  font-size: 12px;
+}
+.animal-timer {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  color: var(--game-blue);
+  font-size: 12px;
+}
+.animal-paddock-panel .animal-batch {
+  margin: 12px 0 0;
+}
+.animal-paddock-panel .animal-batch button {
+  min-height: 42px;
+  font-size: 12px;
+}
+.modal-animals .game-tabs {
+  flex-wrap: nowrap;
+}
+.modal-animals .game-tabs button {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 66px;
+  padding: 5px 2px;
+  font-size: 10px;
+}
+
+/* Orders are a small illustrated note, never a large empty window. */
+.modal-orders .game-modal-body {
+  padding: 16px;
+}
+.orders-board {
+  position: relative;
+  background: #fffbed;
+  border: 1px solid #dfc99b;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 2px 4px #9d7b3d15;
+}
+.orders-board-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 12px;
+}
+.orders-board-heading > small {
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: #aa8a55;
+}
+.paper-pin {
+  position: absolute;
+  top: -6px;
+  left: 46%;
+  width: 12px;
+  height: 12px;
+  background: #bb7356;
+  box-shadow:
+    inset 2px 2px #ddab7f,
+    0 2px 2px #96704744;
+  border: 1px solid #a25d40;
+  border-radius: 50%;
+}
+.order-state {
+  font-size: 9px;
+  color: #a18a60;
+}
+.order-state.ready {
+  color: #708c45;
+}
+.order-customer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.customer-portrait {
+  width: 70px;
+  height: 70px;
+  flex: 0 0 70px;
+  border: 2px solid #f5e5bb;
+  border-radius: 50%;
+}
+.order-customer h3 {
+  font-size: 18px;
+  margin: 3px 0;
+}
+.order-customer small {
+  font-size: 10px;
+  color: #aa8c58;
+}
+.order-customer p {
+  font-size: 11px;
+  margin: 3px 0;
+}
+.order-request {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 12px;
+  border: 1px solid #e0cca2;
+  border-radius: 12px;
+  background: #f8efd8;
+  margin: 14px 0 0;
+  padding: 10px;
+  color: #837045;
+}
+.order-request > img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+.order-request > div {
+  flex: 1;
+}
+.order-request b {
+  font-size: 14px;
+}
+.order-request small {
+  display: block;
+  font-size: 11px;
+  margin-top: 4px;
+}
+.order-detail {
+  padding: 12px 2px 0;
+}
+.order-detail > span {
+  display: block;
+  font-size: 11px;
+  margin-top: 6px;
+  color: var(--game-muted);
+}
+.order-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+}
+.order-reward-pair {
+  display: flex;
+  gap: 6px;
+}
+.order-footer .primary {
+  flex: 1;
+  min-width: 120px;
+}
+.order-footer .reward-badge small {
+  display: none;
+}
+.settings-option {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-height: 60px;
+  width: 100%;
+  text-align: left;
+  background: #f4e5c2;
+  border: 1px solid #dec69b;
+  border-radius: 12px;
+  padding: 10px;
+  margin: 10px 0;
+}
+.settings-option svg {
+  color: #9b7b4a;
+  width: 24px;
+}
+.settings-option b {
+  font-size: 13px;
+}
+.settings-option small {
+  display: block;
+  font-size: 11px;
+  color: var(--game-muted);
+  margin-top: 4px;
+}
+.settings-content > p {
+  margin-top: 0;
+}
+
+.storage-browser .storage-product-grid {
+  max-height: min(260px, 38dvh);
+}
+.storage-browser-summary {
+  margin-bottom: 12px;
+}
+.storage-product-detail {
+  background: #f3e7c8;
+  border-radius: 12px;
+  padding: 10px;
+}
+.storage-product-detail .sale-amount {
+  font-size: 10px;
+}
+.storage-product-detail input {
+  min-height: 36px;
+}
+.storage-browser .subtle {
+  font-size: 10px !important;
+  margin: 10px 0 0;
+}
+.game-detail .storage-upgrades {
+  display: block;
+}
+.game-detail .storage-card {
+  padding: 10px 0;
+}
+.game-detail-heading {
+  flex-wrap: wrap;
+}
+.game-modal progress {
+  border: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #dfceaa;
+}
+.game-modal progress::-webkit-progress-bar {
+  background: #dfceaa;
+  border-radius: 6px;
+}
+.game-modal progress::-webkit-progress-value {
+  background: linear-gradient(#a8be70, #7e9c4e);
+  border-radius: 6px;
+  transition: width 200ms ease;
+}
+.game-modal progress::-moz-progress-bar {
+  background: #89a353;
+}
+.game-modal button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.hud {
+  gap: 12px;
+}
+.hud .game-logo {
+  font-size: 20px;
+  opacity: 0.9;
+}
+.hud .game-logo span {
+  font-size: 14px;
+  letter-spacing: 3px;
+  margin-top: 4px;
+}
+.wallet .resource-counter strong {
+  font-variant-numeric: tabular-nums;
+}
+.xp span {
+  transition: width 300ms ease;
+}
+.farm-nav button[aria-current="page"] {
+  filter: drop-shadow(0 0 5px #ffffbd);
+}
+.toast {
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+  pointer-events: none;
+  max-width: min(430px, 80vw);
+  text-align: center;
+}
+.toast[data-visible="false"] {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 6px);
+}
+.illustrated-animal:has(.animal-timer) .animal-portrait {
+  animation: fed-glow 450ms ease-out;
+}
+.camera-tools button {
+  min-width: 40px;
+  min-height: 40px;
+}
+@keyframes fed-glow {
+  0% {
+    filter: drop-shadow(0 0 7px #d4d97e);
+  }
+  100% {
+    filter: none;
+  }
+}
+@keyframes panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-height: 600px) {
+  .game-modal-header {
+    padding: 10px 16px;
+  }
+  .game-modal-header h2 {
+    font-size: 21px;
+  }
+  .game-modal-header .eyebrow {
+    font-size: 7px;
+  }
+  .game-modal-body {
+    padding: 12px 16px;
+  }
+  .modal.game-modal {
+    max-height: calc(100dvh - 26px);
+  }
+  .modal.game-modal-large {
+    width: min(760px, 96vw);
+  }
+  .farm-shop {
+    height: min(410px, calc(100dvh - 98px));
+  }
+  .catalog-grid {
+    gap: 7px;
+  }
+  .building-card {
+    min-height: 110px;
+  }
+  .building-card-art {
+    height: 57px;
+    flex-basis: 57px;
+  }
+  .building-card-art img {
+    height: 57px;
+    max-height: 57px;
+  }
+  .factory-banner {
+    padding-bottom: 8px;
+  }
+  .factory-banner > img {
+    width: 62px;
+    height: 42px;
+  }
+  .factory-workbench {
+    gap: 12px;
+    padding-top: 8px;
+  }
+  .factory-recipes .recipe-grid {
+    max-height: 160px;
+  }
+  .factory-queue-area .production-queue {
+    max-height: 160px;
+  }
+  .factory-recipe-detail {
+    margin-top: 8px;
+    padding-top: 8px;
+  }
+  .factory-panel .machine-footer {
+    margin-top: 8px;
+    padding-top: 8px;
+  }
+  .factory-panel .machine-footer .secondary {
+    min-height: 36px;
+  }
+  .animal-paddock-panel .animal-list {
+    max-height: 210px;
+  }
+  .animal-card .animal-portrait,
+  .animal-portrait > img:first-child {
+    height: 64px;
+  }
+  .animal-paddock-panel .animal-card {
+    padding: 8px;
+    gap: 5px;
+  }
+  .modal-animals .game-tabs button {
+    min-height: 54px;
+  }
+  .modal-animals .game-tabs img {
+    width: 30px;
+    height: 25px;
+  }
+  .storage-browser .storage-product-grid {
+    max-height: min(200px, 33dvh);
+  }
+  .orders-board-heading {
+    padding-bottom: 8px;
+  }
+  .customer-portrait {
+    width: 54px;
+    height: 54px;
+    flex-basis: 54px;
+  }
+  .order-request {
+    padding: 7px 10px;
+    margin-top: 10px;
+  }
+  .order-request > img {
+    width: 38px;
+    height: 38px;
+  }
+}
+@media (max-width: 720px) {
+  .catalog-categories {
+    padding: 6px 4px;
+  }
+  .farm-shop {
+    grid-template-columns: 80px minmax(0, 1fr);
+  }
+  .catalog-categories span {
+    font-size: 9px;
+  }
+  .catalog-content {
+    padding: 10px;
+  }
+  .catalog-detail > img {
+    display: none;
+  }
+  .catalog-detail p {
+    font-size: 10px;
+  }
+  .catalog-action {
+    flex-basis: 86px;
+  }
+  .catalog-action .primary {
+    padding: 7px 9px;
+  }
+  .catalog-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .building-card > b {
+    font-size: 11px;
+  }
+  .hud .game-logo {
+    display: none;
+  }
+  .wallet {
+    gap: 12px;
+  }
+  .modal.game-modal-small.game-bottom-sheet {
+    align-self: end;
+    justify-self: end;
+    margin: 0 0 2px;
+  }
+}
+@media (max-height: 420px) {
+  .game-modal-header {
+    padding: 8px 14px;
+  }
+  .game-modal-header h2 {
+    font-size: 19px;
+  }
+  .game-modal-header .eyebrow {
+    display: none;
+  }
+  .game-modal-header .close {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+  .game-modal-body {
+    padding: 10px 14px;
+  }
+  .farm-shop {
+    height: calc(100dvh - 87px);
+  }
+  .catalog-heading {
+    margin-bottom: 5px;
+  }
+  .catalog-detail {
+    padding-top: 6px;
+    margin-top: 6px;
+  }
+  .catalog-detail h3 {
+    font-size: 12px;
+  }
+  .catalog-detail p {
+    margin: 3px 0;
+  }
+  .catalog-detail > img {
+    display: none;
+  }
+  .factory-banner {
+    height: 0;
+    padding: 0;
+    border: 0;
+  }
+  .factory-banner > img,
+  .factory-banner .factory-status {
+    display: none;
+  }
+  .factory-banner > div {
+    display: contents;
+  }
+  .factory-banner .mastery-stars {
+    position: absolute;
+    top: 19px;
+    right: 145px;
+  }
+  .factory-banner .text-action {
+    position: absolute;
+    top: 8px;
+    right: 58px;
+    min-height: 36px;
+  }
+  .factory-workbench {
+    padding-top: 0;
+  }
+  .factory-recipes .game-tabs button {
+    min-height: 32px;
+  }
+  .factory-recipes .recipe-grid,
+  .factory-queue-area .production-queue {
+    max-height: 95px;
+  }
+  .recipe-grid .recipe-card {
+    min-height: 85px;
+  }
+  .factory-recipe-detail .selected-recipe {
+    display: none;
+  }
+  .factory-recipe-detail .recipe-ingredients {
+    flex: 1;
+  }
+  .factory-panel .machine-footer > small {
+    font-size: 9px;
+  }
+  .paddock-summary {
+    margin-bottom: 8px;
+    padding: 6px;
+  }
+  .animal-paddock-panel .animal-list {
+    max-height: 125px;
+  }
+  .animal-card .animal-portrait,
+  .animal-portrait > img:first-child {
+    height: 48px;
+  }
+  .animal-paddock-panel .animal-card {
+    gap: 3px;
+  }
+  .animal-paddock-panel .animal-list {
+    grid-template-columns: 1fr;
+  }
+  .animal-paddock-panel .animal-card {
+    flex-direction: row;
+  }
+  .animal-card .animal-portrait {
+    width: 50px;
+    flex: 0 0 50px;
+  }
+  .animal-card .animal-card-info {
+    flex: 1;
+    text-align: left;
+    padding-left: 7px;
+  }
+  .animal-paddock-panel .animal-card .primary {
+    width: auto;
+    min-width: 74px;
+  }
+  .animal-portrait .animal-product {
+    width: 24px;
+    height: 24px;
+    right: -5px;
+  }
+  .animal-state {
+    font-size: 10px;
+  }
+  .animal-paddock-panel .animal-batch {
+    margin-top: 8px;
+  }
+  .storage-browser .storage-product-grid {
+    max-height: 80px;
+  }
+  .storage-browser .subtle {
+    display: none;
+  }
+  .storage-browser .game-tabs button {
+    min-height: 36px;
+  }
+  .storage-browser .game-tabs img {
+    width: 30px;
+    height: 28px;
+  }
+  .order-footer {
+    position: sticky;
+    bottom: 0;
+    padding: 8px 0 2px;
+    background: #fffbed;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .game-modal,
+  .game-modal *,
+  .xp span {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+.plot-context {
+  position: absolute;
+  left: 50%;
+  bottom: max(96px, calc(env(safe-area-inset-bottom) + 86px));
+  transform: translateX(-50%);
+  z-index: 5;
+  width: min(540px, 94vw);
+  border: 2px solid #fff0ca;
+  border-radius: 16px;
+  background: #fff3d5;
+  box-shadow:
+    0 4px #aa8653,
+    0 8px 24px #28422c44;
+}
+.plot-context .plot-popover {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  width: 100%;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  padding: 12px 38px 10px 12px;
+}
+.plot-context .plot-popover .close {
+  width: 28px;
+  height: 28px;
+  right: 5px;
+  top: 5px;
+}
+.plot-seeds {
+  display: flex;
+  gap: 5px;
+  padding: 5px 10px 10px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.plot-seeds button {
+  position: relative;
+  flex: 1 0 58px;
+  padding: 5px;
+  border: 1px solid #d7bf8f;
+  background: #fff8e5;
+  border-radius: 10px;
+  color: #85643a;
+  min-height: 65px;
+}
+.plot-seeds button[aria-pressed="true"] {
+  background: #e8edce;
+  border-color: #8fa65c;
+}
+.plot-seeds img {
+  width: 31px;
+  height: 31px;
+  object-fit: contain;
+  margin: auto;
+}
+.plot-seeds span {
+  display: block;
+  font-size: 9px;
+  margin-top: 3px;
+}
+.plot-seeds small {
+  position: absolute;
+  top: 1px;
+  right: 3px;
+  font-size: 9px;
+  color: #a0804d;
+}

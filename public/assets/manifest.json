@@ -1,0 +1,404 @@
+[
+  {
+    "file": "terrain/dirt-v2.webp",
+    "width": 384,
+    "height": 384,
+    "bytes": 46544
+  },
+  {
+    "file": "trees/oak-v2.webp",
+    "width": 384,
+    "height": 326,
+    "bytes": 68944
+  },
+  {
+    "file": "trees/apple-v2.webp",
+    "width": 320,
+    "height": 253,
+    "bytes": 41506
+  },
+  {
+    "file": "buildings/barn/barn-v2.webp",
+    "width": 512,
+    "height": 369,
+    "bytes": 54786
+  },
+  {
+    "file": "buildings/silo/silo-v2.webp",
+    "width": 195,
+    "height": 320,
+    "bytes": 25922
+  },
+  {
+    "file": "buildings/farmhouse/house-v3.webp",
+    "width": 512,
+    "height": 433,
+    "bytes": 97166
+  },
+  {
+    "file": "decorations/flowers-v2.webp",
+    "width": 192,
+    "height": 93,
+    "bytes": 12676
+  },
+  {
+    "file": "crops/wheat/ready-v2.webp",
+    "width": 143,
+    "height": 144,
+    "bytes": 17462
+  },
+  {
+    "file": "crops/corn/ready-v2.webp",
+    "width": 160,
+    "height": 146,
+    "bytes": 21432
+  },
+  {
+    "file": "crops/wheat/sprout-v2.webp",
+    "width": 128,
+    "height": 114,
+    "bytes": 8508
+  },
+  {
+    "file": "crops/wheat/growing-v2.webp",
+    "width": 110,
+    "height": 128,
+    "bytes": 10834
+  },
+  {
+    "file": "animals/cow/animation-v4.webp",
+    "width": 1024,
+    "height": 384,
+    "bytes": 104966
+  },
+  {
+    "file": "animals/cow/portrait-v4.webp",
+    "width": 128,
+    "height": 118,
+    "bytes": 7234
+  },
+  {
+    "file": "terrain/grass-v3.webp",
+    "width": 512,
+    "height": 512,
+    "bytes": 42612
+  },
+  {
+    "file": "terrain/soil-v1.webp",
+    "width": 384,
+    "height": 384,
+    "bytes": 45410
+  },
+  {
+    "file": "animals/chicken/animation-v3.webp",
+    "width": 768,
+    "height": 384,
+    "bytes": 85012
+  },
+  {
+    "file": "animals/chicken/portrait-v3.webp",
+    "width": 90,
+    "height": 112,
+    "bytes": 5308
+  },
+  {
+    "file": "buildings/barn/stage-1-v1.webp",
+    "width": 320,
+    "height": 223,
+    "bytes": 25108
+  },
+  {
+    "file": "buildings/barn/stage-2-v1.webp",
+    "width": 384,
+    "height": 338,
+    "bytes": 40274
+  },
+  {
+    "file": "buildings/silo/stage-1-v1.webp",
+    "width": 203,
+    "height": 256,
+    "bytes": 22870
+  },
+  {
+    "file": "buildings/silo/stage-2-v1.webp",
+    "width": 192,
+    "height": 320,
+    "bytes": 26256
+  },
+  {
+    "file": "animals/goat/animation-v1.webp",
+    "width": 1024,
+    "height": 384,
+    "bytes": 102328
+  },
+  {
+    "file": "animals/goat/portrait-v1.webp",
+    "width": 119,
+    "height": 128,
+    "bytes": 8596
+  },
+  {
+    "file": "animals/pig/animation-v1.webp",
+    "width": 1024,
+    "height": 384,
+    "bytes": 83870
+  },
+  {
+    "file": "animals/pig/portrait-v1.webp",
+    "width": 128,
+    "height": 127,
+    "bytes": 6068
+  },
+  {
+    "file": "buildings/pens/chicken-v1.webp",
+    "width": 374,
+    "height": 320,
+    "bytes": 40504
+  },
+  {
+    "file": "buildings/pens/goat-v1.webp",
+    "width": 384,
+    "height": 297,
+    "bytes": 43836
+  },
+  {
+    "file": "buildings/pens/pig-v1.webp",
+    "width": 384,
+    "height": 291,
+    "bytes": 35372
+  },
+  {
+    "file": "buildings/pens/cow-v1.webp",
+    "width": 384,
+    "height": 221,
+    "bytes": 31866
+  },
+  {
+    "file": "terrain/walls/fieldstone-v1.webp",
+    "width": 512,
+    "height": 171,
+    "bytes": 17054
+  },
+  {
+    "file": "obstacles/rock-v1.webp",
+    "width": 320,
+    "height": 287,
+    "bytes": 25342
+  },
+  {
+    "file": "obstacles/stump-v1.webp",
+    "width": 320,
+    "height": 211,
+    "bytes": 31228
+  },
+  {
+    "file": "obstacles/dead-tree-v1.webp",
+    "width": 305,
+    "height": 320,
+    "bytes": 37440
+  },
+  {
+    "file": "obstacles/bush-v1.webp",
+    "width": 320,
+    "height": 234,
+    "bytes": 31468
+  },
+  {
+    "file": "obstacles/roots-v1.webp",
+    "width": 320,
+    "height": 204,
+    "bytes": 40866
+  },
+  {
+    "file": "trees/orchard/apple/stages-v1.webp",
+    "width": 576,
+    "height": 384,
+    "bytes": 76006
+  },
+  {
+    "file": "trees/orchard/apple/portrait-v1.webp",
+    "width": 144,
+    "height": 134,
+    "bytes": 11268
+  },
+  {
+    "file": "trees/orchard/pear/stages-v1.webp",
+    "width": 576,
+    "height": 384,
+    "bytes": 59548
+  },
+  {
+    "file": "trees/orchard/pear/portrait-v1.webp",
+    "width": 101,
+    "height": 144,
+    "bytes": 8514
+  },
+  {
+    "file": "trees/orchard/cherry/stages-v1.webp",
+    "width": 576,
+    "height": 384,
+    "bytes": 81124
+  },
+  {
+    "file": "trees/orchard/cherry/portrait-v1.webp",
+    "width": 144,
+    "height": 127,
+    "bytes": 11754
+  },
+  {
+    "file": "trees/orchard/orange/stages-v1.webp",
+    "width": 576,
+    "height": 384,
+    "bytes": 81478
+  },
+  {
+    "file": "trees/orchard/orange/portrait-v1.webp",
+    "width": 140,
+    "height": 144,
+    "bytes": 12238
+  },
+  {
+    "file": "trees/orchard/lemon/stages-v1.webp",
+    "width": 576,
+    "height": 384,
+    "bytes": 95402
+  },
+  {
+    "file": "trees/orchard/lemon/portrait-v1.webp",
+    "width": 144,
+    "height": 140,
+    "bytes": 13688
+  },
+  {
+    "file": "trees/orchard/peach/stages-v1.webp",
+    "width": 576,
+    "height": 384,
+    "bytes": 81400
+  },
+  {
+    "file": "trees/orchard/peach/portrait-v1.webp",
+    "width": 144,
+    "height": 102,
+    "bytes": 11490
+  },
+  {
+    "file": "trees/orchard/mango/stages-v1.webp",
+    "width": 576,
+    "height": 384,
+    "bytes": 85688
+  },
+  {
+    "file": "trees/orchard/mango/portrait-v1.webp",
+    "width": 144,
+    "height": 136,
+    "bytes": 12186
+  },
+  {
+    "file": "trees/orchard/avocado/stages-v1.webp",
+    "width": 576,
+    "height": 384,
+    "bytes": 81148
+  },
+  {
+    "file": "trees/orchard/avocado/portrait-v1.webp",
+    "width": 144,
+    "height": 137,
+    "bytes": 11316
+  },
+  {
+    "file": "buildings/machines/feedMill-v1.webp",
+    "width": 307,
+    "height": 320,
+    "bytes": 43836
+  },
+  {
+    "file": "buildings/machines/bakery-v1.webp",
+    "width": 320,
+    "height": 285,
+    "bytes": 39384
+  },
+  {
+    "file": "buildings/machines/dairy-v1.webp",
+    "width": 320,
+    "height": 283,
+    "bytes": 36692
+  },
+  {
+    "file": "buildings/machines/cakery-v1.webp",
+    "width": 320,
+    "height": 299,
+    "bytes": 39928
+  },
+  {
+    "file": "buildings/machines/sugarMill-v1.webp",
+    "width": 320,
+    "height": 272,
+    "bytes": 42816
+  },
+  {
+    "file": "buildings/machines/popcorn-v1.webp",
+    "width": 302,
+    "height": 320,
+    "bytes": 39750
+  },
+  {
+    "file": "buildings/machines/grill-v1.webp",
+    "width": 320,
+    "height": 296,
+    "bytes": 42328
+  },
+  {
+    "file": "buildings/machines/iceCream-v1.webp",
+    "width": 320,
+    "height": 269,
+    "bytes": 31502
+  },
+  {
+    "file": "buildings/machines/juicer-v1.webp",
+    "width": 320,
+    "height": 270,
+    "bytes": 39584
+  },
+  {
+    "file": "buildings/pens/sheep-v1.webp",
+    "width": 256,
+    "height": 189,
+    "bytes": 22896
+  },
+  {
+    "file": "crops/strawberry/ready-v1.webp",
+    "width": 144,
+    "height": 110,
+    "bytes": 9444
+  },
+  {
+    "file": "crops/potato/ready-v1.webp",
+    "width": 143,
+    "height": 144,
+    "bytes": 14384
+  },
+  {
+    "file": "animals/sheep/animation-v1.webp",
+    "width": 1024,
+    "height": 384,
+    "bytes": 100154
+  },
+  {
+    "file": "animals/sheep/portrait-v1.webp",
+    "width": 144,
+    "height": 144,
+    "bytes": 10752
+  },
+  {
+    "file": "trees/orchard/cocoa/stages-v1.webp",
+    "width": 576,
+    "height": 384,
+    "bytes": 98116
+  },
+  {
+    "file": "trees/orchard/cocoa/portrait-v1.webp",
+    "width": 144,
+    "height": 125,
+    "bytes": 13926
+  }
+]

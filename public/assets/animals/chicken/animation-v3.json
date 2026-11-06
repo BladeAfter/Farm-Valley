@@ -1,0 +1,129 @@
+{
+  "frameWidth": 192,
+  "frameHeight": 192,
+  "footY": 184,
+  "displayWidth": 36,
+  "scale": 0.4509283819628647,
+  "frames": [
+    {
+      "name": "idle",
+      "sourceRect": [
+        39,
+        65,
+        354,
+        477
+      ],
+      "contentBounds": [
+        15,
+        9,
+        294,
+        386
+      ]
+    },
+    {
+      "name": "blink",
+      "sourceRect": [
+        421,
+        65,
+        738,
+        477
+      ],
+      "contentBounds": [
+        19,
+        9,
+        296,
+        386
+      ]
+    },
+    {
+      "name": "walk-left",
+      "sourceRect": [
+        807,
+        65,
+        1125,
+        477
+      ],
+      "contentBounds": [
+        17,
+        9,
+        294,
+        375
+      ]
+    },
+    {
+      "name": "walk-right",
+      "sourceRect": [
+        1190,
+        65,
+        1525,
+        477
+      ],
+      "contentBounds": [
+        18,
+        9,
+        293,
+        375
+      ]
+    },
+    {
+      "name": "peck",
+      "sourceRect": [
+        21,
+        578,
+        379,
+        951
+      ],
+      "contentBounds": [
+        12,
+        24,
+        343,
+        341
+      ]
+    },
+    {
+      "name": "scratch",
+      "sourceRect": [
+        391,
+        578,
+        793,
+        951
+      ],
+      "contentBounds": [
+        9,
+        15,
+        381,
+        337
+      ]
+    },
+    {
+      "name": "rest",
+      "sourceRect": [
+        801,
+        608,
+        1116,
+        951
+      ],
+      "contentBounds": [
+        16,
+        25,
+        300,
+        313
+      ]
+    },
+    {
+      "name": "flap",
+      "sourceRect": [
+        1140,
+        553,
+        1535,
+        961
+      ],
+      "contentBounds": [
+        20,
+        25,
+        375,
+        384
+      ]
+    }
+  ]
+}

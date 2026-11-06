@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100">
+<defs><linearGradient id="soil" x2="0.3" y2="1"><stop stop-color="#aa7445"/><stop offset="1" stop-color="#764726"/></linearGradient><linearGradient id="edge" x2="0" y2="1"><stop stop-color="#7c4d2c"/><stop offset="1" stop-color="#593c24"/></linearGradient></defs>
+<path d="M6 50 80 12 154 50 154 57 80 95 6 57Z" fill="url(#edge)"/>
+<path d="M6 50 80 12 154 50 80 88Z" fill="url(#soil)" stroke="#c09559" stroke-width="2" stroke-linejoin="round"/>
+<g fill="none" stroke-linecap="round"><path d="m20 50 60 31m-48-37 60 31M44 38l60 31M56 32l60 31M68 26l60 31M80 20l60 31" stroke="#624125" stroke-width="3"/><path d="m20 47 60 31m-48-37 60 31M44 35l60 31M56 29l60 31M68 23l60 31" stroke="#c38d54" stroke-width="1.5" opacity=".7"/></g>
+<g fill="#d5a86b" opacity=".6"><ellipse cx="48" cy="58" rx="2" ry="1"/><ellipse cx="97" cy="47" rx="2.5" ry="1"/><ellipse cx="76" cy="67" rx="1.6" ry="1"/><ellipse cx="122" cy="48" rx="1.7" ry="1"/><ellipse cx="62" cy="34" rx="1.8" ry="1"/></g>
+</svg>

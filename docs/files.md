@@ -1,0 +1,54 @@
+# Arquivos do projeto
+
+- `docs/architecture.md`
+- `docs/art-direction.md`
+- `docs/planting-research.md`
+- `docs/verification.md`
+- `scripts/animal-visual.mjs`
+- `scripts/assets/animal-frames.json`
+- `scripts/assets/generate.mjs`
+- `scripts/assets/prepare.py`
+- `scripts/assets/prepare_chicken.py`
+- `scripts/assets/prepare_cow.py`
+- `scripts/assets/prepare_pasture.py`
+- `scripts/assets/rasterize.mjs`
+- `scripts/chicken-visual.mjs`
+- `scripts/ground-visual.mjs`
+- `scripts/pasture-visual.mjs`
+- `scripts/smoke.mjs`
+- `scripts/storage-visual.mjs`
+- `server/api/index.ts`
+- `server/auth/session.ts`
+- `server/database/repository.ts`
+- `server/database/schema.sql`
+- `server/services/farm.ts`
+- `server/validators/command.ts`
+- `src/App.tsx`
+- `src/components/World.tsx`
+- `src/components/buildings/StorageUpgrades.tsx`
+- `src/components/hud/FarmControls.tsx`
+- `src/components/hud/Hud.tsx`
+- `src/components/modals/FarmPanels.tsx`
+- `src/components/modals/PlotPopover.tsx`
+- `src/data/animals.ts`
+- `src/data/buildings.ts`
+- `src/game/entities/ChickenSprite.ts`
+- `src/game/entities/CowSprite.ts`
+- `src/game/entities/CropField.ts`
+- `src/game/entities/FarmBuildings.ts`
+- `src/game/entities/FieldTerrain.ts`
+- `src/game/entities/PastureAnimal.ts`
+- `src/game/map/environment.ts`
+- `src/game/map/isometric.ts`
+- `src/game/scenes/FarmScene.ts`
+- `src/main.tsx`
+- `src/services/api.ts`
+- `src/store/useFarm.ts`
+- `src/styles/index.css`
+- `src/types/game.ts`
+- `src/utils/time.ts`
+- `tests/farm.test.ts`
+- `tests/pasture.test.ts`
+- `tests/storage.test.ts`
+
+Texturas originais e tamanhos: public/assets/manifest.json.
