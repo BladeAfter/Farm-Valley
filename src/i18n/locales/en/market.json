@@ -1,0 +1,11 @@
+{
+  "title": "Market",
+  "buy": "Buy",
+  "sell": "My listings",
+  "item": "Item",
+  "amount": "Quantity",
+  "price": "Total coin price",
+  "publish": "List for sale",
+  "empty": "No listings available. Refresh shortly.",
+  "tip": "Trade with other players. Listed items are reserved; up to 10 listings of 1–100 units each."
+}

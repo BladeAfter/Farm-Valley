@@ -1,0 +1,11 @@
+{
+  "title": "Marché",
+  "buy": "Acheter",
+  "sell": "Mes annonces",
+  "item": "Produit",
+  "amount": "Quantité",
+  "price": "Prix total en pièces",
+  "publish": "Mettre en vente",
+  "empty": "Aucune annonce. Actualisez bientôt.",
+  "tip": "Échangez entre joueurs. Articles réservés ; 10 annonces de 1 à 100 unités maximum."
+}

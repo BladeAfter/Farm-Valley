@@ -2,7 +2,7 @@
 
 16 idiomas: português brasileiro, inglês, espanhol, russo, turco, persa, árabe, francês, alemão, italiano, indonésio, hindi, chinês simplificado, japonês, coreano e polonês.
 
-O catálogo contém 330 chaves por idioma. São traduções iniciais; a revisão por falantes nativos permanece pendente. Consulte `locale-coverage.json`. Nomes próprios dos moradores e da fazenda são preservados.
+O catálogo contém 339 chaves por idioma, incluindo o mercado. São traduções iniciais; a revisão por falantes nativos permanece pendente. Consulte `locale-coverage.json`. Nomes próprios dos moradores e da fazenda são preservados.
 
 O motor em `src/i18n` usa Zustand e Intl, com pacotes carregados sob demanda, fallback inglês e cache local dos pacotes já visitados. A escolha manual tem prioridade sobre a detecção do navegador e é salva localmente e no servidor da sessão do jogador. Isso não substitui um futuro sistema de contas. O progresso continua controlado pelo servidor.
 

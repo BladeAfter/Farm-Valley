@@ -168,6 +168,7 @@ export function FarmControls() {
         </button>
         {moreOpen && (
           <div className="farm-more-menu">
+            <button onClick={()=>{open("market");setMoreOpen(false);}}><img src="/assets/ui/coin.svg" alt=""/><span>{t("market.title")}</span></button>
             <button
               aria-label={t("farm.buildings")}
               onClick={() => {

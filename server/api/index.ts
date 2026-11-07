@@ -5,7 +5,9 @@ import {
   createSession,
   access,
   pool,
+  market,
 } from "../database/repository.js";
+import { marketSchema } from "../services/market.js";
 import { newToken, hashToken } from "../auth/session.js";
 import { commandSchema } from "../validators/command.js";
 import { errorInfo } from "../../src/i18n/errors.js";
@@ -87,6 +89,14 @@ app.post("/api/farm/command", async (req, res, next) => {
       .status(400)
       .json({ error: e instanceof Error ? e.message : "Operação inválida", ...(e instanceof Error && e.name !== "ZodError" ? errorInfo(e.message) : { code:"errors.invalid",params:{} }) });
   }
+});
+app.get("/api/farm/market",async(req,res)=>{
+ try{res.setHeader("Cache-Control","no-store");res.json(await market(res.locals.hash));}
+ catch{res.status(401).json({code:"errors.session"});}
+});
+app.post("/api/farm/market",async(req,res)=>{
+ try{res.json(await market(res.locals.hash,marketSchema.parse(req.body)));}
+ catch(error){res.status(400).json({code:"errors.actionFailed"});}
 });
 app.use(
   (

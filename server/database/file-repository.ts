@@ -11,7 +11,12 @@ import { dirname } from "node:path";
 import { randomUUID } from "node:crypto";
 import type { Farm, Command } from "../../src/types/game.js";
 import { initialFarm, migrateFarm, applyCommand } from "../services/farm.js";
-type Entries = Record<string, { farm: Farm; expires: number }>;
+import { trade, publicListings } from "../services/market.js";
+import type { MarketAction, MarketListing } from "../../src/types/market.js";
+type Entries = Record<
+  string,
+  { farm: Farm; expires: number; market?: MarketListing[] }
+>;
 /** Durable single-process development adapter. Production still requires PostgreSQL. */
 export class FileFarmRepository {
   private queue: Promise<unknown> = Promise.resolve();
@@ -67,6 +72,27 @@ export class FileFarmRepository {
         farm: initialFarm(),
         expires: Date.now() + 30 * 86400000,
       };
+    });
+  }
+  market(hash: string, action?: MarketAction) {
+    return this.transact((entries) => {
+      if (!entries[hash] || entries[hash].expires < Date.now())
+        throw new Error("Sessão expirada");
+      const active = Object.entries(entries).filter(
+        ([, e]) => e.expires > Date.now(),
+      );
+      const farms = Object.fromEntries(
+        active.map(([id, e]) => [id, migrateFarm(e.farm)]),
+      );
+      const listings = active.flatMap(([, e]) => e.market ?? []);
+      if (action) {
+        trade(farms, listings, hash, action);
+        for (const [id, entry] of active) {
+          entry.farm = farms[id];
+          entry.market = listings.filter((l) => l.seller === id);
+        }
+      }
+      return { listings: publicListings(listings, hash), farm: farms[hash] };
     });
   }
   access(hash: string, command?: Command): Promise<Farm> {

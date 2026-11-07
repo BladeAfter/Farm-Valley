@@ -16,6 +16,7 @@ import { obstacleKinds } from "../../types/land";
 import { fruitSpecies } from "../../types/orchard";
 import { FruitTreePanel } from "../orchard/FruitTreePanel";
 import { LanguagePicker } from "../settings/LanguagePicker";
+import { MarketPanel } from "../market/MarketPanel";
 function useClock(enabled: boolean) {
   const [, setTick] = useState(0);
   useEffect(() => {
@@ -49,6 +50,7 @@ export function FarmPanels() {
   const farm = snapshot?.farm,
     obstacle = farm?.obstacles.find((o) => o.id === obstacleId);
   const titles = {
+    market:t("market.title"),
     machine:
       machineKinds[
         farm?.machines.find((m) => m.id === machineId)?.kind ?? "feedMill"
@@ -87,6 +89,7 @@ export function FarmPanels() {
         (panel === "animals" && animalKind ? " modal-pen" : "")
       }
     >
+      {panel === "market" && <MarketPanel />}
       {panel === "obstacle" && <ObstaclePanel />}
       {panel === "fruitTree" && <FruitTreePanel now={now} />}
       {panel === "machine" && <MachinePanel now={now} />}

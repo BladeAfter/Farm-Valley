@@ -16,6 +16,7 @@ import type {
 import type { Placement } from "../types/land";
 export type Tool = "hand" | "plant" | "harvest";
 export type Panel =
+  | "market"
   | "inventory"
   | "shop"
   | "orders"

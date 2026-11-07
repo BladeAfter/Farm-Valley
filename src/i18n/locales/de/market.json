@@ -1,0 +1,11 @@
+{
+  "title": "Markt",
+  "buy": "Kaufen",
+  "sell": "Meine Angebote",
+  "item": "Artikel",
+  "amount": "Menge",
+  "price": "Gesamtpreis in Münzen",
+  "publish": "Anbieten",
+  "empty": "Keine Angebote. Bald aktualisieren.",
+  "tip": "Handle mit Spielern. Artikel werden reserviert; bis zu 10 Angebote mit je 1–100 Stück."
+}

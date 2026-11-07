@@ -1,0 +1,11 @@
+{
+  "title": "Pazar",
+  "buy": "Satın al",
+  "sell": "İlanlarım",
+  "item": "Ürün",
+  "amount": "Miktar",
+  "price": "Toplam altın fiyatı",
+  "publish": "İlan ver",
+  "empty": "İlan yok. Birazdan yenileyin.",
+  "tip": "Oyuncularla ticaret yap. Ürünler ayrılır; 1–100 birimlik en fazla 10 ilan."
+}

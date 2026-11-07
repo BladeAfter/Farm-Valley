@@ -5,6 +5,8 @@ import type { Command, Farm } from "../../src/types/game.js";
 import { resolve } from "node:path";
 import { FileFarmRepository } from "./file-repository.js";
 import { databaseConfig } from "./config.js";
+import { trade, publicListings } from "../services/market.js";
+import type { MarketAction, MarketListing } from "../../src/types/market.js";
 const config = databaseConfig();
 export const pool = config ? new Pool(config) : null;
 const local = new FileFarmRepository(
@@ -53,6 +55,58 @@ export async function access(hash: string, command?: Command): Promise<Farm> {
   } catch (e) {
     await client.query("ROLLBACK");
     throw e;
+  } finally {
+    client.release();
+  }
+}
+export async function market(hash: string, action?: MarketAction) {
+  if (!pool) return local.market(hash, action);
+  const client = await pool.connect();
+  try {
+    await client.query("BEGIN");
+    // Market operations share one short lock; farm rows are locked in stable order.
+    if (action) await client.query("SELECT pg_advisory_xact_lock(70241831)");
+    const rows = await client.query(
+      "SELECT m.payload FROM market_listings m JOIN sessions s ON s.token_hash=m.seller_hash WHERE s.expires_at>now() AND (m.payload->>'status'='active' OR m.id=$1::uuid)",
+      [action?.id ?? null],
+    );
+    const listings = rows.rows.map((r) => r.payload as MarketListing);
+    // Include historical IDs to reject replays of listing creation.
+    if (action?.type === "list" && !listings.some((l) => l.id === action.id)) {
+      const prior = await client.query(
+        "SELECT payload FROM market_listings WHERE id=$1",
+        [action.id],
+      );
+      if (prior.rowCount) throw new Error("Operação inválida");
+    }
+    const seller = action && listings.find((l) => l.id === action.id)?.seller;
+    const actors = [...new Set([hash, ...(seller ? [seller] : [])])].sort();
+    const sessions = await client.query(
+      "SELECT token_hash,farm FROM sessions WHERE token_hash=ANY($1::text[]) AND expires_at>now() ORDER BY token_hash FOR UPDATE",
+      [actors],
+    );
+    const farms = Object.fromEntries(
+      sessions.rows.map((r) => [r.token_hash, migrateFarm(r.farm)]),
+    );
+    if (!farms[hash]) throw new Error("Sessão expirada");
+    if (action) {
+      trade(farms, listings, hash, action);
+      for (const [id, farm] of Object.entries(farms))
+        await client.query("UPDATE sessions SET farm=$2 WHERE token_hash=$1", [
+          id,
+          JSON.stringify(farm),
+        ]);
+      const changed = listings.find((l) => l.id === action.id)!;
+      await client.query(
+        "INSERT INTO market_listings(id,seller_hash,payload) VALUES($1,$2,$3) ON CONFLICT(id) DO UPDATE SET payload=EXCLUDED.payload",
+        [changed.id, changed.seller, JSON.stringify(changed)],
+      );
+    }
+    await client.query("COMMIT");
+    return { listings: publicListings(listings, hash), farm: farms[hash] };
+  } catch (error) {
+    await client.query("ROLLBACK");
+    throw error;
   } finally {
     client.release();
   }

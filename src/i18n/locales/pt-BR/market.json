@@ -1,0 +1,11 @@
+{
+  "title": "Mercado",
+  "buy": "Comprar",
+  "sell": "Meus anúncios",
+  "item": "Produto",
+  "amount": "Quantidade",
+  "price": "Preço total em moedas",
+  "publish": "Anunciar",
+  "empty": "Nenhum anúncio disponível. Atualize em instantes.",
+  "tip": "Troque com outros jogadores. Itens anunciados ficam reservados; até 10 anúncios, com 1 a 100 unidades cada."
+}
