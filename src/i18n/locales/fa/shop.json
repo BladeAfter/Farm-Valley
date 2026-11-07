@@ -1,0 +1,14 @@
+{
+  "title": "فروشگاه دره",
+  "fieldDescription": "{{count}} کرت. بکارید و هر کدام را جابه‌جا کنید.",
+  "seedName": "بذر {{name}}",
+  "seedsDescription": "۳ بذر · موجودی {{count}} · رشد {{time}}.",
+  "machineDescription": "۲ جایگاه تولید. مکان را انتخاب و تأیید کنید.",
+  "machineOwned": "{{slots}} جایگاه · {{queued}} محصول در صف.",
+  "animalDescription": "{{name}} محصول {{product}} تولید می‌کند. خوراک: {{feed}}.",
+  "fruitDescription": "{{count}} در برداشت · چرخه {{cycle}} · رشد {{growth}}.",
+  "storageDescription": "{{count}} فضا. محصولات و ارتقای بعدی را ببینید.",
+  "feedDescription": "۳ خوراک · موجودی {{count}}. خوراک خود را در آسیاب بسازید.",
+  "flowersDescription": "تزئینی کوچک برای مزرعه شما.",
+  "unavailable": "خرید جدید این گونه هنوز فعال نیست."
+}

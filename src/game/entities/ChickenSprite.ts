@@ -1,3 +1,4 @@
+import { AnimalFeeding } from "./AnimalFeeding";
 import { constrainAnimal, animalHome } from "../../data/pens";
 import Phaser from "phaser";
 import { animalRemaining } from "../../types/game";
@@ -8,6 +9,7 @@ type Behavior = "IDLE" | "WALK" | "EAT" | "REST" | "PRODUCE";
 export class ChickenSprite {
   readonly root: Phaser.GameObjects.Container;
   private sprite: Phaser.GameObjects.Sprite;
+  readonly feeding: AnimalFeeding;
   private badge: Phaser.GameObjects.Container;
   private origin: Phaser.Math.Vector2;
   private target: Phaser.Math.Vector2;
@@ -25,6 +27,7 @@ export class ChickenSprite {
     x: number,
     y: number,
   ) {
+    this.feeding = new AnimalFeeding(scene, id, "chicken");
     this.origin = new Phaser.Math.Vector2(x, y);
     this.target = this.origin.clone();
     this.phase = id.endsWith("2") ? 2700 : 0;
@@ -91,6 +94,7 @@ export class ChickenSprite {
       new Phaser.Geom.Rectangle(this.root.x - 27, this.root.y - 50, 54, 60),
     );
     if (!visible) {
+      this.feeding.setVisible(false);
       this.sprite.anims.pause();
       this.paused = true;
       return;
@@ -104,19 +108,34 @@ export class ChickenSprite {
       .snapshot?.farm.animals.find((a) => a.id === this.id);
     if (!animal) return;
     const ready = animalRemaining(animal, farmNow()) === 0;
+    this.feeding.setVisible(true);
+    const eating = this.feeding.update(
+      animal,
+      farmNow(),
+      delta,
+      this.root,
+      useFarm.getState().snapshot?.farm.penPositions,
+    );
+    if (eating) {
+      this.setBehavior(eating);
+      this.direction = 1;
+      this.root
+        .setDepth(this.root.y + 1)
+        .setScale(this.direction * this.size, this.size);
+      this.badge.setVisible(false);
+      return;
+    }
+
     if (this.fedAt !== animal.fedAt) {
       this.fedAt = animal.fedAt;
-      if (animal.fedAt !== null && !ready) {
-        this.setBehavior("EAT");
-        this.nextBehavior = time + 5500;
-      }
+      this.nextBehavior = 0;
     }
     const localTime = time + this.phase;
     if (time >= this.nextBehavior) {
       const cycle: Behavior[] = ready
         ? ["PRODUCE", "IDLE"]
         : animal.fedAt !== null
-          ? ["EAT", "WALK", "REST", "IDLE"]
+          ? ["IDLE", "WALK", "REST", "IDLE"]
           : ["IDLE", "WALK", "IDLE", "REST"];
       const behavior = cycle[Math.floor(localTime / 4500) % cycle.length];
       this.setBehavior(behavior);

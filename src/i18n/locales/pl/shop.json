@@ -1,0 +1,14 @@
+{
+  "title": "Sklep doliny",
+  "fieldDescription": "{{count}} grządek. Uprawiaj i przenoś każdą osobno.",
+  "seedName": "Nasiona: {{name}}",
+  "seedsDescription": "3 nasiona · zapas {{count}} · wzrost {{time}}.",
+  "machineDescription": "2 miejsca produkcji. Wybierz miejsce i potwierdź.",
+  "machineOwned": "{{slots}} miejsc · {{queued}} produktów w kolejce.",
+  "animalDescription": "{{name}} produkuje {{product}}. Pasza: {{feed}}.",
+  "fruitDescription": "{{count}} na zbiór · cykl {{cycle}} · wzrost {{growth}}.",
+  "storageDescription": "{{count}} miejsc. Zobacz produkty i kolejne ulepszenie.",
+  "feedDescription": "3 porcje paszy · zapas {{count}}. Wytwarzaj paszę w młynie.",
+  "flowersDescription": "Mała ozdoba na twoją farmę.",
+  "unavailable": "Zakup kolejnych zwierząt tego gatunku jest jeszcze niedostępny."
+}

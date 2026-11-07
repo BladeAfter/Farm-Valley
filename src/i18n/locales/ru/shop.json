@@ -1,0 +1,14 @@
+{
+  "title": "Магазин долины",
+  "fieldDescription": "Грядок: {{count}}. Выращивайте и перемещайте их.",
+  "seedName": "Семена: {{name}}",
+  "seedsDescription": "3 семени · в запасе {{count}} · рост {{time}}.",
+  "machineDescription": "2 ячейки. Выберите место и подтвердите.",
+  "machineOwned": "Ячеек {{slots}} · в очереди {{queued}}.",
+  "animalDescription": "{{name}} производит {{product}}. Корм: {{feed}}.",
+  "fruitDescription": "За сбор {{count}} · цикл {{cycle}} · рост {{growth}}.",
+  "storageDescription": "Мест: {{count}}. Продукты и следующее улучшение.",
+  "feedDescription": "3 порции · запас {{count}}. Делайте корм на мельнице.",
+  "flowersDescription": "Небольшое украшение для вашей фермы.",
+  "unavailable": "Покупка новых животных этого вида пока недоступна."
+}

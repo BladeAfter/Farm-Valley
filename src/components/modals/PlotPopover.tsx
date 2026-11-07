@@ -1,9 +1,13 @@
+import { number as formatNumber } from "../../i18n/core";
+import { useLabels } from "../../i18n/labels";
+import { t } from "../../i18n/core";
 import { useEffect, useState } from "react";
 import { X, Clock } from "lucide-react";
 import { useFarm, farmNow } from "../../store/useFarm";
 import { crops, cropIds, items, playerLevel } from "../../types/game";
 import { formatTime } from "../../utils/time";
 export function PlotPopover() {
+  const { crops, items } = useLabels();
   const {
     focus,
     setFocus,
@@ -27,30 +31,24 @@ export function PlotPopover() {
     ? Math.max(0, crops[plot.crop].duration - (now - plot.plantedAt))
     : 0;
   return (
-    <div
-      className="plot-context"
-      role="region"
-      aria-label="Canteiro selecionado"
-    >
+    <div className="plot-context" role="region" aria-label={t("farm.field")}>
       <div className="plot-popover">
         <button
           className="close"
-          aria-label="Fechar canteiro"
+          aria-label={t("common.close")}
           onClick={() => setFocus(null)}
         >
           <X size={17} />
         </button>
         <img src={items[plot.crop ?? selected].image} alt="" />
         <div>
-          <b>
-            {plot.crop ? crops[plot.crop].name : "Terra pronta para plantar"}
-          </b>
+          <b>{plot.crop ? crops[plot.crop].name : t("farm.readySoil")}</b>
           <small>
             {plot.crop
               ? remaining
-                ? formatTime(remaining) + " para colher"
-                : `Pronto! +${crops[plot.crop].yield} culturas · +${crops[plot.crop].xp} XP`
-              : "1 semente → 2 na colheita"}
+                ? t("farm.harvestIn",{time:formatTime(remaining)})
+                : t("farm.readyReward",{yield:crops[plot.crop].yield,xp:crops[plot.crop].xp})
+              : t("farm.seedYield")}
           </small>
         </div>
         <button
@@ -63,7 +61,7 @@ export function PlotPopover() {
             })
           }
         >
-          Mover
+          {t("common.move")}
         </button>
         <button
           className="primary"
@@ -82,22 +80,30 @@ export function PlotPopover() {
             )
           }
         >
-          {plot.crop ? remaining ? <Clock size={18} /> : "Colher" : "Plantar"}
+          {plot.crop ? (
+            remaining ? (
+              <Clock size={18} />
+            ) : (
+              t("farm.harvest")
+            )
+          ) : (
+            t("farm.plant")
+          )}
         </button>
       </div>
       {!plot.crop && (
-        <div className="plot-seeds" aria-label="Sementes deste canteiro">
+        <div className="plot-seeds" aria-label={t("farm.seeds")}>
           {cropIds.map((crop) => (
             <button
               key={crop}
-              aria-label={"Escolher " + items[crop].name}
+              aria-label={t("common.chooseNamed",{name:items[crop].name})}
               aria-pressed={selected === crop}
               disabled={playerLevel(snapshot!.farm) < crops[crop].level}
               onClick={() => select(crop)}
             >
               <img src={items[crop].image} alt="" />
               <span>{items[crop].name}</span>
-              <small>{snapshot!.farm.inventory[crop]}</small>
+              <small>{formatNumber(snapshot!.farm.inventory[crop])}</small>
             </button>
           ))}
         </div>

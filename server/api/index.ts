@@ -8,6 +8,7 @@ import {
 } from "../database/repository.js";
 import { newToken, hashToken } from "../auth/session.js";
 import { commandSchema } from "../validators/command.js";
+import { errorInfo } from "../../src/i18n/errors.js";
 const app = express();
 app.disable("x-powered-by");
 app.use(express.json({ limit: "4kb" }));
@@ -53,7 +54,7 @@ app.use("/api/farm", async (req, res, next) => {
     .find((s) => s.startsWith("fv_session="))
     ?.slice(11);
   if (!token || !/^[a-f0-9]{64}$/.test(token)) {
-    res.status(401).json({ error: "Sem sessão" });
+    res.status(401).json({ error: "Sem sessão", code: "errors.session" });
     return;
   }
   res.locals.hash = hashToken(token);
@@ -69,7 +70,7 @@ app.get("/api/farm", async (req, res, next) => {
       serverTime: Date.now(),
     });
   } catch (e) {
-    res.status(401).json({ error: "Sessão expirada" });
+    res.status(401).json({ error: "Sessão expirada", code: "errors.session" });
   }
 });
 app.post("/api/farm/command", async (req, res, next) => {
@@ -84,7 +85,7 @@ app.post("/api/farm/command", async (req, res, next) => {
   } catch (e) {
     res
       .status(400)
-      .json({ error: e instanceof Error ? e.message : "Operação inválida" });
+      .json({ error: e instanceof Error ? e.message : "Operação inválida", ...(e instanceof Error && e.name !== "ZodError" ? errorInfo(e.message) : { code:"errors.invalid",params:{} }) });
   }
 });
 app.use(
@@ -95,7 +96,7 @@ app.use(
     _next: express.NextFunction,
   ) => {
     console.error(error.message);
-    res.status(500).json({ error: "Servidor indisponível" });
+    res.status(500).json({ error: "Servidor indisponível", code:"errors.network" });
   },
 );
 await initialize();

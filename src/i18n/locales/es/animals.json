@@ -1,0 +1,18 @@
+{
+  "feed": "Alimentar",
+  "collect": "Recoger",
+  "hungry": "Necesita pienso",
+  "producing": "Produciendo",
+  "ready": "¡{{name}} listo!",
+  "feedBatch": "Alimentar {{count}} animales",
+  "collectBatch": "Recoger {{count}} productos",
+  "count_one": "{{count}} animal",
+  "count_other": "{{count}} animales",
+  "pen.cow": "Establo",
+  "pen.chicken": "Gallinero",
+  "pen.goat": "Refugio de cabras",
+  "pen.pig": "Pocilga",
+  "pen.sheep": "Aprisco",
+  "title": "Animales de la granja",
+  "reserve": "{{count}} disponibles · {{reserve}} de reserva"
+}

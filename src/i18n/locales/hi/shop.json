@@ -1,0 +1,14 @@
+{
+  "title": "घाटी की दुकान",
+  "fieldDescription": "{{count}} क्यारियाँ। फ़सल उगाएँ और हर क्यारी हटाएँ।",
+  "seedName": "{{name}} के बीज",
+  "seedsDescription": "3 बीज · भंडार {{count}} · {{time}} में उगता है।",
+  "machineDescription": "2 उत्पादन स्थान। जगह चुनकर पुष्टि करें।",
+  "machineOwned": "{{slots}} स्थान · {{queued}} उत्पाद कतार में।",
+  "animalDescription": "{{name}} से {{product}} मिलता है। चारा: {{feed}}।",
+  "fruitDescription": "प्रति कटाई {{count}} · चक्र {{cycle}} · उगने में {{growth}}।",
+  "storageDescription": "{{count}} जगह। उत्पाद और अगला सुधार देखें।",
+  "feedDescription": "3 चारे · भंडार {{count}}। चारा मिल में बनाएँ।",
+  "flowersDescription": "आपके खेत के लिए छोटी सजावट।",
+  "unavailable": "इस प्रजाति की नई खरीद अभी उपलब्ध नहीं।"
+}

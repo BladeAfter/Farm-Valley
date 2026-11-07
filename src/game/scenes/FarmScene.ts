@@ -14,6 +14,7 @@ import { CropField } from "../entities/CropField";
 import { ChickenSprite } from "../entities/ChickenSprite";
 import { CowSprite } from "../entities/CowSprite";
 import { FieldTerrain } from "../entities/FieldTerrain";
+import { OrderNoticeBoard } from "../entities/OrderNoticeBoard";
 import { FarmBuildings } from "../entities/FarmBuildings";
 import { PastureAnimal } from "../entities/PastureAnimal";
 
@@ -35,6 +36,7 @@ export class FarmScene extends Phaser.Scene {
   private decorations = new Map<string, Phaser.GameObjects.Image>();
   private buildings!: FarmBuildings;
   private factories!: FactoryBuildings;
+  private noticeBoard!: OrderNoticeBoard;
   private purchaseGhost?: Phaser.GameObjects.Image;
   private placementPointer: Cell | null = null;
   private sheepLoading = false;
@@ -83,6 +85,7 @@ export class FarmScene extends Phaser.Scene {
       );
     const assets: Record<string, string> = {
       grass: "terrain/grass-v3.webp",
+      "village-noticeboard": "buildings/order-board/board-v1.webp",
       "wall-stone": "terrain/walls/fieldstone-v1.webp",
       soil: "terrain/soil-v1.webp",
       dirt: "terrain/dirt-v2.webp",
@@ -141,6 +144,7 @@ export class FarmScene extends Phaser.Scene {
     this.pens = new AnimalPens(this);
     this.buildings = new FarmBuildings(this);
     this.factories = new FactoryBuildings(this);
+    this.noticeBoard = new OrderNoticeBoard(this);
     this.obstacles = new NaturalObstacles(this);
     this.fruitTrees = new FruitTrees(this);
     this.terrain = new FieldTerrain(this);
@@ -377,6 +381,7 @@ export class FarmScene extends Phaser.Scene {
               });
           return;
         }
+        if (this.noticeBoard.at(world.x, world.y)) { state.open("orders"); return; }
         const factory = this.factories.at(world.x, world.y);
         if (factory) {
           state.openMachine(factory);
@@ -497,9 +502,11 @@ export class FarmScene extends Phaser.Scene {
     );
     this.game.events.on("zoom", this.zoom, this);
     this.game.events.on("home", this.resetCamera, this);
+    this.game.events.on("focus-cell", this.focusCell, this);
     this.events.once("shutdown", () => {
       this.game.events.off("zoom", this.zoom, this);
       this.game.events.off("home", this.resetCamera, this);
+      this.game.events.off("focus-cell", this.focusCell, this);
     });
     // Read-only coordinate hook for integration tests; no game state or economy can be modified.
     this.game.canvas.dataset.scene = "farm";
@@ -534,7 +541,7 @@ export class FarmScene extends Phaser.Scene {
           ...this.pens.objectsFor(kind),
           ...this.animals
             .filter((a) => penKindForAnimal(a.id) === kind)
-            .map((a) => a.root),
+            .flatMap((a) => [a.root, ...a.feeding.objects()]),
         ],
       };
     const factoryId = this.factories.at(wx, wy);
@@ -772,6 +779,10 @@ export class FarmScene extends Phaser.Scene {
     );
     this.cameras.main.centerOn(12, 310);
   }
+  focusCell(cell: Cell) {
+    const p = toIso(cell.x, cell.y);
+    this.cameras.main.pan(p.x, p.y - 25, 250, "Sine.easeInOut");
+  }
   zoom(delta: number) {
     this.cameras.main.setZoom(
       Phaser.Math.Clamp(this.cameras.main.zoom + delta, 0.5, 1.8),
@@ -781,11 +792,14 @@ export class FarmScene extends Phaser.Scene {
     for (const animal of this.animals) animal.update(time, delta);
     if (time - this.lastDraw < 120) return;
     this.lastDraw = time;
+    this.game.canvas.dataset.feeding = JSON.stringify(this.animals.map(a => ({ id: a.id, x: a.root.x, y: a.root.y, ...a.feeding.state })));
+    this.game.canvas.dataset.feedingFoodObjects = String(this.children.list.filter(object => object.getData("feedingFood")).length);
     const state = useFarm.getState(),
       snapshot = state.snapshot;
     if (!snapshot) return;
     this.terrain.sync(snapshot.farm.plots);
     this.buildings.sync(snapshot.farm);
+    this.noticeBoard.sync(snapshot.farm);
     const sheep = snapshot.farm.animals.find((a) => a.kind === "sheep");
     if (sheep && !this.animals.some((a) => a.id === sheep.id)) {
       if (

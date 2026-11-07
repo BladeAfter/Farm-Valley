@@ -1,0 +1,20 @@
+{
+  "loading": "Votre ferme arrive…",
+  "welcome": "Bienvenue dans la vallée ! Votre première récolte est prête.",
+  "fieldStroke": "Champ entretenu ! Continuez à cultiver.",
+  "fed": "Bien nourri ! La production commence.",
+  "delivery": "Livraison terminée ! Le village vous remercie.",
+  "built": "Bâtiment prêt pour votre ferme !",
+  "moved": "Objet déplacé.",
+  "queued": "Ingrédients réservés. Recette en file !",
+  "collected": "Produit rangé dans la grange !",
+  "harvested": "Récolte rangée dans le silo !",
+  "planted": "Graine plantée. La vallée grandit !",
+  "bought": "Achat effectué !",
+  "upgraded": "Amélioration terminée !",
+  "canceled": "Ingrédients rendus.",
+  "sold": "Vente effectuée !",
+  "removed": "Terrain libre !",
+  "animals": "Animaux soignés !",
+  "discarded": "Commande retirée. Une autre arrive bientôt."
+}

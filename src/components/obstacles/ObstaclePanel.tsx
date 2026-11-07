@@ -1,8 +1,10 @@
+import { t } from "../../i18n/core";
+import { useLabels } from "../../i18n/labels";
 import { useFarm } from "../../store/useFarm";
 import { obstacleKinds, tools } from "../../types/land";
 import { items } from "../../types/game";
-
 export function ObstaclePanel() {
+  const { items, obstacleKinds, tools } = useLabels();
   const { snapshot, obstacleId, act, busy, open } = useFarm();
   const farm = snapshot?.farm,
     obstacle = farm?.obstacles.find((o) => o.id === obstacleId);
@@ -21,23 +23,21 @@ export function ObstaclePanel() {
     <div className="obstacle-content">
       <img className="obstacle-portrait" src={image} alt="" />
       <p>
-        Libera {config.w} × {config.h} espaços no terreno.
+        {t("farm.freeSpaces",{width:config.w,height:config.h})}
       </p>
       <div className="removal-tool">
         <img src={items[tool].image} alt="" />
         <div>
           <b>1 × {tools[tool].name}</b>
-          <span>Disponível no inventário: {amount}</span>
+          <span>{t("inventory.available",{count:amount})}</span>
         </div>
       </div>
       {!unlocked ? (
-        <p className="land-warning">Esta área ainda está bloqueada.</p>
+        <p className="land-warning">{t("errors.locked")}</p>
       ) : amount < 1 ? (
-        <p className="land-warning">Você precisa de mais ferramentas.</p>
+        <p className="land-warning">{t("errors.stock")}</p>
       ) : (
-        <p className="subtle">
-          A remoção consome uma ferramenta e é permanente.
-        </p>
+        <p className="subtle">{t("farm.removeCost")}</p>
       )}
       <button
         className="primary"
@@ -49,7 +49,7 @@ export function ObstaclePanel() {
             open(null);
         }}
       >
-        Remover {config.name.toLocaleLowerCase("pt-BR")}
+        {t("common.actionNamed",{action:t("common.remove"),name:config.name})}
       </button>
     </div>
   );

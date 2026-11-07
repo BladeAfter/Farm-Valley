@@ -1,16 +1,14 @@
+import { useLabels } from "../../i18n/labels";
+import { t } from "../../i18n/core";
+import { duration } from "../../i18n/core";
 import { useFarm } from "../../store/useFarm";
 import { fruitSpecies, fruitStage } from "../../types/orchard";
 import { barnUsed, storageCapacity } from "../../types/game";
 export function orchardTime(ms: number) {
-  const seconds = Math.max(0, Math.ceil(ms / 1000)),
-    h = Math.floor(seconds / 3600),
-    m = Math.floor((seconds % 3600) / 60),
-    s = seconds % 60;
-  return h
-    ? String(h).padStart(2, "0") + "h " + String(m).padStart(2, "0") + "min"
-    : String(m).padStart(2, "0") + "min " + String(s).padStart(2, "0") + "s";
+  return duration(ms);
 }
 export function FruitTreePanel({ now }: { now: number }) {
+  const { fruitSpecies } = useLabels();
   const { snapshot, fruitTreeId, act, busy, open } = useFarm(),
     farm = snapshot?.farm,
     tree = farm?.fruitTrees.find((t) => t.id === fruitTreeId);
@@ -32,12 +30,12 @@ export function FruitTreePanel({ now }: { now: number }) {
       {stage === "ready" ? (
         <>
           <p>
-            Produção pronta:{" "}
+            {t("production.ready")}{" "}
             <b>
-              {config.yield} {config.fruit.toLocaleLowerCase("pt-BR")}
+              {config.yield} × {config.fruit}
             </b>
           </p>
-          {full && <p className="land-warning">Seu celeiro está cheio.</p>}
+          {full && <p className="land-warning">{t("errors.barn")}</p>}
           <button
             className="primary"
             disabled={busy || full}
@@ -49,13 +47,14 @@ export function FruitTreePanel({ now }: { now: number }) {
               })
             }
           >
-            Colher {config.yield} {config.fruit.toLocaleLowerCase("pt-BR")}
+            {t("farm.harvest")}
+            {config.yield} × {config.fruit}
           </button>
         </>
       ) : stage === "dry" ? (
         <>
-          <p>Esta árvore encerrou seu ciclo de produção.</p>
-          <p>Serrotes disponíveis: {farm.inventory.saw}</p>
+          <p>{t("farm.dry")}</p>
+          <p>{t("items.saw")} · {t("inventory.available",{count:farm.inventory.saw})}</p>
           <button
             className="primary"
             disabled={busy || farm.inventory.saw < 1}
@@ -64,17 +63,15 @@ export function FruitTreePanel({ now }: { now: number }) {
                 open(null);
             }}
           >
-            Remover árvore seca · 1 serrote
+            {t("farm.removeDry")}
           </button>
         </>
       ) : (
         <>
           <p>
             {growing
-              ? "Sua muda está crescendo."
-              : "Produzindo novas " +
-                config.fruit.toLocaleLowerCase("pt-BR") +
-                "..."}
+              ? t("farm.growing")
+              : t("farm.fruitProducing",{name:config.fruit})}
           </p>
           <div className="fruit-progress">
             <span
@@ -82,14 +79,13 @@ export function FruitTreePanel({ now }: { now: number }) {
             />
           </div>
           <b>
-            {growing ? "Árvore adulta em: " : "Próxima colheita: "}
-            {orchardTime((growing ? tree.growsAt : tree.readyAt) - now)}
+            {t(growing?"farm.grownIn":"farm.nextHarvest",{time:orchardTime((growing?tree.growsAt:tree.readyAt)-now)})}
           </b>
-          <p className="subtle">A produção continua quando você sai do jogo.</p>
+          <p className="subtle">{t("farm.offlineProduction")}</p>
         </>
       )}
       <small className="subtle">
-        Colheitas realizadas: {tree.harvestCount}
+        {t("farm.harvestCount",{count:tree.harvestCount})}
       </small>
     </div>
   );

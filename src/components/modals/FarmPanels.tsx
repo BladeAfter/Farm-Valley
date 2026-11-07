@@ -1,3 +1,5 @@
+import { useLabels } from "../../i18n/labels";
+import { t } from "../../i18n/core";
 import { useEffect, useState } from "react";
 import { RotateCcw, Volume2, VolumeX } from "lucide-react";
 import { MachinePanel } from "../buildings/MachinePanel";
@@ -13,7 +15,7 @@ import { ObstaclePanel } from "../obstacles/ObstaclePanel";
 import { obstacleKinds } from "../../types/land";
 import { fruitSpecies } from "../../types/orchard";
 import { FruitTreePanel } from "../orchard/FruitTreePanel";
-
+import { LanguagePicker } from "../settings/LanguagePicker";
 function useClock(enabled: boolean) {
   const [, setTick] = useState(0);
   useEffect(() => {
@@ -25,6 +27,7 @@ function useClock(enabled: boolean) {
 }
 const closePanel = () => useFarm.getState().open(null);
 export function FarmPanels() {
+  const { fruitSpecies, machineKinds, obstacleKinds, pens } = useLabels();
   const {
     soundEnabled,
     toggleSound,
@@ -37,7 +40,10 @@ export function FarmPanels() {
     machineId,
   } = useFarm();
   const now = useClock(
-    panel === "machine" || panel === "animals" || panel === "fruitTree",
+    panel === "machine" ||
+      panel === "animals" ||
+      panel === "fruitTree" ||
+      panel === "orders",
   );
   if (!panel) return null;
   const farm = snapshot?.farm,
@@ -51,16 +57,16 @@ export function FarmPanels() {
       fruitSpecies[
         farm?.fruitTrees.find((t) => t.id === fruitTreeId)?.species ?? "apple"
       ].name,
-    obstacle: obstacle ? obstacleKinds[obstacle.kind].name : "Limpar terreno",
-    inventory: "Silo & celeiro",
-    shop: "Loja do vale",
-    orders: "Pedidos da vila",
-    animals: animalKind ? pens[animalKind].title : "Cercados da fazenda",
-    settings: "Seu cantinho",
-    buildings: "Construções",
+    obstacle: obstacle ? obstacleKinds[obstacle.kind].name : t("common.remove"),
+    inventory: t("inventory.title"),
+    shop: t("shop.title"),
+    orders: t("orders.title"),
+    animals: animalKind ? pens[animalKind].title : t("animals.title"),
+    settings: t("common.settings"),
+    buildings: t("farm.buildings"),
   };
   const small =
-    ["fruitTree", "obstacle", "settings", "orders"].includes(panel) ||
+    ["fruitTree", "obstacle", "settings"].includes(panel) ||
     (panel === "animals" && !!animalKind);
   const Panel = small ? GameBottomSheet : GameModal;
   return (
@@ -71,7 +77,7 @@ export function FarmPanels() {
       size={
         small
           ? "small"
-          : panel === "shop" || panel === "buildings"
+          : panel === "shop" || panel === "buildings" || panel === "orders"
             ? "large"
             : "medium"
       }
@@ -86,14 +92,12 @@ export function FarmPanels() {
       {panel === "machine" && <MachinePanel now={now} />}
       {panel === "inventory" && <InventoryPanel />}
       {(panel === "shop" || panel === "buildings") && <FarmShop />}
-      {panel === "orders" && <OrdersPanel />}
+      {panel === "orders" && <OrdersPanel now={now} />}
       {panel === "animals" && <AnimalProductionPanel now={now} />}
       {panel === "settings" && (
         <div className="settings-content">
-          <p>
-            Toque nos objetos para cuidar da fazenda. Segure uma construção por
-            1,2 s para mover. Arraste o chão para explorar.
-          </p>
+          <LanguagePicker />
+          <p>{t("tutorial.help")}</p>
           <button
             className="settings-option"
             aria-pressed={soundEnabled}
@@ -101,24 +105,24 @@ export function FarmPanels() {
           >
             {soundEnabled ? <Volume2 /> : <VolumeX />}
             <span>
-              <b>Sons da fazenda</b>
-              <small>{soundEnabled ? "Ativados" : "Desativados"}</small>
+              <b>{t("common.sound")}</b>
+              <small>
+                {soundEnabled ? t("common.enabled") : t("common.disabled")}
+              </small>
             </span>
           </button>
           <button className="settings-option" onClick={() => void load()}>
             <RotateCcw />
             <span>
-              <b>Sincronizar progresso</b>
-              <small>Buscar atualizações da fazenda</small>
+              <b>{t("common.sync")}</b>
+              <small>{t("common.fetchUpdates")}</small>
             </span>
           </button>
           <div
             className={"connection " + (snapshot?.persistent ? "online" : "")}
           >
             <span />
-            {snapshot?.persistent
-              ? "Progresso salvo no servidor"
-              : "Sessão temporária"}
+            {snapshot?.persistent ? t("common.synced") : t("common.temporary")}
           </div>
         </div>
       )}

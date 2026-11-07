@@ -74,11 +74,14 @@ export type Farm = {
   plots: Plot[];
   animals: Animal[];
   ordersCompleted: number;
+  orderBoard?: import("./orders").OrderBoard;
+  preferences?: { locale?: import("../i18n/languages").Locale };
   storage: Record<StorageKind, number>;
   revision: number;
 };
 export type Cell = { x: number; y: number };
 export type Command =
+  | { type: "set-language"; locale: import("../i18n/languages").Locale }
   | ({ type: "buy-machine"; kind: MachineKind } & Cell)
   | ({ type: "move-machine"; machineId: string } & Cell)
   | {
@@ -117,6 +120,7 @@ export type Command =
   | { type: "buy-seed"; crop: Crop }
   | { type: "make-feed" }
   | { type: "deliver-order"; orderId: number; item?: Item }
+  | { type: "deliver-board-order" | "discard-order"; orderId: string }
   | { type: "upgrade-storage"; storage: StorageKind; expectedLevel: number };
 
 // Original Farm Valley progression. Player level unlocks the paid upgrade;

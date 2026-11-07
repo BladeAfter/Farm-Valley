@@ -1,0 +1,18 @@
+{
+  "network": "Impossibile connettersi al server.",
+  "session": "Sessione scaduta. Riconnettiti.",
+  "coins": "Monete insufficienti.",
+  "barn": "Granaio pieno. Libera spazio.",
+  "silo": "Silo pieno. Libera spazio.",
+  "level": "Raggiungi il livello {{level}}.",
+  "locked": "Non ancora disponibile al tuo livello.",
+  "stock": "Mancano prodotti o ingredienti.",
+  "feed": "Serve mangime per questo animale.",
+  "notReady": "Non ancora pronto. Attendi.",
+  "changed": "L'azione è cambiata. Aggiorna la fattoria.",
+  "place": "Spazio occupato o non utilizzabile.",
+  "seed": "Conserva un seme da ripiantare.",
+  "invalid": "Azione non valida. Aggiorna e riprova.",
+  "fullQueue": "Coda piena. Ritira i prodotti pronti.",
+  "actionFailed": "Impossibile completare. Riprova."
+}

@@ -2,6 +2,7 @@ import { z } from "zod";
 import { items, type Item, cropIds } from "../../src/types/game.js";
 import { fruitIds } from "../../src/types/orchard.js";
 import { machineIds, recipeIds } from "../../src/data/production.js";
+import { localeIds } from "../../src/i18n/languages.js";
 const itemIds = Object.keys(items) as [Item, ...Item[]];
 const animalKinds = ["cow", "chicken", "goat", "pig", "sheep"] as const;
 const position = {
@@ -9,6 +10,9 @@ const position = {
   y: z.number().int().min(-5).max(34),
 };
 export const commandSchema = z.discriminatedUnion("type", [
+  z.object({type:z.literal("set-language"),locale:z.enum(localeIds)}).strict(),
+  z.object({ type: z.literal("deliver-board-order"), orderId: z.string().uuid() }).strict(),
+  z.object({ type: z.literal("discard-order"), orderId: z.string().uuid() }).strict(),
   z
     .object({
       type: z.literal("buy-machine"),

@@ -1,0 +1,14 @@
+{
+  "title": "متجر الوادي",
+  "fieldDescription": "{{count}} أحواض. ازرع وانقل كل حوض.",
+  "seedName": "بذور {{name}}",
+  "seedsDescription": "٣ بذور · المخزون {{count}} · النمو {{time}}.",
+  "machineDescription": "خانتان للإنتاج. اختر المكان وأكّد.",
+  "machineOwned": "{{slots}} خانات · {{queued}} منتجات بالطابور.",
+  "animalDescription": "{{name}} ينتج {{product}}. العلف: {{feed}}.",
+  "fruitDescription": "{{count}} لكل حصاد · دورة {{cycle}} · نمو {{growth}}.",
+  "storageDescription": "{{count}} خانات. اعرض المنتجات والترقية التالية.",
+  "feedDescription": "٣ أعلاف · المخزون {{count}}. اصنع علفك في المطحنة.",
+  "flowersDescription": "زينة صغيرة لمزرعتك.",
+  "unavailable": "شراء المزيد من هذا النوع غير متاح بعد."
+}

@@ -19,9 +19,13 @@ export function World() {
     window.addEventListener("farm-zoom", zoom);
     const home = () => game.events.emit("home");
     window.addEventListener("farm-home", home);
+    const focus = (event: Event) =>
+      game.events.emit("focus-cell", (event as CustomEvent).detail);
+    window.addEventListener("farm-focus", focus);
     return () => {
       window.removeEventListener("farm-zoom", zoom);
       window.removeEventListener("farm-home", home);
+      window.removeEventListener("farm-focus", focus);
       game.destroy(true);
     };
   }, []);

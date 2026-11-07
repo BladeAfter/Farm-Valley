@@ -1,0 +1,150 @@
+.modal.game-modal.modal-orders {
+  width: min(900px, 96vw);
+  max-height: min(750px, calc(100dvh - 28px));
+  border: 9px solid #a87940;
+  border-radius: 22px;
+  outline: 2px solid #704c2b;
+  background: #bb9055;
+  box-shadow: inset 0 2px #e6bd7d, 0 6px #674827, 0 18px 50px #203c294d;
+}
+.modal-orders:has(.count-2) { width: min(650px, 96vw); }
+.modal-orders .game-modal-header {
+  color: #ffedc5;
+  background: repeating-linear-gradient(3deg, transparent 0 12px, #704f2b12 13px, transparent 15px 24px), linear-gradient(#c69b5e, #a5753d);
+  padding: 13px 20px 14px;
+  border-bottom: 2px solid #79532f;
+  box-shadow: inset 0 2px #e9c68b;
+}
+.modal-orders .game-modal-header h2 { color: #fff0c8; text-shadow: 0 2px #79542d; font-size: 27px; letter-spacing: .3px; }
+.modal-orders .game-modal-header .eyebrow { color: #f4d7a3; letter-spacing: 3px; }
+.modal-orders .game-modal-header .close { background: linear-gradient(#efd09a,#d4a66a); border-color: #936236; color: #7f5730; box-shadow: 0 2px #80572e, inset 0 1px #ffdfab; }
+.modal-orders .game-modal-body {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 4% 20%, #f4daac38, transparent 35%), repeating-linear-gradient(4deg, #845d3009 0 2px, transparent 3px 13px), #c29a60;
+  box-shadow: inset 0 2px 9px #65492d3d;
+}
+.village-orders { position: relative; display: flex; flex-direction: column; flex: 1; min-height: 0; max-height: calc(100dvh - 145px); }
+.village-board-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 1px 4px 12px; flex: 0 0 auto; }
+.village-board-toolbar > div:first-child { display: flex; align-items: center; gap: 8px; }
+.village-board-toolbar > div > img { width: 33px; height: 33px; }
+.village-board-toolbar b { display: block; font-size: 13px; color: #563e26; }
+.village-board-toolbar small { display: block; font-size: 11px; color: #72542f; margin-top: 2px; }
+.order-view-toggle { display: flex; border: 1px solid #99703f; background: #ad814a; border-radius: 11px; padding: 3px; }
+.order-view-toggle button { min-height: 35px; padding: 5px 11px; background: transparent; color: #fff0ce; border-radius: 8px; font-size: 11px; }
+.order-view-toggle button[aria-pressed="true"] { background: #f6e6bd; color: #805f36; box-shadow: 0 1px 3px #67472533; }
+.village-board-toolbar .next-order-unlock { background: #dbb779; padding: 5px 9px; margin: 0; border-radius: 9px; font-size: 10px; }
+.village-order-grid { flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #916233 #d3ad73; padding: 7px 4px 6px; }
+.count-2 .village-order-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.village-order-card, .village-order-slot {
+  position: relative; min-width: 0; min-height: 252px; display: flex; flex-direction: column;
+  background: radial-gradient(ellipse at 15% 10%, #fffef2, transparent 70%), repeating-linear-gradient(95deg, #ceb98c06 0 2px, transparent 3px 7px), #faedce;
+  border: 1px solid #e1c38c; border-radius: 8px 15px 11px 7px; padding: 13px 12px 11px;
+  box-shadow: 1px 4px 0 #7957334d, inset 0 1px #fff9e6;
+}
+.village-order-card:nth-child(3n + 1) { border-radius: 12px 7px 13px 8px; }
+.village-order-card.ready { border-color: #c7d299; background-color: #f5efd6; }
+.order-paper-pin { position: absolute; width: 11px; height: 11px; border-radius: 50%; background: radial-gradient(circle at 32% 25%, #f5c184, #b56a42 70%); border: 1px solid #9b5e35; top: -5px; left: calc(50% - 5px); box-shadow: 1px 2px 2px #674c3455; }
+.village-order-card > header { display: flex; align-items: center; gap: 9px; min-height: 66px; }
+.village-customer { width: 66px; height: 66px; flex: 0 0 66px; object-fit: contain; border-radius: 50%; background: radial-gradient(ellipse at 50% 55%, #e7d3a8, #f7e9c8 68%, transparent 70%); }
+.village-order-card > header > div { min-width: 0; flex: 1; }
+.village-order-card > header small { display: block; color: #ad8651; font-size: 10px; margin-bottom: 3px; }
+.village-order-card > header h3 { font-size: 17px; font-family: Georgia,serif; color: #70502e; line-height: 1.12; }
+.village-order-card > header div > span { display: block; color: #a68a60; font-size: 9px; margin-top: 4px; }
+.order-ready-seal { position: absolute; right: 8px; top: 7px; width: 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; background: #e3ebc5; color: #73904b; border: 1px solid #b6c58c; }
+.order-goods { display: flex; justify-content: center; gap: 8px; padding: 9px 0; flex: 1; min-height: 86px; }
+.order-goods button { flex: 1; max-width: 130px; min-width: 0; background: #fff9e6a3; border: 1px solid #e7d3aa; border-radius: 11px; padding: 5px 4px; color: #927347; }
+.order-goods img { width: 45px; height: 45px; object-fit: contain; margin: 0 auto 3px; }
+.order-goods button > span { display: block; font-size: 10px; line-height: 1.15; min-height: 12px; }
+.order-goods b { display: flex; align-items: center; justify-content: center; gap: 3px; font-size: 13px; margin-top: 3px; }
+.order-goods i { font-style: normal; font-weight: 400; }
+.order-goods .enough b { color: #668c3c; }
+.order-goods .missing b { color: #c08a44; }
+.order-goods .unavailable { filter: saturate(.4); }
+.order-goods .unavailable b { color: #9a9688; }
+.village-order-rewards { display: flex; align-items: center; justify-content: center; gap: 7px; padding: 2px 0 8px; }
+.village-order-rewards .reward-badge { background: transparent; border: 0; padding: 1px 4px; gap: 4px; }
+.village-order-rewards .reward-badge img { width: 24px; height: 24px; }
+.village-order-rewards .reward-badge b { font-size: 16px; }
+.village-order-rewards .reward-badge small { display: none; }
+.village-order-card footer { display: flex; gap: 7px; align-items: center; margin-top: auto; }
+.village-order-card .discard-order { flex: 0 0 38px; height: 40px; display: grid; place-items: center; background: #efdbb4; color: #ad8755; border: 1px solid #dfc18e; border-radius: 10px; }
+.village-order-card .deliver-order { flex: 1; min-width: 0; min-height: 40px; font-size: 12px; padding: 8px; }
+.village-order-card .deliver-order:disabled { color: #9a845d; background: #e9ddba; border-color: #d9c9a3; opacity: 1; box-shadow: inset 0 1px #fff4d6; }
+.village-order-slot { align-items: center; justify-content: center; text-align: center; gap: 10px; background: #edce9394; border: 1px dashed #a47b46; color: #856039; box-shadow: inset 0 2px 7px #8b643329; }
+.village-order-slot > img { width: 55px; height: 55px; opacity: .75; }
+.village-order-slot > b { font-family: Georgia,serif; font-size: 16px; line-height: 1.3; max-width: 170px; }
+.village-order-slot > span:not(.order-paper-pin) { display: flex; align-items: center; gap: 5px; background: #f7e4ba; border: 1px solid #d3ae73; padding: 6px 11px; border-radius: 10px; font-size: 14px; color: #8b6a40; }
+.village-order-slot > small { font-size: 10px; max-width: 170px; line-height: 1.4; }
+.orders-empty { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 35px 10px; color: #7c5830; gap: 10px; }
+.orders-empty img { width: 65px; height: 65px; }
+.orders-empty span { font-size: 12px; }
+.order-source { position: absolute; bottom: 6px; left: 4px; right: 4px; display: flex; align-items: center; gap: 10px; z-index: 4; background: #fff4d8; border: 2px solid #f9dfa8; border-radius: 13px; box-shadow: 0 3px 0 #9b6c37, 0 6px 22px #503e2459; padding: 12px; }
+.order-source > img { width: 43px; height: 43px; object-fit: contain; }
+.order-source > div { flex: 1; min-width: 0; }
+.order-source b { display: block; font-size: 13px; }
+.order-source small { display: block; font-size: 11px; color: #9c8054; margin-top: 4px; }
+.order-source .source-close { width: 36px; height: 36px; display: grid; place-items: center; background: #ead2a5; border-radius: 50%; color: #9a7040; flex-shrink: 0; }
+.order-thanks { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 5; display: flex; align-items: center; gap: 10px; width: min(350px, 95%); padding: 10px 14px; border: 2px solid #f7dda0; border-radius: 14px; background: #fcf2cf; box-shadow: 0 4px #98713c, 0 8px 24px #4f3c3244; pointer-events: none; animation: order-thank-in 300ms ease-out; }
+.order-thanks img { width: 46px; height: 46px; object-fit: contain; }
+.order-thanks b { font-size: 12px; line-height: 1.25; color: #7a5b32; }
+.order-thanks span { display: block; font-size: 12px; color: #9b7a36; margin-top: 5px; font-weight: 700; }
+.village-order-card.delivering { animation: order-deliver 450ms ease-in forwards; pointer-events: none; }
+.village-order-card.discarding { animation: order-discard 450ms ease-in forwards; pointer-events: none; }
+@keyframes order-deliver { to { opacity: 0; transform: translateY(-35px) rotate(4deg) scale(.9); } }
+@keyframes order-discard { to { opacity: 0; transform: translateY(25px) rotate(-5deg) scale(.85); } }
+@keyframes order-thank-in { from { opacity: 0; transform: translate(-50%, 12px) scale(.97); } to { opacity: 1; transform: translate(-50%,0); } }
+@media (max-width: 760px) {
+  .village-order-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+  .village-board-toolbar .next-order-unlock { display: none; }
+  .village-orders { max-height: calc(100dvh - 140px); }
+}
+@media (max-height: 600px) {
+  .modal-orders .game-modal-header { padding: 9px 15px; }
+  .modal-orders .game-modal-header h2 { font-size: 23px; }
+  .modal-orders .game-modal-body { padding: 8px; }
+  .village-orders { max-height: calc(100dvh - 112px); }
+  .village-board-toolbar { padding-bottom: 8px; }
+  .village-order-card, .village-order-slot { min-height: 217px; padding: 9px 10px; }
+  .village-customer { width: 48px; height: 48px; flex-basis: 48px; }
+  .village-order-card > header { min-height: 48px; gap: 7px; }
+  .village-order-card > header h3 { font-size: 16px; }
+  .village-order-card > header div > span { display: none; }
+  .order-goods { padding: 6px 0; min-height: 78px; }
+  .order-goods img { width: 37px; height: 37px; }
+  .village-order-rewards { padding: 0 0 5px; }
+  .village-order-rewards .reward-badge img { width: 21px; height: 21px; }
+  .village-order-rewards .reward-badge b { font-size: 14px; }
+}
+@media (max-height: 420px) {
+  .modal.game-modal.modal-orders { border-width: 6px; }
+  .modal-orders .game-modal-header h2 { font-size: 21px; }
+  .modal-orders .game-modal-header .eyebrow { display: none; }
+  .modal-orders .game-modal-header { padding: 7px 12px; }
+  .modal-orders .game-modal-body { padding: 6px; }
+  .village-orders { max-height: calc(100dvh - 98px); }
+  .village-board-toolbar { padding: 0 3px 4px; }
+  .village-board-toolbar > div > img { width: 25px; height: 25px; }
+  .village-board-toolbar b { font-size: 11px; }
+  .village-board-toolbar small { font-size: 9px; }
+  .order-view-toggle { padding: 2px; }
+  .order-view-toggle button { min-height: 30px; font-size: 10px; }
+  .village-order-grid { padding-top: 5px; gap: 9px; }
+  .village-order-card, .village-order-slot { min-height: 200px; padding: 7px 9px; }
+  .village-customer { width: 40px; height: 40px; flex-basis: 40px; }
+  .village-order-card > header { min-height: 40px; }
+  .village-order-card > header h3 { font-size: 15px; }
+  .village-order-card > header small { font-size: 9px; margin-bottom: 2px; }
+  .order-goods { min-height: 70px; padding: 4px 0; }
+  .order-goods img { width: 30px; height: 30px; }
+  .order-goods button > span { font-size: 9px; }
+  .order-goods b { font-size: 12px; margin-top: 2px; }
+  .village-order-rewards { padding-bottom: 4px; }
+  .village-order-card .deliver-order, .village-order-card .discard-order { min-height: 36px; height: 36px; font-size: 11px; }
+  .order-source { padding: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .village-orders * { animation: none !important; transition: none !important; }
+}

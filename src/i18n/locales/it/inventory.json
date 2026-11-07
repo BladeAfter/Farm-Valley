@@ -1,0 +1,18 @@
+{
+  "title": "Silo e granaio",
+  "used": "Spazio occupato",
+  "upgrade": "Migliora",
+  "upgradeNamed": "Migliora {{name}}",
+  "back": "Torna ai prodotti",
+  "sell": "Vendi",
+  "sellNamed": "Vendi {{name}}",
+  "sellPrice": "Vendi · {{coins}}",
+  "available": "{{count}} disponibili",
+  "empty": "I prossimi raccolti appariranno qui.",
+  "hint": "Tocca per vedere o vendere. Conserva i semi.",
+  "reserved": "Riservato alla cura della fattoria.",
+  "stage": "{{name}} · fase {{stage}}",
+  "spaces": "{{used}} / {{capacity}} posti",
+  "next": "{{current}} → {{next}} posti · livello {{level}}",
+  "max": "Fase massima raggiunta"
+}

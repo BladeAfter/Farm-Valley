@@ -1,0 +1,20 @@
+{
+  "loading": "Twoja farma się ładuje…",
+  "welcome": "Witaj w dolinie! Pierwsze plony są gotowe.",
+  "fieldStroke": "Pole zadbane! Uprawiaj dalej.",
+  "fed": "Brzuszek pełny! Produkcja rozpoczęta.",
+  "delivery": "Dostawa zakończona! Wioska dziękuje.",
+  "built": "Budynek gotowy dla twojej farmy!",
+  "moved": "Obiekt przeniesiony.",
+  "queued": "Składniki zarezerwowane. Przepis w kolejce!",
+  "collected": "Produkt trafił do stodoły!",
+  "harvested": "Plony trafiły do silosu!",
+  "planted": "Nasiono posadzone. Dolina rośnie!",
+  "bought": "Zakup zakończony!",
+  "upgraded": "Ulepszenie zakończone!",
+  "canceled": "Składniki zwrócone.",
+  "sold": "Sprzedaż zakończona!",
+  "removed": "Teren jest wolny!",
+  "animals": "Zwierzęta zadbane!",
+  "discarded": "Zamówienie usunięte. Wkrótce pojawi się nowe."
+}

@@ -1,0 +1,18 @@
+{
+  "title": "Silo dan lumbung",
+  "used": "Ruang terpakai",
+  "upgrade": "Tingkatkan",
+  "upgradeNamed": "Tingkatkan {{name}}",
+  "back": "Kembali ke produk",
+  "sell": "Jual",
+  "sellNamed": "Jual {{name}}",
+  "sellPrice": "Jual · {{coins}}",
+  "available": "{{count}} tersedia",
+  "empty": "Hasil panen berikutnya akan muncul di sini.",
+  "hint": "Ketuk untuk lihat atau jual. Simpan benih.",
+  "reserved": "Disimpan untuk perawatan pertanian.",
+  "stage": "{{name}} · tahap {{stage}}",
+  "spaces": "{{used}} / {{capacity}} tempat",
+  "next": "{{current}} → {{next}} tempat · level {{level}}",
+  "max": "Tahap maksimum tercapai"
+}

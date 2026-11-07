@@ -1,0 +1,18 @@
+{
+  "title": "サイロと納屋",
+  "used": "使用容量",
+  "upgrade": "拡張",
+  "upgradeNamed": "{{name}}を拡張",
+  "back": "製品に戻る",
+  "sell": "売る",
+  "sellNamed": "{{name}}を売る",
+  "sellPrice": "売る · {{coins}}",
+  "available": "利用可能{{count}}",
+  "empty": "次の収穫や製品がここに表示されます。",
+  "hint": "タップで確認や売却。種を残しましょう。",
+  "reserved": "農場のお世話用に保管。",
+  "stage": "{{name}} · 段階{{stage}}",
+  "spaces": "{{used}}/{{capacity}}枠",
+  "next": "{{current}}→{{next}}枠 · レベル{{level}}",
+  "max": "最大段階に到達"
+}

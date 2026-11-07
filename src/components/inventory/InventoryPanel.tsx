@@ -1,3 +1,5 @@
+import { useLabels } from "../../i18n/labels";
+import { t } from "../../i18n/core";
 import { useState } from "react";
 import { useFarm } from "../../store/useFarm";
 import {
@@ -18,8 +20,8 @@ import {
   ProgressIndicator,
   UpgradePanel,
 } from "../ui/GameComponents";
-
 export function InventoryPanel() {
+  const { items } = useLabels();
   const { snapshot, act, busy, storageKind: storage, openStorage } = useFarm();
   const [selected, setSelected] = useState<Item | null>(null);
   const [amount, setAmount] = useState(1);
@@ -41,23 +43,23 @@ export function InventoryPanel() {
       <GameTabs
         value={storage}
         onChange={chooseStorage}
-        label="Armazenamento"
+        label={t("farm.storage")}
         options={[
           {
             id: "silo",
-            label: "Silo",
+            label: t("farm.silo"),
             image: storageImage("silo", farm.storage.silo),
           },
           {
             id: "barn",
-            label: "Celeiro",
+            label: t("farm.barn"),
             image: storageImage("barn", farm.storage.barn),
           },
         ]}
       />
       {upgrades ? (
         <UpgradePanel
-          title={"Melhorar " + (storage === "silo" ? "silo" : "celeiro")}
+          title={t("inventory.upgradeNamed",{name:t("farm."+storage)})}
           onBack={() => setUpgrades(false)}
         >
           <StorageUpgrades only={storage} />
@@ -68,15 +70,15 @@ export function InventoryPanel() {
             <ProgressIndicator
               value={storage === "silo" ? siloUsed(farm) : barnUsed(farm)}
               max={storageCapacity(farm, storage)}
-              label="Espaços ocupados"
+              label={t("inventory.used")}
             />
             <button className="secondary" onClick={() => setUpgrades(true)}>
-              Melhorar
+              {t("inventory.upgrade")}
             </button>
           </div>
           <div
             className="storage-product-grid"
-            aria-label="Produtos armazenados"
+            aria-label={t("common.inventory")}
           >
             {stock.map((id) => (
               <ItemCard
@@ -92,26 +94,23 @@ export function InventoryPanel() {
               />
             ))}
             {!stock.length && (
-              <p className="storage-empty">
-                Ainda não há produtos aqui. Suas próximas colheitas e coletas
-                aparecerão neste espaço.
-              </p>
+              <p className="storage-empty">{t("inventory.empty")}</p>
             )}
           </div>
           {selected && (
             <section
               className="storage-product-detail"
-              aria-label={"Detalhes de " + items[selected].name}
+              aria-label={t("common.details",{name:items[selected].name})}
             >
               <img src={items[selected].image} alt="" />
               <div>
                 <b>{items[selected].name}</b>
-                <small>{farm.inventory[selected]} disponíveis</small>
+                <small>{t("inventory.available",{count:farm.inventory[selected]})}</small>
               </div>
               {items[selected].sellPrice ? (
                 <>
                   <label className="sale-amount">
-                    Quantidade
+                    {t("common.quantity")}
                     <input
                       type="number"
                       min={1}
@@ -132,7 +131,7 @@ export function InventoryPanel() {
                   </label>
                   <button
                     className="primary"
-                    aria-label={"Vender " + items[selected].name}
+                    aria-label={t("inventory.sellNamed",{name:items[selected].name})}
                     disabled={busy || farm.inventory[selected] < amount}
                     onClick={() =>
                       void act({
@@ -143,19 +142,15 @@ export function InventoryPanel() {
                       })
                     }
                   >
-                    <img src="/assets/ui/coin.svg" alt="" /> Vender ·{" "}
-                    {items[selected].sellPrice! * amount}
+                    <img src="/assets/ui/coin.svg" alt="" />{t("inventory.sellPrice",{coins:items[selected].sellPrice!*amount})}
                   </button>
                 </>
               ) : (
-                <small>Reservado para os cuidados da fazenda.</small>
+                <small>{t("inventory.reserved")}</small>
               )}
             </section>
           )}
-          <p className="subtle">
-            Toque em um produto para consultar ou vender. Guarde sementes para
-            replantar.
-          </p>
+          <p className="subtle">{t("inventory.hint")}</p>
         </>
       )}
     </div>

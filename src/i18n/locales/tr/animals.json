@@ -1,0 +1,18 @@
+{
+  "feed": "Besle",
+  "collect": "Topla",
+  "hungry": "Yem gerekiyor",
+  "producing": "Üretiyor",
+  "ready": "{{name}} hazır!",
+  "feedBatch": "{{count}} hayvanı besle",
+  "collectBatch": "{{count}} ürün topla",
+  "count_one": "{{count}} hayvan",
+  "count_other": "{{count}} hayvan",
+  "pen.cow": "İnek ahırı",
+  "pen.chicken": "Kümes",
+  "pen.goat": "Keçi barınağı",
+  "pen.pig": "Domuz ağılı",
+  "pen.sheep": "Koyun ağılı",
+  "title": "Çiftlik hayvanları",
+  "reserve": "{{count}} mevcut · {{reserve}} yedek"
+}

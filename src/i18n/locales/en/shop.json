@@ -1,0 +1,14 @@
+{
+  "title": "Valley shop",
+  "fieldDescription": "{{count}} field beds. Grow crops and move each one.",
+  "seedName": "{{name}} seeds",
+  "seedsDescription": "3 seeds · stock {{count}} · grows in {{time}}.",
+  "machineDescription": "2 production slots. Choose a place and confirm.",
+  "machineOwned": "{{slots}} slots · {{queued}} products queued.",
+  "animalDescription": "{{name}} produces {{product}}. Feed: {{feed}}.",
+  "fruitDescription": "{{count}} per harvest · cycle {{cycle}} · grows in {{growth}}.",
+  "storageDescription": "{{count}} spaces. View products and the next upgrade.",
+  "feedDescription": "3 feeds · stock {{count}}. Make your own at the feed mill.",
+  "flowersDescription": "A small decoration for your farm.",
+  "unavailable": "New purchases of this species are not available yet."
+}

@@ -1,0 +1,18 @@
+{
+  "feed": "Füttern",
+  "collect": "Abholen",
+  "hungry": "Braucht Futter",
+  "producing": "In Produktion",
+  "ready": "{{name}} ist fertig!",
+  "feedBatch": "{{count}} Tiere füttern",
+  "collectBatch": "{{count}} Produkte abholen",
+  "count_one": "{{count}} Tier",
+  "count_other": "{{count}} Tiere",
+  "pen.cow": "Kuhstall",
+  "pen.chicken": "Hühnerstall",
+  "pen.goat": "Ziegenstall",
+  "pen.pig": "Schweinestall",
+  "pen.sheep": "Schafstall",
+  "title": "Hoftiere",
+  "reserve": "{{count}} verfügbar · {{reserve}} Reserve"
+}

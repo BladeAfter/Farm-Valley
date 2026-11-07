@@ -1,0 +1,18 @@
+{
+  "feed": "Beri makan",
+  "collect": "Ambil",
+  "hungry": "Butuh pakan",
+  "producing": "Sedang produksi",
+  "ready": "{{name}} siap!",
+  "feedBatch": "Beri makan {{count}} hewan",
+  "collectBatch": "Ambil {{count}} produk",
+  "count_one": "{{count}} hewan",
+  "count_other": "{{count}} hewan",
+  "pen.cow": "Kandang sapi",
+  "pen.chicken": "Kandang ayam",
+  "pen.goat": "Kandang kambing",
+  "pen.pig": "Kandang babi",
+  "pen.sheep": "Kandang domba",
+  "title": "Hewan pertanian",
+  "reserve": "{{count}} tersedia · {{reserve}} cadangan"
+}

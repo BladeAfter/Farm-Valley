@@ -71,6 +71,15 @@ export class AnimalPens {
         .fillStyle(i % 3 ? 0x83a24b : 0xd9c183, 0.3)
         .fillEllipse(q.x, q.y, 6 + (i % 7), 2 + (i % 3));
     }
+    // Low, deterministic pasture accents stay clear of the approach to the feeder.
+    for (let i = 0; i < 14; i++) {
+      const x = i % 2 ? .22 + ((i * 31) % 55) / 100 : 2.5 + ((i * 17) % 25) / 100;
+      const y = .25 + ((i * 43) % 240) / 100;
+      const q = p(x,y), height = kind === "pig" ? 3 : 4 + i % 3;
+      for (let blade = -1; blade <= 1; blade++) ground.lineStyle(1,blade ? 0x729446 : 0xa7bf65,.8)
+        .lineBetween(q.x,q.y,q.x + blade * 3,q.y - height + Math.abs(blade));
+      if(kind === "cow" && i % 6 === 0) ground.fillStyle(0xf0df9a,.8).fillCircle(q.x+2,q.y-height,1.2);
+    }
     const home = p(0.72, 0.72);
     const image = this.scene.add
       .image(home.x, home.y, "pen-" + kind)

@@ -1,0 +1,18 @@
+{
+  "title": "Silo et grange",
+  "used": "Espace occupé",
+  "upgrade": "Améliorer",
+  "upgradeNamed": "Améliorer {{name}}",
+  "back": "Retour aux produits",
+  "sell": "Vendre",
+  "sellNamed": "Vendre {{name}}",
+  "sellPrice": "Vendre · {{coins}}",
+  "available": "{{count}} disponibles",
+  "empty": "Vos prochaines récoltes apparaîtront ici.",
+  "hint": "Touchez pour consulter ou vendre. Gardez des graines.",
+  "reserved": "Réservé aux soins de la ferme.",
+  "stage": "{{name}} · étape {{stage}}",
+  "spaces": "{{used}} / {{capacity}} places",
+  "next": "{{current}} → {{next}} places · niveau {{level}}",
+  "max": "Étape maximale atteinte"
+}

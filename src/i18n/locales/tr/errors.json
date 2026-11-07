@@ -1,0 +1,18 @@
+{
+  "network": "Sunucuya bağlanılamadı.",
+  "session": "Oturum sona erdi. Yeniden bağlan.",
+  "coins": "Yeterli altın yok.",
+  "barn": "Ambar dolu. Yer aç.",
+  "silo": "Silo dolu. Yer aç.",
+  "level": "{{level}} seviyesine ulaş.",
+  "locked": "Henüz seviyende mevcut değil.",
+  "stock": "Ürün veya malzeme eksik.",
+  "feed": "Bu hayvan için yem gerekiyor.",
+  "notReady": "Henüz hazır değil. Üretimi bekle.",
+  "changed": "Bu işlem değişti. Çiftliği yenile.",
+  "place": "Bu alan dolu veya kullanılamıyor.",
+  "seed": "Yeniden ekmek için tohum sakla.",
+  "invalid": "Geçersiz işlem. Yenileyip tekrar dene.",
+  "fullQueue": "Sıra dolu. Hazır ürünleri topla.",
+  "actionFailed": "İşlem tamamlanamadı. Tekrar dene."
+}

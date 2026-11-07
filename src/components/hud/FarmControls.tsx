@@ -1,10 +1,14 @@
+import { number as formatNumber } from "../../i18n/core";
+import { useLabels } from "../../i18n/labels";
+import { t } from "../../i18n/core";
+import { duration } from "../../i18n/core";
 import { useEffect, useState } from "react";
 import { Hand, Leaf, MoreHorizontal, X, Lock } from "lucide-react";
 import { useFarm } from "../../store/useFarm";
 import { items, crops, cropIds, playerLevel } from "../../types/game";
 import { storageImage } from "../../data/buildings";
-
 export function FarmControls() {
+  const { crops, items } = useLabels();
   const { tool, setTool, selected, select, open, openShop, snapshot, panel } =
     useFarm();
   const [seedsOpen, setSeedsOpen] = useState(false);
@@ -27,7 +31,7 @@ export function FarmControls() {
         <div className="toolbox">
           <button
             className={tool === "hand" ? "active" : ""}
-            aria-label="Explorar mapa"
+            aria-label={t("common.explore")}
             title="Explorar"
             onClick={() => {
               setTool("hand");
@@ -38,7 +42,7 @@ export function FarmControls() {
           </button>
           <button
             className={tool === "plant" ? "active" : ""}
-            aria-label="Modo plantar"
+            aria-label={t("farm.plant")}
             aria-expanded={seedsOpen}
             title="Escolher sementes"
             onClick={() => {
@@ -51,8 +55,8 @@ export function FarmControls() {
           <button
             data-farm-harvest
             className={tool === "harvest" ? "active" : ""}
-            aria-label="Colher com foice"
-            title="Colher"
+            aria-label={t("farm.harvest")}
+            title={t("farm.harvest")}
             onClick={() => {
               setTool("harvest");
               setSeedsOpen(false);
@@ -64,25 +68,25 @@ export function FarmControls() {
         {tool === "plant" && !seedsOpen && (
           <button
             className="selected-seed"
-            aria-label="Trocar semente"
+            aria-label={t("common.changeSeed")}
             onClick={() => setSeedsOpen(true)}
           >
             <img src={items[selected].image} alt="" />
             <span>
               {items[selected].name}
-              <small>{snapshot?.farm.inventory[selected] ?? 0} no silo</small>
+              <small>{t("farm.inSilo",{count:snapshot?.farm.inventory[selected]??0})}</small>
             </span>
           </button>
         )}
         {seedsOpen && (
-          <section className="seed-picker" aria-label="Sementes">
+          <section className="seed-picker" aria-label={t("farm.seeds")}>
             <header>
               <div>
-                <b>Sementes</b>
-                <small>Escolha e arraste sobre os canteiros</small>
+                <b>{t("farm.seeds")}</b>
+                <small>{t("tutorial.seeds")}</small>
               </div>
               <button
-                aria-label="Fechar sementes"
+                aria-label={t("common.close")}
                 onClick={() => setSeedsOpen(false)}
               >
                 <X size={18} />
@@ -95,7 +99,7 @@ export function FarmControls() {
                   <button
                     key={crop}
                     data-farm-seed={locked ? undefined : crop}
-                    aria-label={"Plantar " + items[crop].name}
+                    aria-label={t("common.actionNamed",{action:t("farm.plant"),name:items[crop].name})}
                     disabled={locked}
                     className={selected === crop ? "selected" : ""}
                     onClick={() => {
@@ -108,18 +112,18 @@ export function FarmControls() {
                     <small>
                       {locked ? (
                         <>
-                          <Lock size={11} /> Nível {crops[crop].level}
+                          <Lock size={11} />{t("common.level",{level:crops[crop].level})}
                         </>
                       ) : (
-                        crops[crop].duration / 60000 + " min"
+                        duration(crops[crop].duration)
                       )}
                     </small>
-                    <em>{snapshot?.farm.inventory[crop] ?? 0}</em>
+                    <em>{formatNumber(snapshot?.farm.inventory[crop] ?? 0)}</em>
                   </button>
                 );
               })}
             </div>
-            <p>Sementes de reserva disponíveis na loja.</p>
+            <p>{t("common.shop")}</p>
           </section>
         )}
       </div>
@@ -131,7 +135,7 @@ export function FarmControls() {
           onClick={() => openShop()}
         >
           <img src="/assets/buildings/farmhouse/house-v3.webp" alt="" />
-          <span>Loja</span>
+          <span>{t("common.shop")}</span>
         </button>
         <button
           aria-current={panel === "inventory" ? "page" : undefined}
@@ -141,18 +145,18 @@ export function FarmControls() {
             src={storageImage("barn", snapshot?.farm.storage.barn ?? 1)}
             alt=""
           />
-          <span>Inventário</span>
+          <span>{t("common.inventory")}</span>
         </button>
         <button
-          aria-label="Pedidos"
+          aria-label={t("common.orders")}
           aria-current={panel === "orders" ? "page" : undefined}
           onClick={() => open("orders")}
         >
           <img src="/assets/ui/orders.svg" alt="" />
-          <span>Pedidos</span>
+          <span>{t("common.orders")}</span>
         </button>
         <button
-          aria-label="Mais opções"
+          aria-label={t("common.moreOptions")}
           aria-expanded={moreOpen}
           onClick={() => {
             setMoreOpen(!moreOpen);
@@ -160,19 +164,19 @@ export function FarmControls() {
           }}
         >
           <MoreHorizontal />
-          <span>Mais</span>
+          <span>{t("common.more")}</span>
         </button>
         {moreOpen && (
           <div className="farm-more-menu">
             <button
-              aria-label="Construções"
+              aria-label={t("farm.buildings")}
               onClick={() => {
                 openShop("factories");
                 setMoreOpen(false);
               }}
             >
               <img src="/assets/buildings/farmhouse/house-v3.webp" alt="" />
-              <span>Construções</span>
+              <span>{t("farm.buildings")}</span>
             </button>
             <button
               onClick={() => {
@@ -181,7 +185,7 @@ export function FarmControls() {
               }}
             >
               <img src="/assets/animals/cow/portrait-v4.webp" alt="" />
-              <span>Animais</span>
+              <span>{t("farm.animals")}</span>
             </button>
           </div>
         )}

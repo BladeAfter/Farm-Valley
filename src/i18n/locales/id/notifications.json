@@ -1,0 +1,20 @@
+{
+  "loading": "Pertanianmu sedang dimuat…",
+  "welcome": "Selamat datang di lembah! Panen pertamamu siap.",
+  "fieldStroke": "Petak terawat! Terus menanam.",
+  "fed": "Kenyang! Produksi dimulai.",
+  "delivery": "Kiriman selesai! Desa berterima kasih.",
+  "built": "Bangunan pertanian siap!",
+  "moved": "Objek dipindahkan.",
+  "queued": "Bahan dicadangkan. Resep mengantre!",
+  "collected": "Produk disimpan di lumbung!",
+  "harvested": "Panen disimpan di silo!",
+  "planted": "Benih ditanam. Lembah bertumbuh!",
+  "bought": "Pembelian selesai!",
+  "upgraded": "Peningkatan selesai!",
+  "canceled": "Bahan dikembalikan.",
+  "sold": "Penjualan selesai!",
+  "removed": "Tanah siap digunakan!",
+  "animals": "Hewan terawat!",
+  "discarded": "Pesanan dihapus. Yang baru segera tiba."
+}

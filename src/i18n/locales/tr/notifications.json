@@ -1,0 +1,20 @@
+{
+  "loading": "Çiftliğin yükleniyor…",
+  "welcome": "Vadiye hoş geldin! İlk hasadın hazır.",
+  "fieldStroke": "Tarla tamam! Yetiştirmeye devam.",
+  "fed": "Karnı doydu! Üretim başladı.",
+  "delivery": "Teslimat tamam! Köy teşekkür ediyor.",
+  "built": "Çiftliğin için bina hazır!",
+  "moved": "Nesne taşındı.",
+  "queued": "Malzemeler ayrıldı. Tarif sırada!",
+  "collected": "Ürün ambara kondu!",
+  "harvested": "Hasat siloya kondu!",
+  "planted": "Tohum ekildi. Vadi büyüyor!",
+  "bought": "Satın alma tamam!",
+  "upgraded": "Geliştirme tamam!",
+  "canceled": "Malzemeler iade edildi.",
+  "sold": "Satış tamam!",
+  "removed": "Alan kullanıma hazır!",
+  "animals": "Hayvanlarla ilgilenildi!",
+  "discarded": "Sipariş kaldırıldı. Yakında yenisi gelecek."
+}

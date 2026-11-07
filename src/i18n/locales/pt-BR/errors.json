@@ -1,0 +1,18 @@
+{
+  "network": "Não foi possível conectar ao servidor.",
+  "session": "Sessão expirada. Conecte novamente.",
+  "coins": "Moedas insuficientes.",
+  "barn": "Celeiro cheio. Libere espaço.",
+  "silo": "Silo cheio. Libere espaço.",
+  "level": "Alcance o nível {{level}}.",
+  "locked": "Ainda não está disponível para seu nível.",
+  "stock": "Faltam produtos ou ingredientes.",
+  "feed": "Você precisa de ração para este animal.",
+  "notReady": "Ainda não está pronto. Aguarde a produção.",
+  "changed": "Esta ação já mudou. Atualize a fazenda.",
+  "place": "Este espaço está ocupado ou não pode ser usado.",
+  "seed": "Guarde uma semente para replantar.",
+  "invalid": "Operação inválida. Atualize e tente novamente.",
+  "fullQueue": "Fila cheia. Colete os produtos prontos.",
+  "actionFailed": "Não foi possível concluir. Tente novamente."
+}

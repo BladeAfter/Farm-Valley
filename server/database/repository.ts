@@ -42,7 +42,7 @@ export async function access(hash: string, command?: Command): Promise<Farm> {
     if (command) {
       farm = applyCommand(farm, command);
     }
-    if (command || previous.version !== farm.version) {
+    if (command || previous !== farm) {
       await client.query("UPDATE sessions SET farm=$2 WHERE token_hash=$1", [
         hash,
         JSON.stringify(farm),

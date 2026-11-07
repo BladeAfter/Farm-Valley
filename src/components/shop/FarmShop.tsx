@@ -1,3 +1,6 @@
+import { useLabels } from "../../i18n/labels";
+import { t } from "../../i18n/core";
+import { duration } from "../../i18n/core";
 import { useState } from "react";
 import { useFarm, type ShopCategory } from "../../store/useFarm";
 import { BuildingCard, LevelLock, RewardBadge } from "../ui/GameComponents";
@@ -17,27 +20,60 @@ import { fruitIds, fruitSpecies } from "../../types/orchard";
 import { storageImage } from "../../data/buildings";
 import { animalPortrait } from "../../data/animals";
 import { pens } from "../../data/pens";
-
-const categories: { id: ShopCategory; label: string; image: string }[] = [
+const categories: {
+  id: ShopCategory;
+  label: string;
+  image: string;
+}[] = [
   {
     id: "agriculture",
-    label: "Agricultura",
+    get label() {
+      return t("farm.agriculture");
+    },
     image: "/assets/crops/wheat/ready-v2.webp",
   },
-  { id: "animals", label: "Animais", image: animalPortrait("cow") },
-  { id: "factories", label: "Fábricas", image: machineImage("bakery") },
+  {
+    id: "animals",
+    get label() {
+      return t("farm.animals");
+    },
+    image: animalPortrait("cow"),
+  },
+  {
+    id: "factories",
+    get label() {
+      return t("farm.factories");
+    },
+    image: machineImage("bakery"),
+  },
   {
     id: "trees",
-    label: "Árvores",
+    get label() {
+      return t("farm.trees");
+    },
     image: "/assets/trees/orchard/apple/portrait-v1.webp",
   },
   {
     id: "decorations",
-    label: "Decorações",
+    get label() {
+      return t("farm.decorations");
+    },
     image: "/assets/decorations/flowers-v2.webp",
   },
-  { id: "storage", label: "Armazenamento", image: storageImage("barn", 1) },
-  { id: "supplies", label: "Suprimentos", image: "/assets/products/feed.svg" },
+  {
+    id: "storage",
+    get label() {
+      return t("farm.storage");
+    },
+    image: storageImage("barn", 1),
+  },
+  {
+    id: "supplies",
+    get label() {
+      return t("farm.supplies");
+    },
+    image: "/assets/products/feed.svg",
+  },
 ];
 type Entry = {
   id: string;
@@ -52,8 +88,8 @@ type Entry = {
   action: string;
   run: () => void | Promise<unknown>;
 };
-
 export function FarmShop() {
+  const { crops, fruitSpecies, items, machineKinds, pens } = useLabels();
   const {
     snapshot,
     shopCategory,
@@ -74,24 +110,24 @@ export function FarmShop() {
     entries = [
       {
         id: "field",
-        name: "Canteiro",
+        name: t("farm.field"),
         image: "/assets/ui/field.svg",
         level: 1,
         price: 5,
-        description: `${farm.plots.length} canteiros na fazenda. Um espaço de terra arada para cultivar e mover individualmente.`,
-        action: "Posicionar canteiro",
+        description: t("shop.fieldDescription",{count:farm.plots.length}),
+        action: t("common.actionNamed",{action:t("common.place"),name:t("farm.field")}),
         run: () => startPlacement({ kind: "field" }),
       },
       ...cropIds.map((crop) => ({
         id: crop,
-        name: "Sementes de " + items[crop].name,
+        name: t("shop.seedName",{name:items[crop].name}),
         image: items[crop].image,
         level: crops[crop].level,
         price: crops[crop].seedPrice,
-        description: `Pacote com 3 sementes. Você possui ${farm.inventory[crop]} no silo. Cresce em ${crops[crop].duration / 60000} min.`,
+        description: t("shop.seedsDescription",{count:farm.inventory[crop],time:duration(crops[crop].duration)}),
         disabled: siloUsed(farm) + 3 > storageCapacity(farm, "silo"),
-        reason: "Libere 3 espaços no silo.",
-        action: "Comprar sementes",
+        reason: t("errors.silo"),
+        action: t("common.buyNamed",{name:t("farm.seeds")}),
         run: () => act({ type: "buy-seed", crop }),
       })),
     ];
@@ -107,9 +143,9 @@ export function FarmShop() {
         price: config.price,
         owned: !!owned,
         description: owned
-          ? `Sua máquina tem ${owned.slots} espaços e ${owned.jobs.length} produtos na fila. Toque nela no mapa para fabricar.`
-          : "Construção com 2 espaços de produção. Escolha o lugar no mapa antes de confirmar a compra.",
-        action: owned ? "Abrir " + config.name : "Comprar " + config.name,
+          ? t("shop.machineOwned",{slots:owned.slots,queued:owned.jobs.length})
+          : t("shop.machineDescription"),
+        action: t(owned?"common.openNamed":"common.buyNamed",{name:config.name}),
         run: () =>
           owned
             ? openMachine(owned.id)
@@ -129,9 +165,9 @@ export function FarmShop() {
         owned,
         price: purchasable ? 120 : undefined,
         disabled: !owned && !purchasable,
-        reason: "Novas compras desta espécie ainda não estão disponíveis.",
-        description: `${config.name} · produz ${items[config.product].name.toLocaleLowerCase("pt-BR")}. Alimentação: ${items[config.feed].name.toLocaleLowerCase("pt-BR")}.`,
-        action: owned ? "Visitar cercado" : "Comprar aprisco",
+        reason: t("shop.unavailable"),
+        description: t("shop.animalDescription",{name:config.name,product:items[config.product].name,feed:items[config.feed].name}),
+        action: owned?t("common.visit"):t("common.buyNamed",{name:pens[kind].title}),
         run: () =>
           owned ? openAnimals(kind) : startPlacement({ kind: "sheep" }),
       };
@@ -145,8 +181,8 @@ export function FarmShop() {
         image: `/assets/trees/orchard/${species}/portrait-v1.webp`,
         level: config.level,
         price: config.price,
-        description: `${config.yield} ${config.fruit.toLocaleLowerCase("pt-BR")} por colheita, a cada ${config.duration / 3600000} h. Crescimento inicial: ${config.growth / 60000} min.`,
-        action: "Comprar " + config.name,
+        description: t("shop.fruitDescription",{count:config.yield,cycle:duration(config.duration),growth:duration(config.growth)}),
+        action: t("common.buyNamed",{name:config.name}),
         run: () => startPlacement({ kind: "fruitTree", species }),
       };
     });
@@ -154,25 +190,24 @@ export function FarmShop() {
     entries = [
       {
         id: "flowers",
-        name: "Floreira do vale",
+        name: t("farm.flowers"),
         image: "/assets/decorations/flowers-v2.webp",
         level: 1,
         price: 8,
-        description:
-          "Um pequeno canteiro de flores para decorar o espaço que você escolher.",
-        action: "Posicionar floreira",
+        description: t("shop.flowersDescription"),
+        action: t("common.actionNamed",{action:t("common.place"),name:t("farm.flowers")}),
         run: () => startPlacement({ kind: "decoration" }),
       },
     ];
   if (shopCategory === "storage")
     entries = (["silo", "barn"] as const).map((kind) => ({
       id: kind,
-      name: kind === "silo" ? "Silo" : "Celeiro",
+      name: kind === "silo" ? t("farm.silo") : t("farm.barn"),
       image: storageImage(kind, farm.storage[kind]),
       level: 1,
       owned: true,
-      description: `${storageCapacity(farm, kind)} espaços. Consulte os produtos e a próxima melhoria no seu armazém.`,
-      action: "Consultar armazenamento",
+      description: t("shop.storageDescription",{count:storageCapacity(farm,kind)}),
+      action: t("farm.storage"),
       run: () => openStorage(kind),
     }));
   if (shopCategory === "supplies")
@@ -185,10 +220,10 @@ export function FarmShop() {
         image: items[feed].image,
         level: farm.animals.some((a) => a.kind === kind) ? 1 : config.level,
         price: (items[feed].sellPrice! + 2) * 3,
-        description: `3 rações de reserva. Você possui ${farm.inventory[feed]} no celeiro. Para fabricar sua própria ração, toque na fábrica no mapa.`,
+        description: t("shop.feedDescription",{count:farm.inventory[feed]}),
         disabled: barnUsed(farm) + 3 > storageCapacity(farm, "barn"),
-        reason: "Libere 3 espaços no celeiro.",
-        action: "Comprar " + items[feed].name,
+        reason: t("errors.barn"),
+        action: t("common.buyNamed",{name:items[feed].name}),
         run: () => act({ type: "buy-feed", kind }),
       };
     });
@@ -199,7 +234,7 @@ export function FarmShop() {
     !selected?.price || selected.owned || farm.coins >= selected.price;
   return (
     <div className="farm-shop">
-      <nav className="catalog-categories" aria-label="Categorias da loja">
+      <nav className="catalog-categories" aria-label={t("common.shop")}>
         {categories.map((category) => (
           <button
             key={category.id}
@@ -218,7 +253,7 @@ export function FarmShop() {
       <div className="catalog-content">
         <div className="catalog-heading">
           <b>{categories.find((c) => c.id === shopCategory)?.label}</b>
-          <small>{entries.length} opções</small>
+          <small>{t("common.options",{count:entries.length})}</small>
         </div>
         <div className="catalog-grid">
           {entries.map((entry) => (
@@ -236,10 +271,7 @@ export function FarmShop() {
           ))}
         </div>
         {selected && (
-          <section
-            className="catalog-detail"
-            aria-label="Detalhes da construção"
-          >
+          <section className="catalog-detail" aria-label={t("farm.buildings")}>
             <img src={selected.image} alt="" />
             <div>
               <h3>{selected.name}</h3>
@@ -249,12 +281,12 @@ export function FarmShop() {
               ) : selected.disabled ? (
                 <small className="catalog-warning">{selected.reason}</small>
               ) : !affordable ? (
-                <small className="catalog-warning">Moedas insuficientes.</small>
+                <small className="catalog-warning">{t("errors.coins")}</small>
               ) : (
                 <small className="catalog-hint">
                   {selected.owned
-                    ? "Já faz parte da sua fazenda"
-                    : "Disponível para seu nível"}
+                    ? t("common.owned")
+                    : t("common.available")}
                 </small>
               )}
             </div>
@@ -269,11 +301,11 @@ export function FarmShop() {
                 onClick={() => void selected.run()}
               >
                 {selected.owned
-                  ? "Abrir"
+                  ? t("common.open")
                   : shopCategory === "supplies" ||
                       cropIds.some((c) => c === selected.id)
-                    ? "Comprar"
-                    : "Posicionar"}
+                    ? t("common.buy")
+                    : t("common.place")}
               </button>
             </div>
           </section>

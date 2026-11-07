@@ -1,0 +1,18 @@
+{
+  "feed": "غذا دادن",
+  "collect": "جمع‌آوری",
+  "hungry": "نیاز به خوراک",
+  "producing": "در حال تولید",
+  "ready": "{{name}} آماده است!",
+  "feedBatch": "غذا دادن به {{count}} حیوان",
+  "collectBatch": "جمع‌آوری {{count}} محصول",
+  "count_one": "{{count}} حیوان",
+  "count_other": "{{count}} حیوان",
+  "pen.cow": "گاوخانه",
+  "pen.chicken": "مرغدانی",
+  "pen.goat": "آغل بز",
+  "pen.pig": "خوکدانی",
+  "pen.sheep": "آغل گوسفند",
+  "title": "حیوانات مزرعه",
+  "reserve": "{{count}} موجود · {{reserve}} ذخیره"
+}

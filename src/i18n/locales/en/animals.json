@@ -1,0 +1,18 @@
+{
+  "feed": "Feed",
+  "collect": "Collect",
+  "hungry": "Needs feed",
+  "producing": "Producing",
+  "ready": "{{name}} ready!",
+  "feedBatch": "Feed {{count}} animals",
+  "collectBatch": "Collect {{count}} products",
+  "count_one": "{{count}} animal",
+  "count_other": "{{count}} animals",
+  "pen.cow": "Cowshed",
+  "pen.chicken": "Chicken coop",
+  "pen.goat": "Goat shelter",
+  "pen.pig": "Pigsty",
+  "pen.sheep": "Sheepfold",
+  "title": "Farm animals",
+  "reserve": "{{count}} available · {{reserve}} in reserve"
+}

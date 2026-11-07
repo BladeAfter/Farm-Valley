@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+<defs>
+<radialGradient id="skin" cx=".32" cy=".3" r=".8"><stop stop-color="#c58b5b"/><stop offset=".6" stop-color="#a26540"/><stop offset="1" stop-color="#6e3f2d"/></radialGradient>
+<linearGradient id="neck" x2="1" y2="1"><stop stop-color="#78482e"/><stop offset="1" stop-color="#b4774c"/></linearGradient>
+<radialGradient id="curl" cx=".3" cy=".2"><stop stop-color="#68503b"/><stop offset=".5" stop-color="#382e28"/><stop offset="1" stop-color="#211f20"/></radialGradient>
+<linearGradient id="scarf" x2=".8" y2="1"><stop stop-color="#8bbdb0"/><stop offset=".5" stop-color="#4b8f89"/><stop offset="1" stop-color="#32666b"/></linearGradient>
+<linearGradient id="shirt" x2=".5" y2="1"><stop stop-color="#fff1d1"/><stop offset="1" stop-color="#c2ae86"/></linearGradient>
+<linearGradient id="overalls" x2="1" y2="1"><stop stop-color="#9da66e"/><stop offset="1" stop-color="#596a43"/></linearGradient>
+<radialGradient id="iris"><stop stop-color="#b28a4e"/><stop offset=".6" stop-color="#67462c"/><stop offset="1" stop-color="#312b26"/></radialGradient>
+</defs>
+<path d="M27 255q2-59 62-68h78q61 10 64 68" fill="url(#shirt)"/>
+<path d="m72 198 18-11 19 66H62Zm110 0-18-11-18 66h48Z" fill="url(#overalls)" stroke="#62714a" stroke-width="2"/>
+<path d="M91 224h77l8 32H83Z" fill="url(#overalls)"/><path d="M109 237h37v18h-37Z" fill="none" stroke="#b6bc89" stroke-width="1.4"/>
+<path d="M106 158v39q23 22 46-1v-39" fill="url(#neck)"/>
+<path d="m96 189 29 19-20 18-17-31m72-6-31 19 22 18 19-31" fill="#f9ebc9" stroke="#bda47c"/>
+<g fill="url(#curl)"><circle cx="72" cy="71" r="25"/><circle cx="58" cy="99" r="25"/><circle cx="65" cy="129" r="24"/><circle cx="77" cy="151" r="21"/><circle cx="183" cy="75" r="25"/><circle cx="198" cy="101" r="23"/><circle cx="191" cy="128" r="24"/><circle cx="178" cy="149" r="21"/></g>
+<path d="M70 85Q60 20 128 17q69 1 63 71l-24 24H89Z" fill="url(#scarf)" stroke="#477f7a" stroke-width="2"/>
+<path d="M76 57q45-29 104 1M74 67q56-27 108 2" fill="none" stroke="#b6d0b9" stroke-width="3" opacity=".6"/>
+<path d="M168 41q9-31 29-24 14 14-13 30 27-9 27 11-10 17-34-8" fill="url(#scarf)" stroke="#538d86" stroke-width="2"/>
+<ellipse cx="78" cy="120" rx="12" ry="18" fill="#a36641"/><ellipse cx="178" cy="120" rx="12" ry="18" fill="#8e5236"/>
+<path d="M81 91q9-36 47-35 45-1 49 38l-3 42q-6 47-45 48-36-2-46-43Z" fill="url(#skin)"/>
+<g fill="url(#curl)"><circle cx="88" cy="75" r="14"/><circle cx="109" cy="67" r="16"/><circle cx="134" cy="65" r="15"/><circle cx="155" cy="72" r="15"/><circle cx="172" cy="84" r="12"/></g>
+<path d="M91 103q14-10 24-3m25-1q14-7 25 3" fill="none" stroke="#463024" stroke-width="5" stroke-linecap="round"/>
+<path d="M90 116q12-13 27 0-9 14-27 0m50 0q13-13 26 1-14 13-26-1" fill="#fff1d9" stroke="#68432b" stroke-width="1.6"/>
+<ellipse cx="105" cy="116" rx="6.5" ry="8" fill="url(#iris)"/><ellipse cx="152" cy="116" rx="6.5" ry="8" fill="url(#iris)"/>
+<ellipse cx="105" cy="117" rx="3.2" ry="5.3" fill="#242323"/><ellipse cx="152" cy="117" rx="3.2" ry="5.3" fill="#242323"/>
+<circle cx="103" cy="112" r="2.3" fill="#fff9ed"/><circle cx="150" cy="112" r="2.3" fill="#fff9ed"/>
+<path d="M127 119q-11 15-3 18 6 3 12-2" fill="none" stroke="#895134" stroke-width="2.2" stroke-linecap="round"/>
+<path d="M106 148q23 12 45-1-5 22-23 22-15-1-22-21" fill="#693e35"/><path d="M110 150q20 8 37 0l-5 8q-14 6-28-1Z" fill="#fff2d7"/>
+<path d="M116 164q14 6 25-1" fill="none" stroke="#b87763" stroke-width="3" stroke-linecap="round"/>
+<path d="M88 135q9-6 20 0m41-1q9-7 18-1" fill="none" stroke="#c88062" stroke-width="5" opacity=".45" stroke-linecap="round"/>
+<circle cx="78" cy="138" r="4.5" fill="#e5bd62" stroke="#a87d36"/><circle cx="178" cy="138" r="4.5" fill="#e5bd62" stroke="#a87d36"/>
+<g fill="#d5bb6c" stroke="#8d7d43"><circle cx="91" cy="213" r="4"/><circle cx="165" cy="213" r="4"/></g>
+<path d="M79 199 91 230m84-31-11 31" stroke="#bac18f" stroke-width="1.4" fill="none"/>
+</svg>

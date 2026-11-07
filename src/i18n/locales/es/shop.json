@@ -1,0 +1,14 @@
+{
+  "title": "Tienda del valle",
+  "fieldDescription": "{{count}} bancales. Cultiva y mueve cada uno.",
+  "seedName": "Semillas de {{name}}",
+  "seedsDescription": "3 semillas · existencias {{count}} · crece en {{time}}.",
+  "machineDescription": "2 espacios de producción. Elige lugar y confirma.",
+  "machineOwned": "{{slots}} espacios · {{queued}} productos en cola.",
+  "animalDescription": "{{name}} produce {{product}}. Pienso: {{feed}}.",
+  "fruitDescription": "{{count}} por cosecha · ciclo {{cycle}} · crece en {{growth}}.",
+  "storageDescription": "{{count}} espacios. Consulta productos y la próxima mejora.",
+  "feedDescription": "3 piensos · existencias {{count}}. Fabrica pienso en el molino.",
+  "flowersDescription": "Un pequeño detalle para decorar tu granja.",
+  "unavailable": "Aún no se pueden comprar más de esta especie."
+}

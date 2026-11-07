@@ -1,0 +1,18 @@
+{
+  "feed": "먹이 주기",
+  "collect": "수거",
+  "hungry": "사료 필요",
+  "producing": "생산 중",
+  "ready": "{{name}} 준비 완료!",
+  "feedBatch": "동물 {{count}}마리 먹이 주기",
+  "collectBatch": "제품 {{count}}개 수거",
+  "count_one": "{{count}}마리",
+  "count_other": "{{count}}마리",
+  "pen.cow": "외양간",
+  "pen.chicken": "닭장",
+  "pen.goat": "염소 우리",
+  "pen.pig": "돼지우리",
+  "pen.sheep": "양 우리",
+  "title": "농장 동물",
+  "reserve": "사용 가능 {{count}} · 예비 {{reserve}}"
+}

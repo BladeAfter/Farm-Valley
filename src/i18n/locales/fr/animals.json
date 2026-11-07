@@ -1,0 +1,18 @@
+{
+  "feed": "Nourrir",
+  "collect": "Collecter",
+  "hungry": "A besoin de nourriture",
+  "producing": "Production en cours",
+  "ready": "{{name}} prêt !",
+  "feedBatch": "Nourrir {{count}} animaux",
+  "collectBatch": "Collecter {{count}} produits",
+  "count_one": "{{count}} animal",
+  "count_other": "{{count}} animaux",
+  "pen.cow": "Étable",
+  "pen.chicken": "Poulailler",
+  "pen.goat": "Abri des chèvres",
+  "pen.pig": "Porcherie",
+  "pen.sheep": "Bergerie",
+  "title": "Animaux de la ferme",
+  "reserve": "{{count}} disponibles · {{reserve}} en réserve"
+}

@@ -1,0 +1,14 @@
+{
+  "title": "Vadi mağazası",
+  "fieldDescription": "{{count}} tarla yatağı. Ekin ek ve her birini taşı.",
+  "seedName": "{{name}} tohumu",
+  "seedsDescription": "3 tohum · stok {{count}} · büyüme {{time}}.",
+  "machineDescription": "2 üretim yeri. Bir yer seçip onayla.",
+  "machineOwned": "{{slots}} yer · sırada {{queued}} ürün.",
+  "animalDescription": "{{name}}, {{product}} üretir. Yem: {{feed}}.",
+  "fruitDescription": "Hasatta {{count}} · döngü {{cycle}} · büyüme {{growth}}.",
+  "storageDescription": "{{count}} yer. Ürünleri ve sonraki geliştirmeyi gör.",
+  "feedDescription": "3 yem · stok {{count}}. Yemini fabrikada üret.",
+  "flowersDescription": "Çiftliğin için küçük bir süs.",
+  "unavailable": "Bu türden yeni alımlar henüz mevcut değil."
+}

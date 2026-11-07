@@ -1,0 +1,18 @@
+{
+  "title": "Silo ve ambar",
+  "used": "Kullanılan alan",
+  "upgrade": "Geliştir",
+  "upgradeNamed": "{{name}} geliştir",
+  "back": "Ürünlere dön",
+  "sell": "Sat",
+  "sellNamed": "{{name}} sat",
+  "sellPrice": "Sat · {{coins}}",
+  "available": "{{count}} mevcut",
+  "empty": "Sonraki hasat ve ürünlerin burada görünür.",
+  "hint": "Görmek veya satmak için dokun. Tohum sakla.",
+  "reserved": "Çiftlik bakımı için ayrıldı.",
+  "stage": "{{name}} · aşama {{stage}}",
+  "spaces": "{{used}} / {{capacity}} yer",
+  "next": "{{current}} → {{next}} yer · seviye {{level}}",
+  "max": "En yüksek aşama"
+}

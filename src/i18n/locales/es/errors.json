@@ -1,0 +1,18 @@
+{
+  "network": "No se pudo conectar al servidor.",
+  "session": "Sesión caducada. Vuelve a conectar.",
+  "coins": "No hay monedas suficientes.",
+  "barn": "Granero lleno. Libera espacio.",
+  "silo": "Silo lleno. Libera espacio.",
+  "level": "Alcanza el nivel {{level}}.",
+  "locked": "Aún no disponible para tu nivel.",
+  "stock": "Faltan productos o ingredientes.",
+  "feed": "Necesitas pienso para este animal.",
+  "notReady": "Aún no está listo. Espera la producción.",
+  "changed": "Esta acción cambió. Actualiza la granja.",
+  "place": "Este espacio está ocupado o no se puede usar.",
+  "seed": "Guarda una semilla para replantar.",
+  "invalid": "Acción no válida. Actualiza e inténtalo otra vez.",
+  "fullQueue": "Cola llena. Recoge los productos listos.",
+  "actionFailed": "No se pudo completar. Inténtalo otra vez."
+}

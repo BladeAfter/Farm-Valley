@@ -1,0 +1,18 @@
+{
+  "feed": "エサをあげる",
+  "collect": "回収",
+  "hungry": "エサが必要",
+  "producing": "生産中",
+  "ready": "{{name}}ができました！",
+  "feedBatch": "{{count}}匹にエサをあげる",
+  "collectBatch": "{{count}}個を回収",
+  "count_one": "{{count}}匹",
+  "count_other": "{{count}}匹",
+  "pen.cow": "ウシ小屋",
+  "pen.chicken": "ニワトリ小屋",
+  "pen.goat": "ヤギ小屋",
+  "pen.pig": "ブタ小屋",
+  "pen.sheep": "ヒツジ小屋",
+  "title": "農場の動物",
+  "reserve": "利用可能{{count}} · 予備{{reserve}}"
+}

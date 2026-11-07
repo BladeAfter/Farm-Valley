@@ -1,6 +1,7 @@
+import { number as formatNumber } from "../../i18n/core";
+import { t } from "../../i18n/core";
 import { useEffect, useId, useRef, type ReactNode } from "react";
 import { Lock, X } from "lucide-react";
-
 export function GameModal({
   title,
   className = "",
@@ -79,7 +80,11 @@ export function GameModal({
             <div className="eyebrow">{subtitle}</div>
             <h2 id={id}>{title}</h2>
           </div>
-          <button className="close" aria-label="Fechar" onClick={onClose}>
+          <button
+            className="close"
+            aria-label={t("common.close")}
+            onClick={onClose}
+          >
             <X size={21} />
           </button>
         </header>
@@ -88,7 +93,6 @@ export function GameModal({
     </div>
   );
 }
-
 export function GameBottomSheet(props: Parameters<typeof GameModal>[0]) {
   return (
     <GameModal
@@ -97,15 +101,13 @@ export function GameBottomSheet(props: Parameters<typeof GameModal>[0]) {
     />
   );
 }
-
 export function LevelLock({ level }: { level: number }) {
   return (
     <span className="level-lock">
-      <Lock size={12} aria-hidden="true" /> Nível {level}
+      <Lock size={12} aria-hidden="true" /> {t("common.level",{level})}
     </span>
   );
 }
-
 export function RewardBadge({
   kind,
   value,
@@ -119,12 +121,11 @@ export function RewardBadge({
         src={kind === "coins" ? "/assets/ui/coin.svg" : "/assets/ui/star.svg"}
         alt=""
       />
-      <b>{value}</b>
-      <small>{kind === "coins" ? "moedas" : "XP"}</small>
+      <b>{formatNumber(value)}</b>
+      <small>{kind === "coins" ? t("common.coins") : t("common.xp")}</small>
     </span>
   );
 }
-
 export function BuildingCard({
   name,
   image,
@@ -152,7 +153,7 @@ export function BuildingCard({
         (selected ? " selected" : "") +
         (locked ? " locked" : "")
       }
-      aria-label={"Detalhes de " + name}
+      aria-label={t("common.details",{name})}
       aria-pressed={!!selected}
       onClick={onClick}
     >
@@ -161,19 +162,18 @@ export function BuildingCard({
       </span>
       <b>{name}</b>
       {owned ? (
-        <small className="owned-tag">Na sua fazenda</small>
+        <small className="owned-tag">{t("common.owned")}</small>
       ) : locked && level ? (
         <LevelLock level={level} />
       ) : price !== undefined ? (
         <span className="card-price">
           <img src="/assets/ui/coin.svg" alt="" />
-          {price}
+          {formatNumber(price)}
         </span>
       ) : null}
     </button>
   );
 }
-
 export function AnimalCard({
   name,
   image,
@@ -205,7 +205,6 @@ export function AnimalCard({
     </article>
   );
 }
-
 export function RecipeCard({
   name,
   image,
@@ -230,11 +229,11 @@ export function RecipeCard({
         (selected ? " selected" : "") +
         (lockedLevel ? " locked" : "")
       }
-      aria-label={"Receita " + name}
+      aria-label={t("production.recipe",{name})}
       aria-pressed={selected}
       onClick={onClick}
     >
-      <span className="recipe-stock">{stock}</span>
+      <span className="recipe-stock">{formatNumber(stock)}</span>
       <img src={image} alt="" />
       <b>{name}</b>
       {lockedLevel ? (
@@ -245,7 +244,6 @@ export function RecipeCard({
     </button>
   );
 }
-
 export function GameTabs<T extends string>({
   value,
   options,
@@ -253,7 +251,11 @@ export function GameTabs<T extends string>({
   label,
 }: {
   value: T;
-  options: { id: T; label: string; image?: string }[];
+  options: {
+    id: T;
+    label: string;
+    image?: string;
+  }[];
   onChange: (value: T) => void;
   label: string;
 }) {
@@ -274,7 +276,6 @@ export function GameTabs<T extends string>({
     </nav>
   );
 }
-
 export function ProgressIndicator({
   value,
   max,
@@ -289,14 +290,13 @@ export function ProgressIndicator({
       <div>
         <span>{label}</span>
         <b>
-          {value} / {max}
+          {formatNumber(value)} / {formatNumber(max)}
         </b>
       </div>
       <progress aria-label={label} value={value} max={max} />
     </div>
   );
 }
-
 export function ItemCard({
   name,
   image,
@@ -319,11 +319,10 @@ export function ItemCard({
     >
       <img src={image} alt="" loading="lazy" />
       <b>{name}</b>
-      <span>{quantity}</span>
+      <span>{formatNumber(quantity)}</span>
     </button>
   );
 }
-
 export function UpgradePanel({
   title,
   onBack,
@@ -339,7 +338,7 @@ export function UpgradePanel({
       <div className="game-detail-heading">
         <h3 id={id}>{title}</h3>
         <button className="secondary" onClick={onBack}>
-          Voltar aos produtos
+          {t("inventory.back")}
         </button>
       </div>
       {children}

@@ -1,4 +1,5 @@
-﻿import { Settings, Plus, Minus, LocateFixed, Maximize } from "lucide-react";
+import { t, number as formatNumber } from "../../i18n/core";
+import { Settings, Plus, Minus, LocateFixed, Maximize } from "lucide-react";
 import { useFarm } from "../../store/useFarm";
 import { ResourceCounter } from "../ui/ResourceCounter";
 export function Hud() {
@@ -13,16 +14,16 @@ export function Hud() {
         <div className="player-card">
           <div className="level-badge">
             <img src="/assets/ui/star.svg" alt="" />
-            <b>{level}</b>
+            <b>{formatNumber(level)}</b>
           </div>
           <div className="player-info">
-            <b>Vale de Alecrim</b>
+            <b>{t("farm.title")}</b>
             <div className="xp">
               <span style={{ width: ((farm?.xp ?? 0) % 50) * 2 + "%" }} />
             </div>
             <small>
-              Nível {level}
-              <span>{(farm?.xp ?? 0) % 50} / 50 XP</span>
+              {t("common.level",{level})}
+              <span>{formatNumber((farm?.xp ?? 0)%50)} / {formatNumber(50)} {t("common.xp")}</span>
             </small>
           </div>
         </div>
@@ -33,17 +34,17 @@ export function Hud() {
           <ResourceCounter
             value={farm?.coins ?? 0}
             image="/assets/ui/coin.svg"
-            label="Moedas"
+            label={t("common.coins")}
           />
           <ResourceCounter
             value={farm?.diamonds ?? 0}
             image="/assets/ui/diamond.svg"
-            label="Diamantes"
+            label={t("common.diamonds")}
           />
           <button
             className="square-button"
             onClick={() => open("settings")}
-            aria-label="Configurações"
+            aria-label={t("common.settings")}
           >
             <Settings size={22} />
           </button>
@@ -53,26 +54,26 @@ export function Hud() {
         <aside className="quest">
           <img src="/assets/ui/sickle.svg" alt="" />
           <div>
-            <b>Sua primeira colheita</b>
-            <span>Selecione a foice e arraste sobre o trigo.</span>
+            <b>{t("tutorial.firstHarvest")}</b>
+            <span>{t("tutorial.sickle")}</span>
           </div>
         </aside>
       )}
       <aside className="camera-tools">
-        <button aria-label="Aproximar" onClick={() => zoom(0.12)}>
+        <button aria-label={t("common.zoomIn")} onClick={() => zoom(0.12)}>
           <Plus />
         </button>
-        <button aria-label="Afastar" onClick={() => zoom(-0.12)}>
+        <button aria-label={t("common.zoomOut")} onClick={() => zoom(-0.12)}>
           <Minus />
         </button>
         <button
-          aria-label="Centralizar fazenda"
+          aria-label={t("common.center")}
           onClick={() => window.dispatchEvent(new Event("farm-home"))}
         >
           <LocateFixed size={20} />
         </button>
         <button
-          aria-label="Tela cheia"
+          aria-label={t("common.fullscreen")}
           onClick={() => {
             void document.documentElement.requestFullscreen?.().catch(() => {});
           }}

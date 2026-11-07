@@ -1,5 +1,7 @@
-﻿import { useEffect } from "react";
+import { t } from "./i18n/core";
+import { useEffect } from "react";
 import { Leaf } from "lucide-react";
+import { useLocale } from "./i18n/core";
 import { useState } from "react";
 import { World } from "./components/World";
 import { Hud } from "./components/hud/Hud";
@@ -9,13 +11,15 @@ import { PlotPopover } from "./components/modals/PlotPopover";
 import { useFarm } from "./store/useFarm";
 import { PlacementBar } from "./components/obstacles/PlacementBar";
 export function App() {
-  const { load, message, busy, snapshot } = useFarm();
+  useLocale((state) => state.revision);
+  const { load, messageCode, messageParams, messageVersion, busy, snapshot } = useFarm();
+  const message=t(messageCode,messageParams);
   const [noticeVisible, setNoticeVisible] = useState(true);
   useEffect(() => {
     setNoticeVisible(true);
     const timer = window.setTimeout(() => setNoticeVisible(false), 4500);
     return () => clearTimeout(timer);
-  }, [message]);
+  }, [messageVersion]);
   useEffect(() => {
     void load();
   }, [load]);
@@ -29,30 +33,30 @@ export function App() {
       <FarmPanels />
       <PlacementBar />
       <div role="status" className="toast" data-visible={noticeVisible || busy}>
-        {busy ? "Cuidando da fazenda…" : message}
+        {busy ? t("common.busy") : message}
       </div>
       <div className="build-status">
         <i className={snapshot ? "connected" : ""} />
         {snapshot
           ? snapshot.storage === "file"
-            ? "Salvo neste servidor"
+            ? t("common.synced")
             : snapshot.persistent
-              ? "Online · progresso salvo"
-              : "Alpha · progresso temporário"
-          : "Conectando ao vale…"}
+              ? t("common.synced")
+              : t("common.temporary")
+          : t("notifications.loading")}
       </div>
       {!snapshot && (
         <div className="loading-overlay">
           <Leaf size={42} />
-          <h2>Abrindo as porteiras…</h2>
+          <h2>{t("tutorial.opening")}</h2>
           <p>{message}</p>
-          <button onClick={() => void load()}>Tentar conectar</button>
+          <button onClick={() => void load()}>{t("common.retry")}</button>
         </div>
       )}
       <div className="rotate">
         <Leaf size={48} />
-        <h2>Um vale inteiro para explorar</h2>
-        <p>Vire o celular na horizontal para jogar.</p>
+        <h2>{t("tutorial.rotateTitle")}</h2>
+        <p>{t("tutorial.rotate")}</p>
       </div>
     </main>
   );

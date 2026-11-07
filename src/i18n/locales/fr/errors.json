@@ -1,0 +1,18 @@
+{
+  "network": "Connexion au serveur impossible.",
+  "session": "Session expirée. Reconnectez-vous.",
+  "coins": "Pièces insuffisantes.",
+  "barn": "Grange pleine. Libérez de la place.",
+  "silo": "Silo plein. Libérez de la place.",
+  "level": "Atteignez le niveau {{level}}.",
+  "locked": "Pas encore disponible à votre niveau.",
+  "stock": "Produits ou ingrédients manquants.",
+  "feed": "Il faut de la nourriture pour cet animal.",
+  "notReady": "Pas encore prêt. Patientez.",
+  "changed": "Cette action a changé. Actualisez.",
+  "place": "Cet espace est occupé ou inutilisable.",
+  "seed": "Gardez une graine pour replanter.",
+  "invalid": "Action invalide. Actualisez et réessayez.",
+  "fullQueue": "File pleine. Collectez les produits prêts.",
+  "actionFailed": "Action impossible. Réessayez."
+}

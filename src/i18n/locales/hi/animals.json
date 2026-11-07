@@ -1,0 +1,18 @@
+{
+  "feed": "चारा दें",
+  "collect": "इकट्ठा करें",
+  "hungry": "चारा चाहिए",
+  "producing": "उत्पादन जारी",
+  "ready": "{{name}} तैयार!",
+  "feedBatch": "{{count}} पशुओं को चारा दें",
+  "collectBatch": "{{count}} उत्पाद इकट्ठा करें",
+  "count_one": "{{count}} पशु",
+  "count_other": "{{count}} पशु",
+  "pen.cow": "गौशाला",
+  "pen.chicken": "मुर्गीघर",
+  "pen.goat": "बकरियों का बाड़ा",
+  "pen.pig": "सूअर का बाड़ा",
+  "pen.sheep": "भेड़ों का बाड़ा",
+  "title": "खेत के पशु",
+  "reserve": "{{count}} उपलब्ध · {{reserve}} आरक्षित"
+}

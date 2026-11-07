@@ -35,6 +35,7 @@ import {
 } from "../../src/types/orchard.js";
 import { defaultPenPositions } from "../../src/data/pens.js";
 import { applyProductionCommand, animalAction } from "./production.js";
+import { applyOrderCommand, synchronizeOrders } from "./orders.js";
 export function initialFarm(options: { planted?: boolean } = {}): Farm {
   const now = Date.now();
   const farm: Farm = {
@@ -99,9 +100,9 @@ export function initialFarm(options: { planted?: boolean } = {}): Farm {
     revision: 0,
   };
   farm.obstacles = initialObstacles(farm.landSeed, farm);
-  return farm;
+  return synchronizeOrders(farm, now);
 }
-export function migrateFarm(value: Farm): Farm {
+export function migrateFarm(value: Farm, now = Date.now()): Farm {
   if (
     value.version === 7 &&
     value.penPositions &&
@@ -111,7 +112,7 @@ export function migrateFarm(value: Farm): Farm {
       Number.isFinite(value.inventory[id as keyof typeof items]),
     )
   )
-    return value;
+    return synchronizeOrders(value, now);
   const base = initialFarm({ planted: false });
   const animals = structuredClone(value.animals ?? base.animals);
   for (const animal of base.animals.filter(
@@ -142,7 +143,7 @@ export function migrateFarm(value: Farm): Farm {
   };
   if (!Array.isArray(value.obstacles))
     migrated.obstacles = initialObstacles(migrated.landSeed, migrated);
-  return migrated;
+  return synchronizeOrders({ ...migrated, orderBoard: value.orderBoard }, now);
 }
 function fieldAction(
   farm: Farm,
@@ -182,12 +183,16 @@ export function applyCommand(
   command: Command,
   now = Date.now(),
 ): Farm {
-  const farm = structuredClone(migrateFarm(previous));
-  if (applyProductionCommand(farm, command, now)) {
+  const farm = structuredClone(migrateFarm(previous, now));
+  if (applyOrderCommand(farm, command, now) || applyProductionCommand(farm, command, now)) {
     farm.revision++;
-    return farm;
+    return synchronizeOrders(farm, now);
   }
   switch (command.type) {
+    case "set-language": {
+      farm.preferences = { ...farm.preferences, locale: command.locale };
+      break;
+    }
     case "plant-fruit-tree": {
       const config = fruitSpecies[command.species];
       if (playerLevel(farm) < config.level)
@@ -401,21 +406,7 @@ export function applyCommand(
       farm.storage[command.storage]++;
       break;
     }
-    case "deliver-order": {
-      if (command.orderId !== farm.ordersCompleted)
-        throw new Error("Este pedido já foi entregue. Atualize o quadro.");
-      const order = currentOrder(farm);
-      if (command.item && command.item !== order.item)
-        throw new Error("O pedido mudou. Atualize o quadro.");
-      if (farm.inventory[order.item] < order.amount)
-        throw new Error("Faltam produtos para entregar este pedido.");
-      farm.inventory[order.item] -= order.amount;
-      farm.coins += order.coins;
-      farm.xp += order.xp;
-      farm.ordersCompleted++;
-      break;
-    }
   }
   farm.revision++;
-  return farm;
+  return synchronizeOrders(farm, now);
 }

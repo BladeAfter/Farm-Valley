@@ -1,0 +1,18 @@
+{
+  "title": "사일로와 헛간",
+  "used": "사용 공간",
+  "upgrade": "확장",
+  "upgradeNamed": "{{name}} 확장",
+  "back": "제품으로 돌아가기",
+  "sell": "판매",
+  "sellNamed": "{{name}} 판매",
+  "sellPrice": "판매 · {{coins}}",
+  "available": "사용 가능 {{count}}",
+  "empty": "다음 수확과 수거 제품이 여기에 표시됩니다.",
+  "hint": "눌러 확인하거나 판매하세요. 씨앗은 남겨두세요.",
+  "reserved": "농장 관리를 위해 보관됩니다.",
+  "stage": "{{name}} · {{stage}}단계",
+  "spaces": "{{used}}/{{capacity}}칸",
+  "next": "{{current}}→{{next}}칸 · 레벨{{level}}",
+  "max": "최대 단계 달성"
+}

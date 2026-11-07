@@ -1,0 +1,14 @@
+{
+  "title": "Boutique de la vallée",
+  "fieldDescription": "{{count}} parcelles. Cultivez et déplacez-les.",
+  "seedName": "Graines de {{name}}",
+  "seedsDescription": "3 graines · stock {{count}} · pousse en {{time}}.",
+  "machineDescription": "2 places de production. Placez et confirmez.",
+  "machineOwned": "{{slots}} places · {{queued}} produits en file.",
+  "animalDescription": "{{name}} produit {{product}}. Nourriture : {{feed}}.",
+  "fruitDescription": "{{count}} par récolte · cycle {{cycle}} · pousse {{growth}}.",
+  "storageDescription": "{{count}} places. Consultez les produits et l'amélioration.",
+  "feedDescription": "3 portions · stock {{count}}. Fabriquez au moulin.",
+  "flowersDescription": "Une petite décoration pour votre ferme.",
+  "unavailable": "L'achat de cette espèce n'est pas encore disponible."
+}

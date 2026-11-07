@@ -1,0 +1,30 @@
+body { font-family: "Trebuchet MS", "Noto Sans", "Segoe UI", system-ui, sans-serif; }
+.world, canvas { direction: ltr; }
+.language-picker { min-width: 0; }
+.language-content { background: #fbefd4; border: 1px solid #ddc395; border-radius: 12px; padding: 8px; margin-bottom: 10px; }
+.language-search { display: flex; align-items: center; gap: 7px; background: #fff9e9; border: 1px solid #d9c29a; border-radius: 10px; padding: 8px 10px; color: #9e8053; }
+.language-search input { min-width: 0; width: 100%; border: 0; outline: 0; background: transparent; color: #7a5d34; font-size: 12px; text-align: start; }
+.language-list { display: grid; grid-template-columns: 1fr; gap: 4px; max-height: min(260px, 40dvh); overflow-y: auto; scrollbar-width: thin; overscroll-behavior: contain; padding-top: 6px; }
+.language-list button { display: flex; align-items: center; gap: 8px; min-height: 42px; padding: 7px 9px; text-align: start; background: #f4e5c2; border: 1px solid transparent; border-radius: 9px; color: #795c36; }
+.language-list button[aria-pressed="true"] { background: #e6edce; border-color: #a1b576; }
+.language-list button > span { flex: 1; font-size: 13px; }
+.language-list button > small { font-size: 10px; color: #9d8359; }
+.language-list button > svg { color: #79934d; }
+.game-modal h2, .game-modal h3, .game-modal button, .game-modal small { overflow-wrap: anywhere; }
+.game-modal .game-tabs button { min-width: 0; }
+.wallet > div { padding-inline: 31px 14px; }
+.wallet > div > img { left: auto; inset-inline-start: -15px; }
+.catalog-categories { border-right: 0; border-inline-end: 1px solid #cdb183; }
+.order-ready-seal { right: auto; inset-inline-end: 8px; }
+.recipe-card .recipe-stock { right: auto; inset-inline-end: 4px; }
+.game-item-card > span { right: auto; inset-inline-end: 5px; }
+.player-info { margin-left: 0; margin-inline-start: -26px; padding-inline: 27px 16px; }
+.resource-counter strong, .reward-badge b, .order-goods b { unicode-bidi: isolate; font-variant-numeric: tabular-nums; }
+:root[dir="rtl"] .player-info { border-radius: 15px 0 0 15px; }
+:root[dir="rtl"] .text-action .lucide-arrow-left, :root[dir="rtl"] .text-action .lucide-chevron-left, :root[dir="rtl"] .lucide-chevron-right { transform: scaleX(-1); }
+:root[dir="rtl"] .animal-card-info, :root[dir="rtl"] .catalog-detail, :root[dir="rtl"] .order-source, :root[dir="rtl"] .settings-option { text-align: start; }
+:lang(fa), :lang(ar) { font-family: Tahoma, "Noto Sans Arabic", "Noto Naskh Arabic", system-ui, sans-serif; }
+:lang(fa) h2, :lang(fa) h3, :lang(ar) h2, :lang(ar) h3 { font-family: Tahoma, "Noto Sans Arabic", system-ui, sans-serif; letter-spacing: 0; }
+:lang(hi) { font-family: "Noto Sans Devanagari", Mangal, system-ui, sans-serif; }
+:lang(zh-CN), :lang(ja), :lang(ko) { font-family: "Noto Sans CJK SC", "Noto Sans CJK JP", "Noto Sans CJK KR", "Microsoft YaHei", "Yu Gothic", "Malgun Gothic", system-ui, sans-serif; }
+@media (max-height: 420px) { .language-list { max-height: 120px; } .language-content { padding: 6px; } }

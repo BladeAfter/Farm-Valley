@@ -1,0 +1,14 @@
+{
+  "title": "Toko lembah",
+  "fieldDescription": "{{count}} petak. Tanam dan pindahkan tiap petak.",
+  "seedName": "Benih {{name}}",
+  "seedsDescription": "3 benih · stok {{count}} · tumbuh {{time}}.",
+  "machineDescription": "2 slot produksi. Pilih tempat dan konfirmasi.",
+  "machineOwned": "{{slots}} slot · {{queued}} produk mengantre.",
+  "animalDescription": "{{name}} menghasilkan {{product}}. Pakan: {{feed}}.",
+  "fruitDescription": "{{count}} per panen · siklus {{cycle}} · tumbuh {{growth}}.",
+  "storageDescription": "{{count}} tempat. Lihat produk dan peningkatan berikutnya.",
+  "feedDescription": "3 pakan · stok {{count}}. Buat di pabrik pakan.",
+  "flowersDescription": "Hiasan kecil untuk pertanianmu.",
+  "unavailable": "Pembelian baru spesies ini belum tersedia."
+}

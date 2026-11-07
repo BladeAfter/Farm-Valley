@@ -1,0 +1,18 @@
+{
+  "title": "Silo und Scheune",
+  "used": "Belegter Platz",
+  "upgrade": "Verbessern",
+  "upgradeNamed": "{{name}} verbessern",
+  "back": "Zurück zu Produkten",
+  "sell": "Verkaufen",
+  "sellNamed": "{{name}} verkaufen",
+  "sellPrice": "Verkaufen · {{coins}}",
+  "available": "{{count}} verfügbar",
+  "empty": "Deine nächsten Ernten erscheinen hier.",
+  "hint": "Antippen zum Ansehen oder Verkaufen. Saatgut aufheben.",
+  "reserved": "Für die Hofpflege reserviert.",
+  "stage": "{{name}} · Stufe {{stage}}",
+  "spaces": "{{used}} / {{capacity}} Plätze",
+  "next": "{{current}} → {{next}} Plätze · Stufe {{level}}",
+  "max": "Maximale Stufe erreicht"
+}

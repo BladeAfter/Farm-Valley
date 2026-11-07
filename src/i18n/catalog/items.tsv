@@ -1,0 +1,63 @@
+items.wheat|Trigo|Wheat|Trigo|Пшеница|Buğday|گندم|قمح|Blé|Weizen|Grano|Gandum|गेहूँ|小麦|小麦|밀|Pszenica
+items.corn|Milho|Corn|Maíz|Кукуруза|Mısır|ذرت|ذرة|Maïs|Mais|Mais|Jagung|मक्का|玉米|トウモロコシ|옥수수|Kukurydza
+items.carrot|Cenoura|Carrot|Zanahoria|Морковь|Havuç|هویج|جزر|Carotte|Karotte|Carota|Wortel|गाजर|胡萝卜|ニンジン|당근|Marchew
+items.soybean|Soja|Soybean|Soja|Соя|Soya|سویا|فول الصويا|Soja|Sojabohne|Soia|Kedelai|सोयाबीन|大豆|大豆|콩|Soja
+items.sugarcane|Cana-de-açúcar|Sugarcane|Caña de azúcar|Сахарный тростник|Şeker kamışı|نیشکر|قصب السكر|Canne à sucre|Zuckerrohr|Canna da zucchero|Tebu|गन्ना|甘蔗|サトウキビ|사탕수수|Trzcina cukrowa
+items.strawberry|Morango|Strawberry|Fresa|Клубника|Çilek|توت‌فرنگی|فراولة|Fraise|Erdbeere|Fragola|Stroberi|स्ट्रॉबेरी|草莓|イチゴ|딸기|Truskawka
+items.potato|Batata|Potato|Patata|Картофель|Patates|سیب‌زمینی|بطاطس|Pomme de terre|Kartoffel|Patata|Kentang|आलू|土豆|ジャガイモ|감자|Ziemniak
+items.milk|Leite|Milk|Leche|Молоко|Süt|شیر|حليب|Lait|Milch|Latte|Susu|दूध|牛奶|ミルク|우유|Mleko
+items.egg|Ovos|Eggs|Huevos|Яйца|Yumurta|تخم‌مرغ|بيض|Œufs|Eier|Uova|Telur|अंडे|鸡蛋|卵|달걀|Jajka
+items.goatMilk|Leite de cabra|Goat milk|Leche de cabra|Козье молоко|Keçi sütü|شیر بز|حليب الماعز|Lait de chèvre|Ziegenmilch|Latte di capra|Susu kambing|बकरी का दूध|羊奶|ヤギのミルク|염소젖|Mleko kozie
+items.bacon|Bacon|Bacon|Bacon|Бекон|Pastırma|بیکن|لحم مقدد|Bacon|Speck|Pancetta|Bacon|बेकन|培根|ベーコン|베이컨|Bekon
+items.wool|Lã|Wool|Lana|Шерсть|Yün|پشم|صوف|Laine|Wolle|Lana|Wol|ऊन|羊毛|羊毛|양털|Wełna
+items.truffle|Trufas|Truffles|Trufas|Трюфели|Trüf|قارچ ترافل|كمأة|Truffes|Trüffel|Tartufi|Truffle|ट्रफल|松露|トリュフ|트러플|Trufle
+items.feed|Ração de reserva|Reserve feed|Pienso de reserva|Запасной корм|Yedek yem|خوراک ذخیره|علف احتياطي|Réserve de nourriture|Reservefutter|Mangime di scorta|Pakan cadangan|आरक्षित चारा|备用饲料|予備のエサ|예비 사료|Zapas paszy
+items.chickenFeed|Ração de galinha|Chicken feed|Pienso para gallinas|Корм для кур|Tavuk yemi|خوراک مرغ|علف الدجاج|Nourriture pour poules|Hühnerfutter|Mangime per galline|Pakan ayam|मुर्गी का चारा|鸡饲料|ニワトリのエサ|닭 사료|Pasza dla kur
+items.cowFeed|Ração de vaca|Cow feed|Pienso para vacas|Корм для коров|İnek yemi|خوراک گاو|علف الأبقار|Nourriture pour vaches|Kuhfutter|Mangime per mucche|Pakan sapi|गाय का चारा|牛饲料|ウシのエサ|소 사료|Pasza dla krów
+items.goatFeed|Ração de cabra|Goat feed|Pienso para cabras|Корм для коз|Keçi yemi|خوراک بز|علف الماعز|Nourriture pour chèvres|Ziegenfutter|Mangime per capre|Pakan kambing|बकरी का चारा|山羊饲料|ヤギのエサ|염소 사료|Pasza dla kóz
+items.pigFeed|Ração de porco|Pig feed|Pienso para cerdos|Корм для свиней|Domuz yemi|خوراک خوک|علف الخنازير|Nourriture pour cochons|Schweinefutter|Mangime per maiali|Pakan babi|सूअर का चारा|猪饲料|ブタのエサ|돼지 사료|Pasza dla świń
+items.sheepFeed|Ração de ovelha|Sheep feed|Pienso para ovejas|Корм для овец|Koyun yemi|خوراک گوسفند|علف الأغنام|Nourriture pour moutons|Schaffutter|Mangime per pecore|Pakan domba|भेड़ का चारा|绵羊饲料|ヒツジのエサ|양 사료|Pasza dla owiec
+items.bread|Pão|Bread|Pan|Хлеб|Ekmek|نان|خبز|Pain|Brot|Pane|Roti|रोटी|面包|パン|빵|Chleb
+items.cornBread|Pão de milho|Cornbread|Pan de maíz|Кукурузный хлеб|Mısır ekmeği|نان ذرت|خبز الذرة|Pain de maïs|Maisbrot|Pane di mais|Roti jagung|मकई की रोटी|玉米面包|コーンブレッド|옥수수빵|Chleb kukurydziany
+items.cookie|Biscoito|Cookie|Galleta|Печенье|Kurabiye|بیسکویت|بسكويت|Biscuit|Keks|Biscotto|Kue kering|बिस्कुट|饼干|クッキー|쿠키|Ciastko
+items.muffin|Muffin|Muffin|Magdalena|Маффин|Muffin|مافین|مافن|Muffin|Muffin|Muffin|Muffin|मफिन|松饼|マフィン|머핀|Muffinka
+items.pie|Torta simples|Pie|Tarta|Пирог|Turta|پای|فطيرة|Tarte|Pastete|Crostata|Pai|पाई|馅饼|パイ|파이|Placek
+items.cream|Creme de leite|Cream|Nata|Сливки|Krema|خامه|قشدة|Crème|Sahne|Panna|Krim|मलाई|奶油|クリーム|크림|Śmietanka
+items.butter|Manteiga|Butter|Mantequilla|Сливочное масло|Tereyağı|کره|زبدة|Beurre|Butter|Burro|Mentega|मक्खन|黄油|バター|버터|Masło
+items.cheese|Queijo|Cheese|Queso|Сыр|Peynir|پنیر|جبن|Fromage|Käse|Formaggio|Keju|पनीर|奶酪|チーズ|치즈|Ser
+items.goatCheese|Queijo de cabra|Goat cheese|Queso de cabra|Козий сыр|Keçi peyniri|پنیر بز|جبن الماعز|Fromage de chèvre|Ziegenkäse|Formaggio di capra|Keju kambing|बकरी का पनीर|山羊奶酪|ヤギのチーズ|염소 치즈|Ser kozi
+items.cake|Bolo simples|Cake|Bizcocho|Торт|Kek|کیک|كعكة|Gâteau|Kuchen|Torta|Kue|केक|蛋糕|ケーキ|케이크|Ciasto
+items.carrotCake|Bolo de cenoura|Carrot cake|Pastel de zanahoria|Морковный торт|Havuçlu kek|کیک هویج|كعكة الجزر|Gâteau aux carottes|Karottenkuchen|Torta di carote|Kue wortel|गाजर का केक|胡萝卜蛋糕|キャロットケーキ|당근 케이크|Ciasto marchewkowe
+items.appleCake|Bolo de maçã|Apple cake|Pastel de manzana|Яблочный пирог|Elmalı kek|کیک سیب|كعكة التفاح|Gâteau aux pommes|Apfelkuchen|Torta di mele|Kue apel|सेब का केक|苹果蛋糕|リンゴのケーキ|사과 케이크|Ciasto jabłkowe
+items.chocolateCake|Bolo de chocolate|Chocolate cake|Pastel de chocolate|Шоколадный торт|Çikolatalı kek|کیک شکلاتی|كعكة الشوكولاتة|Gâteau au chocolat|Schokoladenkuchen|Torta al cioccolato|Kue cokelat|चॉकलेट केक|巧克力蛋糕|チョコレートケーキ|초콜릿 케이크|Ciasto czekoladowe
+items.strawberryCake|Bolo de morango|Strawberry cake|Pastel de fresa|Клубничный торт|Çilekli kek|کیک توت‌فرنگی|كعكة الفراولة|Gâteau aux fraises|Erdbeerkuchen|Torta alle fragole|Kue stroberi|स्ट्रॉबेरी केक|草莓蛋糕|イチゴのケーキ|딸기 케이크|Ciasto truskawkowe
+items.brownSugar|Açúcar mascavo|Brown sugar|Azúcar moreno|Коричневый сахар|Esmer şeker|شکر قهوه‌ای|سكر بني|Sucre roux|Brauner Zucker|Zucchero di canna|Gula merah|भूरी चीनी|红糖|黒砂糖|흑설탕|Brązowy cukier
+items.whiteSugar|Açúcar branco|White sugar|Azúcar blanco|Белый сахар|Beyaz şeker|شکر سفید|سكر أبيض|Sucre blanc|Weißer Zucker|Zucchero bianco|Gula putih|सफ़ेद चीनी|白糖|白砂糖|백설탕|Biały cukier
+items.syrup|Xarope|Syrup|Sirope|Сироп|Şurup|شربت|شراب السكر|Sirop|Sirup|Sciroppo|Sirup|चाशनी|糖浆|シロップ|시럽|Syrop
+items.popcorn|Pipoca|Popcorn|Palomitas|Попкорн|Patlamış mısır|پاپ‌کورن|فشار|Pop-corn|Popcorn|Popcorn|Popcorn|पॉपकॉर्न|爆米花|ポップコーン|팝콘|Popcorn
+items.butterPopcorn|Pipoca com manteiga|Butter popcorn|Palomitas con mantequilla|Попкорн с маслом|Tereyağlı patlamış mısır|پاپ‌کورن کره‌ای|فشار بالزبدة|Pop-corn au beurre|Butterpopcorn|Popcorn al burro|Popcorn mentega|मक्खन वाला पॉपकॉर्न|黄油爆米花|バターポップコーン|버터 팝콘|Popcorn maślany
+items.sweetPopcorn|Pipoca doce|Sweet popcorn|Palomitas dulces|Сладкий попкорн|Tatlı patlamış mısır|پاپ‌کورن شیرین|فشار حلو|Pop-corn sucré|Süßes Popcorn|Popcorn dolce|Popcorn manis|मीठा पॉपकॉर्न|甜爆米花|スイートポップコーン|달콤한 팝콘|Słodki popcorn
+items.grilledBacon|Bacon grelhado|Grilled bacon|Bacon a la parrilla|Жареный бекон|Izgara pastırma|بیکن کبابی|لحم مقدد مشوي|Bacon grillé|Gegrillter Speck|Pancetta grigliata|Bacon panggang|ग्रिल्ड बेकन|烤培根|焼きベーコン|구운 베이컨|Grillowany bekon
+items.baconEggs|Ovos com bacon|Bacon and eggs|Huevos con bacon|Яйца с беконом|Pastırmalı yumurta|تخم‌مرغ با بیکن|بيض باللحم المقدد|Œufs au bacon|Speck mit Eiern|Uova e pancetta|Telur dan bacon|बेकन और अंडे|培根鸡蛋|ベーコンエッグ|베이컨 에그|Jajka z bekonem
+items.bakedPotato|Batatas assadas|Baked potatoes|Patatas asadas|Печёный картофель|Fırın patates|سیب‌زمینی تنوری|بطاطس مشوية|Pommes de terre au four|Ofenkartoffeln|Patate al forno|Kentang panggang|बेक्ड आलू|烤土豆|ベイクドポテト|구운 감자|Pieczone ziemniaki
+items.vanillaIceCream|Sorvete de baunilha|Vanilla ice cream|Helado de vainilla|Ванильное мороженое|Vanilyalı dondurma|بستنی وانیلی|آيس كريم بالفانيليا|Glace à la vanille|Vanilleeis|Gelato alla vaniglia|Es krim vanila|वनीला आइसक्रीम|香草冰淇淋|バニラアイス|바닐라 아이스크림|Lody waniliowe
+items.strawberryIceCream|Sorvete de morango|Strawberry ice cream|Helado de fresa|Клубничное мороженое|Çilekli dondurma|بستنی توت‌فرنگی|آيس كريم بالفراولة|Glace à la fraise|Erdbeereis|Gelato alla fragola|Es krim stroberi|स्ट्रॉबेरी आइसक्रीम|草莓冰淇淋|イチゴアイス|딸기 아이스크림|Lody truskawkowe
+items.chocolateIceCream|Sorvete de chocolate|Chocolate ice cream|Helado de chocolate|Шоколадное мороженое|Çikolatalı dondurma|بستنی شکلاتی|آيس كريم بالشوكولاتة|Glace au chocolat|Schokoladeneis|Gelato al cioccolato|Es krim cokelat|चॉकलेट आइसक्रीम|巧克力冰淇淋|チョコアイス|초콜릿 아이스크림|Lody czekoladowe
+items.appleJuice|Suco de maçã|Apple juice|Zumo de manzana|Яблочный сок|Elma suyu|آب سیب|عصير التفاح|Jus de pomme|Apfelsaft|Succo di mela|Jus apel|सेब का रस|苹果汁|リンゴジュース|사과 주스|Sok jabłkowy
+items.carrotJuice|Suco de cenoura|Carrot juice|Zumo de zanahoria|Морковный сок|Havuç suyu|آب هویج|عصير الجزر|Jus de carotte|Karottensaft|Succo di carota|Jus wortel|गाजर का रस|胡萝卜汁|ニンジンジュース|당근 주스|Sok marchewkowy
+items.fruitJuice|Suco de frutas|Fruit juice|Zumo de frutas|Фруктовый сок|Meyve suyu|آب‌میوه|عصير الفواكه|Jus de fruits|Fruchtsaft|Succo di frutta|Jus buah|फलों का रस|果汁|フルーツジュース|과일 주스|Sok owocowy
+items.cocoa|Cacau|Cocoa|Cacao|Какао|Kakao|کاکائو|كاكاو|Cacao|Kakao|Cacao|Kakao|कोको|可可|カカオ|카카오|Kakao
+items.apple|Maçãs|Apples|Manzanas|Яблоки|Elma|سیب|تفاح|Pommes|Äpfel|Mele|Apel|सेब|苹果|リンゴ|사과|Jabłka
+items.pear|Peras|Pears|Peras|Груши|Armut|گلابی|كمثرى|Poires|Birnen|Pere|Pir|नाशपाती|梨|ナシ|배|Gruszki
+items.cherry|Cerejas|Cherries|Cerezas|Вишни|Kiraz|گیلاس|كرز|Cerises|Kirschen|Ciliegie|Ceri|चेरी|樱桃|サクランボ|체리|Wiśnie
+items.orange|Laranjas|Oranges|Naranjas|Апельсины|Portakal|پرتقال|برتقال|Oranges|Orangen|Arance|Jeruk|संतरे|橙子|オレンジ|오렌지|Pomarańcze
+items.lemon|Limões|Lemons|Limones|Лимоны|Limon|لیمو|ليمون|Citrons|Zitronen|Limoni|Lemon|नींबू|柠檬|レモン|레몬|Cytryny
+items.peach|Pêssegos|Peaches|Melocotones|Персики|Şeftali|هلو|خوخ|Pêches|Pfirsiche|Pesche|Persik|आड़ू|桃子|モモ|복숭아|Brzoskwinie
+items.mango|Mangas|Mangoes|Mangos|Манго|Mango|انبه|مانجو|Mangues|Mangos|Manghi|Mangga|आम|芒果|マンゴー|망고|Mango
+items.avocado|Abacates|Avocados|Aguacates|Авокадо|Avokado|آووکادو|أفوكادو|Avocats|Avocados|Avocado|Alpukat|एवोकाडो|牛油果|アボカド|아보카도|Awokado
+items.axe|Machado|Axe|Hacha|Топор|Balta|تبر|فأس|Hache|Axt|Ascia|Kapak|कुल्हाड़ी|斧头|斧|도끼|Siekiera
+items.saw|Serrote|Saw|Sierra|Пила|Testere|اره|منشار|Scie|Säge|Sega|Gergaji|आरी|锯子|のこぎり|톱|Piła
+items.pickaxe|Picareta|Pickaxe|Pico|Кирка|Kazma|کلنگ|معول|Pioche|Spitzhacke|Piccone|Beliung|कुदाल|镐|つるはし|곡괭이|Kilof
+items.tnt|TNT|TNT|TNT|Тротил|TNT|تی‌ان‌تی|تي إن تي|TNT|TNT|TNT|TNT|टीएनटी|炸药|TNT|TNT|Trotyl
+items.dynamite|Dinamite|Dynamite|Dinamita|Динамит|Dinamit|دینامیت|ديناميت|Dynamite|Dynamit|Dinamite|Dinamit|डायनामाइट|雷管|ダイナマイト|다이너마이트|Dynamit
+items.shovel|Pá|Shovel|Pala|Лопата|Kürek|بیل|مجرفة|Pelle|Schaufel|Pala|Sekop|फावड़ा|铲子|シャベル|삽|Łopata

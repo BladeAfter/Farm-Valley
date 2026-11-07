@@ -1,0 +1,18 @@
+{
+  "feed": "Alimentar",
+  "collect": "Coletar",
+  "hungry": "Precisa de ração",
+  "producing": "Produzindo",
+  "ready": "{{name}} pronto!",
+  "feedBatch": "Alimentar {{count}} animais",
+  "collectBatch": "Coletar {{count}} produtos",
+  "count_one": "{{count}} animal",
+  "count_other": "{{count}} animais",
+  "pen.cow": "Estábulo",
+  "pen.chicken": "Galinheiro",
+  "pen.goat": "Abrigo das cabras",
+  "pen.pig": "Chiqueiro",
+  "pen.sheep": "Aprisco",
+  "title": "Cercados da fazenda",
+  "reserve": "{{count}} disponíveis · {{reserve}} de reserva geral"
+}

@@ -1,0 +1,18 @@
+{
+  "feed": "Покормить",
+  "collect": "Забрать",
+  "hungry": "Нужен корм",
+  "producing": "Производит",
+  "ready": "{{name}} готово!",
+  "feedBatch": "Покормить животных: {{count}}",
+  "collectBatch": "Забрать продукты: {{count}}",
+  "count_one": "{{count}} животное",
+  "count_other": "{{count}} животных",
+  "pen.cow": "Коровник",
+  "pen.chicken": "Курятник",
+  "pen.goat": "Козлятник",
+  "pen.pig": "Свинарник",
+  "pen.sheep": "Овчарня",
+  "title": "Животные фермы",
+  "reserve": "Доступно {{count}} · в запасе {{reserve}}"
+}

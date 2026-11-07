@@ -1,0 +1,18 @@
+{
+  "network": "Verbindung zum Server fehlgeschlagen.",
+  "session": "Sitzung abgelaufen. Erneut verbinden.",
+  "coins": "Nicht genug Münzen.",
+  "barn": "Scheune voll. Schaffe Platz.",
+  "silo": "Silo voll. Schaffe Platz.",
+  "level": "Erreiche Stufe {{level}}.",
+  "locked": "Für deine Stufe noch nicht verfügbar.",
+  "stock": "Produkte oder Zutaten fehlen.",
+  "feed": "Du brauchst Futter für dieses Tier.",
+  "notReady": "Noch nicht fertig. Warte auf die Produktion.",
+  "changed": "Die Aktion hat sich geändert. Hof aktualisieren.",
+  "place": "Dieser Platz ist belegt oder ungeeignet.",
+  "seed": "Bewahre einen Samen zum Nachpflanzen auf.",
+  "invalid": "Ungültige Aktion. Aktualisieren und erneut versuchen.",
+  "fullQueue": "Warteschlange voll. Fertiges abholen.",
+  "actionFailed": "Aktion fehlgeschlagen. Versuche es erneut."
+}

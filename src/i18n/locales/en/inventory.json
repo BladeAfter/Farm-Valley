@@ -1,0 +1,18 @@
+{
+  "title": "Silo & barn",
+  "used": "Used capacity",
+  "upgrade": "Upgrade",
+  "upgradeNamed": "Upgrade {{name}}",
+  "back": "Back to products",
+  "sell": "Sell",
+  "sellNamed": "Sell {{name}}",
+  "sellPrice": "Sell · {{coins}}",
+  "available": "{{count}} available",
+  "empty": "Your next harvests and collections will appear here.",
+  "hint": "Tap to view or sell. Keep seeds to replant.",
+  "reserved": "Reserved for farm care.",
+  "stage": "{{name}} · stage {{stage}}",
+  "spaces": "{{used}} / {{capacity}} spaces",
+  "next": "{{current}} → {{next}} spaces · level {{level}}",
+  "max": "Maximum stage reached"
+}

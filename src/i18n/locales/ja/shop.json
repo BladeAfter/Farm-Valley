@@ -1,0 +1,14 @@
+{
+  "title": "谷のショップ",
+  "fieldDescription": "{{count}}区画。作物を植えて自由に移動できます。",
+  "seedName": "{{name}}の種",
+  "seedsDescription": "種3個 · 在庫{{count}} · 成長{{time}}。",
+  "machineDescription": "生産枠2つ。場所を選んで購入を確定。",
+  "machineOwned": "{{slots}}枠 · 予約{{queued}}個。",
+  "animalDescription": "{{name}}は{{product}}を生産。エサ：{{feed}}。",
+  "fruitDescription": "収穫{{count}}個 · 周期{{cycle}} · 成長{{growth}}。",
+  "storageDescription": "{{count}}枠。製品と次の拡張を確認。",
+  "feedDescription": "エサ3個 · 在庫{{count}}。飼料工場でも作れます。",
+  "flowersDescription": "農場に小さな彩りを。",
+  "unavailable": "この動物の追加購入はまだできません。"
+}

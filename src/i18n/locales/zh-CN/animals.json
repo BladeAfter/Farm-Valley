@@ -1,0 +1,18 @@
+{
+  "feed": "喂食",
+  "collect": "收取",
+  "hungry": "需要饲料",
+  "producing": "生产中",
+  "ready": "{{name}}已就绪！",
+  "feedBatch": "喂养{{count}}只动物",
+  "collectBatch": "收取{{count}}份产品",
+  "count_one": "{{count}}只动物",
+  "count_other": "{{count}}只动物",
+  "pen.cow": "牛棚",
+  "pen.chicken": "鸡舍",
+  "pen.goat": "山羊棚",
+  "pen.pig": "猪圈",
+  "pen.sheep": "羊圈",
+  "title": "农场动物",
+  "reserve": "可用{{count}} · 备用{{reserve}}"
+}

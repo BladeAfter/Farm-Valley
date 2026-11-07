@@ -1,0 +1,18 @@
+{
+  "feed": "Nakarm",
+  "collect": "Odbierz",
+  "hungry": "Potrzebuje paszy",
+  "producing": "Produkcja trwa",
+  "ready": "{{name}} gotowe!",
+  "feedBatch": "Nakarm zwierzęta: {{count}}",
+  "collectBatch": "Odbierz produkty: {{count}}",
+  "count_one": "{{count}} zwierzę",
+  "count_other": "{{count}} zwierząt",
+  "pen.cow": "Obora",
+  "pen.chicken": "Kurnik",
+  "pen.goat": "Koziarnia",
+  "pen.pig": "Chlew",
+  "pen.sheep": "Owczarnia",
+  "title": "Zwierzęta farmy",
+  "reserve": "Dostępne {{count}} · zapas {{reserve}}"
+}

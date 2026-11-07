@@ -1,0 +1,18 @@
+{
+  "network": "Nie można połączyć się z serwerem.",
+  "session": "Sesja wygasła. Połącz ponownie.",
+  "coins": "Za mało monet.",
+  "barn": "Stodoła pełna. Zwolnij miejsce.",
+  "silo": "Silos pełny. Zwolnij miejsce.",
+  "level": "Osiągnij poziom {{level}}.",
+  "locked": "Jeszcze niedostępne na twoim poziomie.",
+  "stock": "Brakuje produktów lub składników.",
+  "feed": "Potrzebujesz paszy dla tego zwierzęcia.",
+  "notReady": "Jeszcze niegotowe. Poczekaj na produkcję.",
+  "changed": "Stan się zmienił. Odśwież farmę.",
+  "place": "To miejsce jest zajęte lub niedostępne.",
+  "seed": "Zachowaj nasiono do ponownego sadzenia.",
+  "invalid": "Nieprawidłowe działanie. Odśwież i spróbuj ponownie.",
+  "fullQueue": "Kolejka pełna. Odbierz gotowe produkty.",
+  "actionFailed": "Nie udało się zakończyć. Spróbuj ponownie."
+}

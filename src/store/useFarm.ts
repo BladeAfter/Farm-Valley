@@ -1,4 +1,8 @@
 import { playFarmSound, setFarmSound } from "../services/farmAudio";
+import { t } from "../i18n/core";
+import { errorInfo } from "../i18n/errors";
+import { acceptServerLocale } from "../i18n/loader";
+import { ApiError } from "../services/api";
 import { animalOutput } from "../types/game";
 import { create } from "zustand";
 import { connect, command, type Snapshot } from "../services/api";
@@ -49,9 +53,13 @@ type State = {
   startPlacement: (placement: Placement | null) => void;
   openAnimals: (kind: AnimalKind) => void;
   message: string;
+  messageCode: string;
+  messageParams: Record<string,string|number>;
+  messageVersion: number;
   clockOffset: number;
   clockAnchor: { server: number; monotonic: number } | null;
   load: () => Promise<void>;
+  refresh: () => Promise<void>;
   act: (command: Command) => Promise<boolean>;
   select: (crop: Crop) => void;
   setTool: (tool: Tool) => void;
@@ -68,37 +76,40 @@ export type ShopCategory =
   | "storage"
   | "supplies";
 const messages: Record<Command["type"], string> = {
-  "buy-machine": "M\u00e1quina constru\u00edda!",
-  "move-machine": "M\u00e1quina reposicionada.",
-  "enqueue-production": "Ingredientes reservados. Receita na fila!",
-  "collect-production": "Produto guardado no celeiro!",
-  "cancel-production": "Ingredientes devolvidos.",
-  "upgrade-machine": "Novo espa\u00e7o de produ\u00e7\u00e3o!",
-  "animal-batch": "Animais cuidados!",
-  "buy-sheep": "Nuvem chegou ao seu aprisco!",
-  "sell-item": "Venda conclu\u00edda!",
-  "move-pen": "Cercado reposicionado.",
-  "move-field": "Canteiro reposicionado.",
-  "plant-fruit-tree": "Muda plantada! Seu pomar está crescendo.",
-  "harvest-fruit-tree": "Frutas fresquinhas guardadas no celeiro!",
-  "remove-fruit-tree": "Árvore seca removida. O terreno está livre.",
-  "remove-obstacle": "Terreno limpo! O espaço já está disponível.",
-  "place-field": "Novo canteiro pronto para plantar.",
-  "place-decoration": "Um novo detalhe para o seu vale.",
-  "move-building": "Construção reposicionada.",
-  plant: "Semente plantada. O vale está crescendo!",
-  harvest: "Colheita guardada no silo!",
-  "field-stroke": "Campo cuidado! Continue cultivando.",
-  "feed-animal": "Barriguinha cheia! A produção começou.",
-  "collect-animal": "Produto fresquinho guardado no celeiro!",
-  "buy-feed": "Mais 3 rações no celeiro.",
-  "buy-seed": "3 sementes de reserva guardadas no silo.",
-  "make-feed": "3 rações preparadas com a sua colheita.",
-  "deliver-order": "Entrega feita! Moedas e experiência recebidas.",
-  "upgrade-storage":
-    "Armazém melhorado! Mais espaço e uma nova forma para a sua fazenda.",
+  "set-language": "common.languageSaved",
+  "deliver-board-order": "notifications.delivery",
+  "deliver-order": "notifications.delivery",
+  "discard-order": "notifications.discarded",
+  "buy-machine": "notifications.built",
+  "move-machine": "notifications.moved",
+  "enqueue-production": "notifications.queued",
+  "collect-production": "notifications.collected",
+  "cancel-production": "notifications.canceled",
+  "upgrade-machine": "notifications.upgraded",
+  "animal-batch": "notifications.animals",
+  "buy-sheep": "notifications.built",
+  "sell-item": "notifications.sold",
+  "move-pen": "notifications.moved",
+  "move-field": "notifications.moved",
+  "plant-fruit-tree": "notifications.planted",
+  "harvest-fruit-tree": "notifications.collected",
+  "remove-fruit-tree": "notifications.removed",
+  "remove-obstacle": "notifications.removed",
+  "place-field": "notifications.built",
+  "place-decoration": "notifications.built",
+  "move-building": "notifications.moved",
+  "plant": "notifications.planted",
+  "harvest": "notifications.harvested",
+  "field-stroke": "notifications.fieldStroke",
+  "feed-animal": "notifications.fed",
+  "collect-animal": "notifications.collected",
+  "buy-feed": "notifications.bought",
+  "buy-seed": "notifications.bought",
+  "make-feed": "notifications.queued",
+  "upgrade-storage": "notifications.upgraded"
 };
 let loading: Promise<void> | null = null;
+let refreshing: Promise<void> | null = null;
 export const useFarm = create<State>((set, get) => ({
   snapshot: null,
   selected: "wheat",
@@ -132,7 +143,10 @@ export const useFarm = create<State>((set, get) => ({
   setPlacementTarget: (placementTarget) => set({ placementTarget }),
   clockOffset: 0,
   clockAnchor: null,
-  message: "Sua fazenda está chegando…",
+  message: "",
+  messageCode: "notifications.loading",
+  messageParams: {},
+  messageVersion: 0,
   select: (selected) => set({ selected, tool: "plant" }),
   setTool: (tool) => set({ tool, focus: null }),
   open: (panel) =>
@@ -157,12 +171,26 @@ export const useFarm = create<State>((set, get) => ({
   openAnimals: (animalKind) =>
     set({ panel: "animals", animalKind, focus: null }),
   setFocus: (focus) => set({ focus }),
-  notice: (message) => set({ message }),
+  notice: (message) => { const info=errorInfo(message); set({message,messageCode:info.code,messageParams:info.params,messageVersion:get().messageVersion+1}); },
+  refresh: () => {
+    if (get().busy) return Promise.resolve();
+    if (refreshing) return refreshing;
+    refreshing = (async () => {
+      try {
+        const snapshot = await connect();
+        void acceptServerLocale(snapshot.farm.preferences?.locale);
+        if (snapshot.farm.revision >= (get().snapshot?.farm.revision ?? -1)) set({ snapshot,
+          clockOffset: snapshot.serverTime - Date.now(), clockAnchor: { server: snapshot.serverTime, monotonic: performance.now() } });
+      } finally { refreshing = null; }
+    })();
+    return refreshing;
+  },
   load: () => {
     if (loading) return loading;
     loading = (async () => {
       try {
         const snapshot = await connect();
+        void acceptServerLocale(snapshot.farm.preferences?.locale);
         set({
           snapshot,
           clockOffset: snapshot.serverTime - Date.now(),
@@ -170,11 +198,11 @@ export const useFarm = create<State>((set, get) => ({
             server: snapshot.serverTime,
             monotonic: performance.now(),
           },
-          message: "Bem-vindo ao vale! Sua primeira colheita está pronta.",
+          message: t("notifications.welcome"),messageCode:"notifications.welcome",messageParams:{},messageVersion:get().messageVersion+1,
         });
       } catch (e) {
         set({
-          message: e instanceof Error ? e.message : "Servidor indisponível.",
+          message: "",messageCode:"errors.network",messageParams:{},messageVersion:get().messageVersion+1,
         });
       } finally {
         loading = null;
@@ -195,7 +223,7 @@ export const useFarm = create<State>((set, get) => ({
           server: snapshot.serverTime,
           monotonic: performance.now(),
         },
-        message: messages[value.type],
+        message: t(messages[value.type]),messageCode:messages[value.type],messageParams:{},messageVersion:get().messageVersion+1,
       });
       const collectedIds =
         value.type === "collect-animal"
@@ -216,7 +244,7 @@ export const useFarm = create<State>((set, get) => ({
       if (
         value.type === "collect-production" ||
         collectedIds.length ||
-        value.type === "sell-item"
+        value.type === "sell-item" || value.type === "deliver-board-order"
       )
         playFarmSound("collect");
       else if (value.type === "enqueue-production") playFarmSound("start");
@@ -234,7 +262,8 @@ export const useFarm = create<State>((set, get) => ({
           },
         });
       } catch {}
-      set({ message: e instanceof Error ? e.message : "Falha na conexão." });
+      const info=e instanceof ApiError?{code:e.code,params:e.params}:errorInfo(e instanceof Error?e.message:"");
+      set({message:"",messageCode:info.code,messageParams:info.params,messageVersion:get().messageVersion+1});
       return false;
     } finally {
       set({ busy: false });

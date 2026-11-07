@@ -1,0 +1,14 @@
+{
+  "title": "계곡 상점",
+  "fieldDescription": "밭 {{count}}개. 각각 심고 이동할 수 있어요.",
+  "seedName": "{{name}} 씨앗",
+  "seedsDescription": "씨앗 3개 · 재고 {{count}} · 성장 {{time}}.",
+  "machineDescription": "생산 슬롯 2개. 위치를 고르고 구매를 확정하세요.",
+  "machineOwned": "슬롯 {{slots}}개 · 대기 제품 {{queued}}개.",
+  "animalDescription": "{{name}}의 생산품은 {{product}}. 사료: {{feed}}.",
+  "fruitDescription": "수확당 {{count}}개 · 주기 {{cycle}} · 성장 {{growth}}.",
+  "storageDescription": "공간 {{count}}칸. 제품과 다음 확장을 확인하세요.",
+  "feedDescription": "사료 3개 · 재고 {{count}}. 사료 공장에서 제작하세요.",
+  "flowersDescription": "농장을 꾸밀 작은 장식이에요.",
+  "unavailable": "이 종의 추가 구매는 아직 지원되지 않습니다."
+}

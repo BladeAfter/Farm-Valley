@@ -9,7 +9,7 @@ const browser = await chromium.launch({
   headless: true,
 });
 try {
-  const page = await browser.newPage({
+  const page = await browser.newPage({ locale: "pt-BR",
     viewport: { width: 1280, height: 800 },
   });
   const errors = [],
@@ -37,7 +37,7 @@ try {
   const a = point(7, 7),
     b = point(8, 7);
   await page
-    .getByRole("button", { name: "Colher com foice", exact: true })
+    .getByRole("button", { name: "Colher", exact: true })
     .click();
   await page.mouse.move(a.x, a.y);
   await page.mouse.down();
@@ -47,7 +47,7 @@ try {
   const harvested = (await read()).farm;
   assert.equal(harvested.inventory.wheat, before.inventory.wheat + 4);
   assert.equal(harvested.xp, before.xp + 2);
-  await page.getByRole("button", { name: "Modo plantar", exact: true }).click();
+  await page.getByRole("button", { name: "Plantar", exact: true }).click();
   const seed = await page
     .getByRole("button", { name: "Plantar Trigo", exact: true })
     .boundingBox();
@@ -95,10 +95,10 @@ try {
   await page.getByRole("button", { name: "Fechar", exact: true }).click();
   await page.getByRole("button", { name: "Pedidos", exact: true }).click();
   await page
-    .getByRole("button", { name: "Entregar pedido", exact: true })
+    .getByRole("button", { name: "Entregar pedido 1", exact: true })
     .click();
   await page
-    .getByText("Entrega feita! Moedas e experiência recebidas.")
+    .getByText("Entrega concluída! A vila agradece.")
     .waitFor();
   assert.equal((await read()).farm.coins, before.coins + 16);
   await page.getByRole("button", { name: "Fechar", exact: true }).click();
@@ -120,12 +120,12 @@ try {
   const emptyPlot = point(7, 10);
   await page.mouse.click(emptyPlot.x, emptyPlot.y);
   await page
-    .getByRole("region", { name: "Canteiro selecionado", exact: true })
+    .getByRole("region", { name: "Canteiro", exact: true })
     .waitFor();
   await page
     .getByRole("button", { name: "Escolher Trigo", exact: true })
     .click();
-  await page.getByRole("button", { name: "Plantar", exact: true }).click();
+  await page.locator(".plot-context").getByRole("button", { name: "Plantar", exact: true }).click();
   await page.waitForFunction(
     async () =>
       (await (await fetch("/api/farm")).json()).farm.plots.find(
@@ -133,7 +133,7 @@ try {
       ).crop === "wheat",
   );
   await page
-    .getByRole("button", { name: "Fechar canteiro", exact: true })
+    .getByRole("button", { name: "Fechar", exact: true })
     .click();
   await page
     .getByRole("button", { name: "Explorar mapa", exact: true })

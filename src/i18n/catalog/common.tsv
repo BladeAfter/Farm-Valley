@@ -1,0 +1,44 @@
+common.close|Fechar|Close|Cerrar|Закрыть|Kapat|بستن|إغلاق|Fermer|Schließen|Chiudi|Tutup|बंद करें|关闭|閉じる|닫기|Zamknij
+common.shop|Loja|Shop|Tienda|Магазин|Mağaza|فروشگاه|المتجر|Boutique|Laden|Negozio|Toko|दुकान|商店|ショップ|상점|Sklep
+common.inventory|Inventário|Inventory|Inventario|Инвентарь|Envanter|انبار|المخزون|Inventaire|Inventar|Inventario|Inventaris|भंडार|库存|持ち物|보관함|Ekwipunek
+common.orders|Pedidos|Orders|Pedidos|Заказы|Siparişler|سفارش‌ها|الطلبات|Commandes|Aufträge|Ordini|Pesanan|ऑर्डर|订单|注文|주문|Zamówienia
+common.settings|Configurações|Settings|Ajustes|Настройки|Ayarlar|تنظیمات|الإعدادات|Paramètres|Einstellungen|Impostazioni|Pengaturan|सेटिंग|设置|設定|설정|Ustawienia
+common.more|Mais|More|Más|Ещё|Diğer|بیشتر|المزيد|Plus|Mehr|Altro|Lainnya|और|更多|その他|더 보기|Więcej
+common.open|Abrir|Open|Abrir|Открыть|Aç|باز کردن|فتح|Ouvrir|Öffnen|Apri|Buka|खोलें|打开|開く|열기|Otwórz
+common.buy|Comprar|Buy|Comprar|Купить|Satın al|خرید|شراء|Acheter|Kaufen|Compra|Beli|खरीदें|购买|購入|구매|Kup
+common.place|Posicionar|Place|Colocar|Разместить|Yerleştir|قرار دادن|وضع|Placer|Platzieren|Posiziona|Tempatkan|रखें|放置|配置|배치|Umieść
+common.move|Mover|Move|Mover|Переместить|Taşı|جابه‌جایی|نقل|Déplacer|Verschieben|Sposta|Pindahkan|हटाएँ|移动|移動|이동|Przenieś
+common.cancel|Cancelar|Cancel|Cancelar|Отмена|İptal|لغو|إلغاء|Annuler|Abbrechen|Annulla|Batal|रद्द करें|取消|キャンセル|취소|Anuluj
+common.build|Construir|Build|Construir|Построить|İnşa et|ساختن|بناء|Construire|Bauen|Costruisci|Bangun|बनाएँ|建造|建設|건설|Zbuduj
+common.visit|Visitar|Visit|Visitar|Перейти|Ziyaret et|بازدید|زيارة|Visiter|Besuchen|Visita|Kunjungi|देखें|前往|見に行く|방문|Odwiedź
+common.level|Nível {{level}}|Level {{level}}|Nivel {{level}}|Уровень {{level}}|Seviye {{level}}|سطح {{level}}|المستوى {{level}}|Niveau {{level}}|Stufe {{level}}|Livello {{level}}|Level {{level}}|स्तर {{level}}|等级 {{level}}|レベル {{level}}|레벨 {{level}}|Poziom {{level}}
+common.coins|moedas|coins|monedas|монеты|altın|سکه|عملات|pièces|Münzen|monete|koin|सिक्के|金币|コイン|코인|monety
+common.diamonds|Diamantes|Diamonds|Diamantes|Алмазы|Elmaslar|الماس|الماس|Diamants|Diamanten|Diamanti|Berlian|हीरे|钻石|ダイヤ|다이아몬드|Diamenty
+common.xp|XP|XP|EXP|Опыт|XP|تجربه|خبرة|EXP|EP|PE|XP|अनुभव|经验|経験値|경험치|PD
+common.all|Todas|All|Todas|Все|Tümü|همه|الكل|Toutes|Alle|Tutte|Semua|सभी|全部|すべて|전체|Wszystkie
+common.available|Disponíveis|Available|Disponibles|Доступные|Mevcut|موجود|المتاحة|Disponibles|Verfügbar|Disponibili|Tersedia|उपलब्ध|可用|利用可能|이용 가능|Dostępne
+common.locked|Bloqueadas|Locked|Bloqueadas|Закрытые|Kilitli|قفل‌شده|المقفلة|Verrouillées|Gesperrt|Bloccate|Terkunci|लॉक|未解锁|未開放|잠김|Zablokowane
+common.owned|Na sua fazenda|On your farm|En tu granja|На вашей ферме|Çiftliğinde|در مزرعه شما|في مزرعتك|Dans votre ferme|Auf deinem Hof|Nella tua fattoria|Di pertanianmu|आपके खेत में|已拥有|所有済み|보유 중|Na twojej farmie
+common.quantity|Quantidade|Quantity|Cantidad|Количество|Miktar|تعداد|الكمية|Quantité|Menge|Quantità|Jumlah|मात्रा|数量|数量|수량|Ilość
+common.details|Detalhes de {{name}}|Details of {{name}}|Detalles de {{name}}|Подробнее: {{name}}|{{name}} ayrıntıları|جزئیات {{name}}|تفاصيل {{name}}|Détails : {{name}}|Details: {{name}}|Dettagli: {{name}}|Detail {{name}}|{{name}} का विवरण|{{name}}详情|{{name}}の詳細|{{name}} 상세|Szczegóły: {{name}}
+common.buyNamed|Comprar {{name}}|Buy {{name}}|Comprar {{name}}|Купить: {{name}}|{{name}} satın al|خرید {{name}}|شراء {{name}}|Acheter {{name}}|{{name}} kaufen|Compra {{name}}|Beli {{name}}|{{name}} खरीदें|购买{{name}}|{{name}}を購入|{{name}} 구매|Kup: {{name}}
+common.openNamed|Abrir {{name}}|Open {{name}}|Abrir {{name}}|Открыть: {{name}}|{{name}} aç|باز کردن {{name}}|فتح {{name}}|Ouvrir {{name}}|{{name}} öffnen|Apri {{name}}|Buka {{name}}|{{name}} खोलें|打开{{name}}|{{name}}を開く|{{name}} 열기|Otwórz: {{name}}
+common.search|Pesquisar idioma|Search languages|Buscar idioma|Поиск языка|Dil ara|جستجوی زبان|البحث عن لغة|Rechercher une langue|Sprache suchen|Cerca lingua|Cari bahasa|भाषा खोजें|搜索语言|言語を検索|언어 검색|Szukaj języka
+common.language|Idioma do jogo|Game language|Idioma del juego|Язык игры|Oyun dili|زبان بازی|لغة اللعبة|Langue du jeu|Spieltexte|Lingua del gioco|Bahasa permainan|खेल की भाषा|游戏语言|ゲーム言語|게임 언어|Język gry
+common.languageSaved|Idioma atualizado.|Language updated.|Idioma actualizado.|Язык изменён.|Dil güncellendi.|زبان تغییر کرد.|تم تغيير اللغة.|Langue modifiée.|Sprache geändert.|Lingua aggiornata.|Bahasa diperbarui.|भाषा बदल गई।|语言已更新。|言語を変更しました。|언어가 변경되었습니다.|Zmieniono język.
+common.loading|Carregando…|Loading…|Cargando…|Загрузка…|Yükleniyor…|در حال بارگذاری…|جارٍ التحميل…|Chargement…|Wird geladen…|Caricamento…|Memuat…|लोड हो रहा है…|加载中…|読み込み中…|불러오는 중…|Wczytywanie…
+common.busy|Cuidando da fazenda…|Tending the farm…|Cuidando la granja…|Заботимся о ферме…|Çiftlikle ilgileniliyor…|رسیدگی به مزرعه…|جارٍ العناية بالمزرعة…|Au travail à la ferme…|Wir kümmern uns um den Hof…|Al lavoro nella fattoria…|Mengurus pertanian…|खेत की देखभाल…|正在打理农场…|農場のお世話中…|농장을 돌보는 중…|Praca na farmie…
+common.enabled|Ativados|On|Activados|Включены|Açık|روشن|مفعّلة|Activés|An|Attivi|Aktif|चालू|开启|オン|켜짐|Włączone
+common.disabled|Desativados|Off|Desactivados|Выключены|Kapalı|خاموش|معطّلة|Désactivés|Aus|Disattivi|Nonaktif|बंद|关闭|オフ|꺼짐|Wyłączone
+common.sound|Sons da fazenda|Farm sounds|Sonidos de la granja|Звуки фермы|Çiftlik sesleri|صدای مزرعه|أصوات المزرعة|Sons de la ferme|Hofgeräusche|Suoni della fattoria|Suara pertanian|खेत की आवाज़ें|农场音效|農場のサウンド|농장 소리|Dźwięki farmy
+common.sync|Sincronizar progresso|Sync progress|Sincronizar progreso|Обновить прогресс|İlerlemeyi eşitle|همگام‌سازی پیشرفت|مزامنة التقدم|Synchroniser|Fortschritt abgleichen|Sincronizza progressi|Sinkronkan progres|प्रगति सिंक करें|同步进度|進行状況を同期|진행 상황 동기화|Synchronizuj postęp
+common.synced|Progresso salvo no servidor|Progress saved on server|Progreso guardado en el servidor|Прогресс сохранён на сервере|İlerleme sunucuya kaydedildi|پیشرفت در سرور ذخیره شد|تم حفظ التقدم على الخادم|Progression enregistrée|Fortschritt gespeichert|Progressi salvati sul server|Progres tersimpan di server|प्रगति सर्वर पर सहेजी गई|进度已保存到服务器|サーバーに保存済み|서버에 진행 상황 저장됨|Postęp zapisany na serwerze
+common.temporary|Sessão temporária|Temporary session|Sesión temporal|Временная сессия|Geçici oturum|نشست موقت|جلسة مؤقتة|Session temporaire|Temporäre Sitzung|Sessione temporanea|Sesi sementara|अस्थायी सत्र|临时会话|一時セッション|임시 세션|Sesja tymczasowa
+common.retry|Tentar conectar|Try connecting|Volver a conectar|Подключиться снова|Yeniden bağlan|تلاش برای اتصال|إعادة الاتصال|Réessayer|Erneut verbinden|Riprova|Coba hubungkan|फिर जुड़ें|重试连接|再接続|다시 연결|Połącz ponownie
+common.back|Voltar|Back|Volver|Назад|Geri|بازگشت|رجوع|Retour|Zurück|Indietro|Kembali|वापस|返回|戻る|뒤로|Wstecz
+common.zoomIn|Aproximar|Zoom in|Acercar|Приблизить|Yakınlaştır|بزرگ‌نمایی|تكبير|Zoom avant|Vergrößern|Ingrandisci|Perbesar|ज़ूम इन|放大|拡大|확대|Przybliż
+common.zoomOut|Afastar|Zoom out|Alejar|Отдалить|Uzaklaştır|کوچک‌نمایی|تصغير|Zoom arrière|Verkleinern|Riduci|Perkecil|ज़ूम आउट|缩小|縮小|축소|Oddal
+common.center|Centralizar fazenda|Center farm|Centrar granja|Центр фермы|Çiftliği ortala|مرکز مزرعه|توسيط المزرعة|Centrer la ferme|Hof zentrieren|Centra fattoria|Pusatkan pertanian|खेत केंद्रित करें|居中农场|農場を中央に|농장 중앙 보기|Wyśrodkuj farmę
+common.fullscreen|Tela cheia|Fullscreen|Pantalla completa|Полный экран|Tam ekran|تمام‌صفحه|ملء الشاشة|Plein écran|Vollbild|Schermo intero|Layar penuh|पूर्ण स्क्रीन|全屏|全画面|전체 화면|Pełny ekran
+common.moreOptions|Mais opções|More options|Más opciones|Другие действия|Diğer seçenekler|گزینه‌های بیشتر|المزيد من الخيارات|Autres options|Weitere Optionen|Altre opzioni|Opsi lainnya|और विकल्प|更多选项|その他の操作|추가 옵션|Więcej opcji
+common.explore|Explorar mapa|Explore map|Explorar mapa|Исследовать карту|Haritayı keşfet|کاوش نقشه|استكشاف الخريطة|Explorer la carte|Karte erkunden|Esplora mappa|Jelajahi peta|नक्शा देखें|探索地图|マップを探索|지도 탐색|Odkrywaj mapę

@@ -1,0 +1,18 @@
+{
+  "network": "Unable to connect to the server.",
+  "session": "Session expired. Connect again.",
+  "coins": "Not enough coins.",
+  "barn": "Barn full. Make room.",
+  "silo": "Silo full. Make room.",
+  "level": "Reach level {{level}}.",
+  "locked": "Not available at your level yet.",
+  "stock": "Products or ingredients are missing.",
+  "feed": "You need feed for this animal.",
+  "notReady": "Not ready yet. Wait for production.",
+  "changed": "This action has changed. Refresh the farm.",
+  "place": "This space is occupied or unavailable.",
+  "seed": "Keep a seed for replanting.",
+  "invalid": "Invalid action. Refresh and try again.",
+  "fullQueue": "Queue full. Collect finished products.",
+  "actionFailed": "Could not complete the action. Try again."
+}

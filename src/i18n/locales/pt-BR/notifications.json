@@ -1,0 +1,20 @@
+{
+  "loading": "Sua fazenda está chegando…",
+  "welcome": "Bem-vindo ao vale! Sua primeira colheita está pronta.",
+  "fieldStroke": "Campo cuidado! Continue cultivando.",
+  "fed": "Barriguinha cheia! A produção começou.",
+  "delivery": "Entrega concluída! A vila agradece.",
+  "built": "Construção pronta para sua fazenda!",
+  "moved": "Objeto reposicionado.",
+  "queued": "Ingredientes reservados. Receita na fila!",
+  "collected": "Produto guardado no celeiro!",
+  "harvested": "Colheita guardada no silo!",
+  "planted": "Semente plantada. O vale está crescendo!",
+  "bought": "Compra concluída!",
+  "upgraded": "Melhoria concluída!",
+  "canceled": "Ingredientes devolvidos.",
+  "sold": "Venda concluída!",
+  "removed": "Terreno livre para usar!",
+  "animals": "Animais cuidados!",
+  "discarded": "Pedido retirado. Uma nova encomenda chegará em breve."
+}

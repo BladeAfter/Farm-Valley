@@ -1,0 +1,20 @@
+{
+  "loading": "Your farm is on its way…",
+  "welcome": "Welcome to the valley! Your first harvest is ready.",
+  "fieldStroke": "Field tended! Keep growing.",
+  "fed": "Fed and happy! Production has started.",
+  "delivery": "Delivery complete! The village thanks you.",
+  "built": "Building ready for your farm!",
+  "moved": "Object moved.",
+  "queued": "Ingredients reserved. Recipe queued!",
+  "collected": "Product stored in the barn!",
+  "harvested": "Harvest stored in the silo!",
+  "planted": "Seed planted. The valley is growing!",
+  "bought": "Purchase complete!",
+  "upgraded": "Upgrade complete!",
+  "canceled": "Ingredients returned.",
+  "sold": "Sale complete!",
+  "removed": "Ground is free to use!",
+  "animals": "Animals cared for!",
+  "discarded": "Order removed. A new one will arrive soon."
+}

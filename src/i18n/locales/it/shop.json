@@ -1,0 +1,14 @@
+{
+  "title": "Negozio della valle",
+  "fieldDescription": "{{count}} aiuole. Coltiva e spostale liberamente.",
+  "seedName": "Semi di {{name}}",
+  "seedsDescription": "3 semi · scorta {{count}} · cresce in {{time}}.",
+  "machineDescription": "2 posti di produzione. Scegli il posto e conferma.",
+  "machineOwned": "{{slots}} posti · {{queued}} prodotti in coda.",
+  "animalDescription": "{{name}} produce {{product}}. Mangime: {{feed}}.",
+  "fruitDescription": "{{count}} per raccolto · ciclo {{cycle}} · crescita {{growth}}.",
+  "storageDescription": "{{count}} posti. Vedi prodotti e prossimo miglioramento.",
+  "feedDescription": "3 mangimi · scorta {{count}}. Produci nel mangimificio.",
+  "flowersDescription": "Una piccola decorazione per la tua fattoria.",
+  "unavailable": "Nuovi acquisti di questa specie non sono ancora disponibili."
+}

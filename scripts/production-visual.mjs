@@ -164,7 +164,7 @@ try {
       "C:/Program Files/Google/Chrome/Application/chrome.exe",
     headless: true,
   });
-  const context = await browser.newContext({
+  const context = await browser.newContext({ locale: "pt-BR",
     viewport: { width: 1280, height: 800 },
     hasTouch: true,
     reducedMotion: "reduce",
@@ -217,17 +217,17 @@ try {
   await page
     .getByRole("button", { name: "Comprar Fábrica de ração", exact: true })
     .click();
-  const cell = { x: 1, y: 10 };
-  assert.equal(occupancyIssue(await read(), machineRect(cell)), null);
-  const p = point(cell.x, cell.y);
-  await page.mouse.move(p.x, p.y);
-  await page.waitForFunction(
-    () => document.querySelector("canvas")?.dataset.purchasePreview === "ready",
-  );
-  await page.screenshot({
-    path: "docs/screenshots/production-v1-placement.png",
-  });
-  await page.mouse.click(p.x, p.y);
+  let cell, p;
+  for(let x=0;x<22&&!cell;x++)for(let y=0;y<21&&!cell;y++){
+    const screen=point(x,y);
+    if(screen.x<80||screen.x>1190||screen.y<110||screen.y>710)continue;
+    if(!await page.evaluate(({x,y})=>document.elementFromPoint(x,y)?.tagName==="CANVAS",screen))continue;
+    await page.mouse.click(screen.x,screen.y);
+    await page.waitForTimeout(30);
+    if(await page.getByRole("button",{name:"Construir",exact:true}).isEnabled()){cell={x,y};p=screen;}
+  }
+  assert.ok(cell,"visible valid factory location selected through map");
+  await page.screenshot({path:"docs/screenshots/production-v1-placement.png"});
   await page.getByRole("button", { name: "Construir", exact: true }).click();
   await page.waitForFunction(
     async () =>
@@ -659,12 +659,9 @@ try {
     await close();
     await page.getByRole("button", { name: "Pedidos", exact: true }).click();
     await checkPanel();
-    await page
-      .getByRole("button", { name: "Ver detalhes do pedido", exact: true })
-      .click();
-    await page
-      .getByRole("progressbar", { name: "Produtos separados" })
-      .waitFor();
+    await page.locator(".order-goods button").first().click();
+    await page.getByRole("complementary", { name: "Origem do produto" }).waitFor();
+    await page.locator(".source-close").click();
     if (width === 1280)
       await page.screenshot({ path: "docs/screenshots/ui-orders-desktop.png" });
     await close();
@@ -693,7 +690,7 @@ try {
   const beforeOrder = await read();
   await page.getByRole("button", { name: "Pedidos", exact: true }).click();
   await page
-    .getByRole("button", { name: "Entregar pedido", exact: true })
+    .getByRole("button", { name: "Entregar pedido 1", exact: true })
     .click();
   await page.waitForFunction(
     async (expected) =>

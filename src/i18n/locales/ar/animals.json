@@ -1,0 +1,18 @@
+{
+  "feed": "إطعام",
+  "collect": "جمع",
+  "hungry": "يحتاج إلى علف",
+  "producing": "ينتج الآن",
+  "ready": "{{name}} جاهز!",
+  "feedBatch": "إطعام {{count}} حيوانات",
+  "collectBatch": "جمع {{count}} منتجات",
+  "count_one": "{{count}} حيوان",
+  "count_other": "{{count}} حيوان",
+  "pen.cow": "حظيرة الأبقار",
+  "pen.chicken": "قن الدجاج",
+  "pen.goat": "مأوى الماعز",
+  "pen.pig": "حظيرة الخنازير",
+  "pen.sheep": "حظيرة الأغنام",
+  "title": "حيوانات المزرعة",
+  "reserve": "{{count}} متاح · {{reserve}} احتياطي"
+}

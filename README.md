@@ -70,7 +70,21 @@ A preparação exige Python com Pillow; a rasterização dos ícones exige Chrom
 
 Veja [pesquisa do plantio](docs/planting-research.md), [arquitetura](docs/architecture.md) e [verificação](docs/verification.md).
 
-## Ainda pendente
+## Atualização: pedidos, alimentação e idiomas
+
+O mural agora possui pedidos individuais com estoque e recompensas validados pelo servidor, descarte e reposição temporizada. A alimentação mostra comida por espécie, aproximação do animal e consumo visual. Em Configurações, o seletor permite alternar entre 16 idiomas sem reiniciar o mapa.
+
+Documentação: [pedidos](docs/orders.md), [alimentação](docs/feeding.md) e [localização](docs/localization.md). As traduções ainda aguardam revisão por falantes nativos.
+
+Verificações adicionais:
+
+```sh
+node scripts/localization-visual.mjs
+node --import tsx scripts/orders-visual.mjs
+node --import tsx scripts/feeding-visual.mjs
+```
+
+## Limitações de implantação
 
 Expansão de novas regiões, aquisição de rebanhos adicionais, amigos, conta recuperável, backend publicado, PostgreSQL real validado, integração autenticada Android/Telegram, pinch zoom, balanceamento com jogadores e medições em celular físico.
 

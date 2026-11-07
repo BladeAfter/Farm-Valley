@@ -156,13 +156,15 @@ export function occupancyIssue(
     | "areas"
     | "fruitTrees"
   > &
-    Partial<Pick<Farm, "penPositions" | "machines" | "animals">>,
+    Partial<Pick<Farm, "penPositions" | "machines" | "animals" | "orderBoard">>,
   rect: Rect,
   ignoreBuilding?: BuildingId,
   ignorePlacement?: Placement,
 ): string | null {
   const terrain = terrainIssue(rect, farm.areas);
   if (terrain) return terrain;
+  const board = farm.orderBoard?.position;
+  if (board && intersects(rect, { x: board.x - .5, y: board.y - .5, w: 1, h: 1 })) return "Este espaço pertence ao quadro de encomendas.";
   for (const kind of Object.keys(
     pens,
   ) as import("../types/game").AnimalKind[]) {

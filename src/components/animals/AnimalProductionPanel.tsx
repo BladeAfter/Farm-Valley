@@ -1,3 +1,5 @@
+import { useLabels } from "../../i18n/labels";
+import { t } from "../../i18n/core";
 import { useState } from "react";
 import { Clock } from "lucide-react";
 import { AnimalCard, GameTabs } from "../ui/GameComponents";
@@ -15,8 +17,8 @@ import {
 import { useFarm } from "../../store/useFarm";
 import { animalPortrait } from "../../data/animals";
 import { formatTime } from "../../utils/time";
-
 export function AnimalProductionPanel({ now }: { now: number }) {
+  const { items, pens } = useLabels();
   const { snapshot, animalKind, act, busy } = useFarm();
   const [selectedKind, setSelectedKind] = useState<AnimalKind>("chicken");
   if (!snapshot) return null;
@@ -27,7 +29,7 @@ export function AnimalProductionPanel({ now }: { now: number }) {
     (ownedKinds.includes(selectedKind) ? selectedKind : ownedKinds[0]);
   const animals = farm.animals.filter((a) => a.kind === currentKind),
     config = animalProducts[currentKind];
-  if (!config) return <p>Os novos moradores aparecerão aqui.</p>;
+  if (!config) return <p>{t("animals.title")}</p>;
   const stock = { ...farm.inventory };
   const feedable = animals.filter((animal) => {
     if (animal.fedAt !== null) return false;
@@ -42,7 +44,7 @@ export function AnimalProductionPanel({ now }: { now: number }) {
     <div className="animal-paddock-panel">
       {!animalKind && (
         <GameTabs
-          label="Cercados"
+          label={t("animals.title")}
           value={currentKind}
           onChange={setSelectedKind}
           options={ownedKinds.map((kind) => ({
@@ -57,14 +59,11 @@ export function AnimalProductionPanel({ now }: { now: number }) {
         <div>
           <b>{items[config.feed].name}</b>
           <small>
-            {farm.inventory[config.feed]} disponíveis
-            {farm.inventory.feed > 0
-              ? ` · ${farm.inventory.feed} de reserva geral`
-              : ""}
+            {farm.inventory.feed > 0 ? t("animals.reserve",{count:farm.inventory[config.feed],reserve:farm.inventory.feed}) : t("inventory.available",{count:farm.inventory[config.feed]})}
           </small>
         </div>
         <span>
-          {animals.length} {animals.length === 1 ? "animal" : "animais"}
+          {t("animals.count",{count:animals.length})}
         </span>
       </div>
       <div className="animal-list">
@@ -81,10 +80,10 @@ export function AnimalProductionPanel({ now }: { now: number }) {
               ready={ready}
               state={
                 remaining === null
-                  ? "Precisa de ração"
+                  ? t("animals.hungry")
                   : ready
-                    ? items[product].name + " pronto!"
-                    : "Produzindo"
+                    ? t("animals.ready",{name:items[product].name})
+                    : t("animals.producing")
               }
             >
               {remaining !== null && remaining > 0 ? (
@@ -111,7 +110,9 @@ export function AnimalProductionPanel({ now }: { now: number }) {
                     })
                   }
                 >
-                  {remaining === null ? "Alimentar" : "Coletar"}
+                  {remaining === null
+                    ? t("animals.feed")
+                    : t("animals.collect")}
                 </button>
               )}
             </AnimalCard>
@@ -132,7 +133,7 @@ export function AnimalProductionPanel({ now }: { now: number }) {
                 })
               }
             >
-              Alimentar {feedable.length} animais
+              {t("animals.feedBatch",{count:feedable.length})}
             </button>
           )}
           {ready.length > 0 && (
@@ -151,7 +152,7 @@ export function AnimalProductionPanel({ now }: { now: number }) {
                 })
               }
             >
-              Coletar {ready.length} produtos
+              {t("animals.collectBatch",{count:ready.length})}
             </button>
           )}
         </div>

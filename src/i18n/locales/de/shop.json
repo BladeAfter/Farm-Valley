@@ -1,0 +1,14 @@
+{
+  "title": "Talladen",
+  "fieldDescription": "{{count}} Beete. Bepflanze und verschiebe sie einzeln.",
+  "seedName": "Saatgut: {{name}}",
+  "seedsDescription": "3 Samen · Vorrat {{count}} · Wachstum {{time}}.",
+  "machineDescription": "2 Produktionsplätze. Platz wählen und bestätigen.",
+  "machineOwned": "{{slots}} Plätze · {{queued}} Produkte in der Warteschlange.",
+  "animalDescription": "{{name}} produziert {{product}}. Futter: {{feed}}.",
+  "fruitDescription": "{{count}} pro Ernte · Zyklus {{cycle}} · Wachstum {{growth}}.",
+  "storageDescription": "{{count}} Plätze. Produkte und nächste Erweiterung ansehen.",
+  "feedDescription": "3 Portionen · Vorrat {{count}}. Stelle Futter in der Mühle her.",
+  "flowersDescription": "Eine kleine Dekoration für deinen Hof.",
+  "unavailable": "Neue Käufe dieser Tierart sind noch nicht verfügbar."
+}

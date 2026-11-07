@@ -1,0 +1,18 @@
+{
+  "title": "Silo y granero",
+  "used": "Espacio ocupado",
+  "upgrade": "Mejorar",
+  "upgradeNamed": "Mejorar {{name}}",
+  "back": "Volver a productos",
+  "sell": "Vender",
+  "sellNamed": "Vender {{name}}",
+  "sellPrice": "Vender · {{coins}}",
+  "available": "{{count}} disponibles",
+  "empty": "Tus próximas cosechas y recogidas aparecerán aquí.",
+  "hint": "Toca para consultar o vender. Guarda semillas.",
+  "reserved": "Reservado para cuidar la granja.",
+  "stage": "{{name}} · etapa {{stage}}",
+  "spaces": "{{used}} / {{capacity}} espacios",
+  "next": "{{current}} → {{next}} espacios · nivel {{level}}",
+  "max": "Etapa máxima disponible"
+}

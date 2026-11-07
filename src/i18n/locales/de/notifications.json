@@ -1,0 +1,20 @@
+{
+  "loading": "Dein Hof wird geladen…",
+  "welcome": "Willkommen im Tal! Deine erste Ernte ist reif.",
+  "fieldStroke": "Feld gepflegt! Baue weiter an.",
+  "fed": "Satt und zufrieden! Die Produktion startet.",
+  "delivery": "Lieferung abgeschlossen! Das Dorf dankt dir.",
+  "built": "Gebäude für deinen Hof bereit!",
+  "moved": "Objekt verschoben.",
+  "queued": "Zutaten reserviert. Rezept in der Warteschlange!",
+  "collected": "Produkt in der Scheune gelagert!",
+  "harvested": "Ernte im Silo gelagert!",
+  "planted": "Samen gepflanzt. Das Tal wächst!",
+  "bought": "Kauf abgeschlossen!",
+  "upgraded": "Verbesserung abgeschlossen!",
+  "canceled": "Zutaten zurückgegeben.",
+  "sold": "Verkauf abgeschlossen!",
+  "removed": "Boden ist frei!",
+  "animals": "Tiere versorgt!",
+  "discarded": "Auftrag entfernt. Ein neuer kommt bald."
+}

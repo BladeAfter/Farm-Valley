@@ -1,0 +1,18 @@
+{
+  "network": "Tidak dapat terhubung ke server.",
+  "session": "Sesi berakhir. Hubungkan lagi.",
+  "coins": "Koin tidak cukup.",
+  "barn": "Lumbung penuh. Kosongkan ruang.",
+  "silo": "Silo penuh. Kosongkan ruang.",
+  "level": "Capai level {{level}}.",
+  "locked": "Belum tersedia di levelmu.",
+  "stock": "Produk atau bahan kurang.",
+  "feed": "Butuh pakan untuk hewan ini.",
+  "notReady": "Belum siap. Tunggu produksi.",
+  "changed": "Tindakan berubah. Segarkan pertanian.",
+  "place": "Tempat terisi atau tidak tersedia.",
+  "seed": "Simpan benih untuk menanam lagi.",
+  "invalid": "Tindakan tidak valid. Segarkan dan coba lagi.",
+  "fullQueue": "Antrean penuh. Ambil produk jadi.",
+  "actionFailed": "Tidak dapat menyelesaikan. Coba lagi."
+}

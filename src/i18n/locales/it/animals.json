@@ -1,0 +1,18 @@
+{
+  "feed": "Nutri",
+  "collect": "Raccogli",
+  "hungry": "Serve mangime",
+  "producing": "In produzione",
+  "ready": "{{name}} pronto!",
+  "feedBatch": "Nutri {{count}} animali",
+  "collectBatch": "Raccogli {{count}} prodotti",
+  "count_one": "{{count}} animale",
+  "count_other": "{{count}} animali",
+  "pen.cow": "Stalla",
+  "pen.chicken": "Pollaio",
+  "pen.goat": "Ricovero capre",
+  "pen.pig": "Porcile",
+  "pen.sheep": "Ovile",
+  "title": "Animali della fattoria",
+  "reserve": "{{count}} disponibili · {{reserve}} di scorta"
+}

@@ -1,0 +1,18 @@
+{
+  "title": "粮仓与货仓",
+  "used": "已用容量",
+  "upgrade": "升级",
+  "upgradeNamed": "升级{{name}}",
+  "back": "返回产品",
+  "sell": "出售",
+  "sellNamed": "出售{{name}}",
+  "sellPrice": "出售 · {{coins}}",
+  "available": "可用{{count}}",
+  "empty": "后续收获的产品将显示在这里。",
+  "hint": "点击查看或出售，记得留种。",
+  "reserved": "留作农场维护使用。",
+  "stage": "{{name}} · 阶段{{stage}}",
+  "spaces": "{{used}}/{{capacity}}空间",
+  "next": "{{current}}→{{next}}空间 · 等级{{level}}",
+  "max": "已达最高阶段"
+}

@@ -1,4 +1,5 @@
-﻿import { Lock, Check } from "lucide-react";
+import { t } from "../../i18n/core";
+import { Lock, Check } from "lucide-react";
 import { useFarm } from "../../store/useFarm";
 import {
   storageStages,
@@ -11,14 +12,18 @@ import {
   type StorageKind,
 } from "../../types/game";
 import { storageImage } from "../../data/buildings";
-export function StorageUpgrades({ only }: { only?: StorageKind } = {}) {
+export function StorageUpgrades({
+  only,
+}: {
+  only?: StorageKind;
+} = {}) {
   const { snapshot, act, busy } = useFarm();
   const farm = snapshot?.farm;
   if (!farm) return null;
   return (
     <div className="storage-upgrades">
       {(only ? [only] : (["silo", "barn"] as StorageKind[])).map((kind) => {
-        const name = kind === "barn" ? "Celeiro" : "Silo";
+        const name = kind === "barn" ? t("farm.barn") : t("farm.silo");
         const stage = farm.storage[kind],
           current = storageStage(stage),
           next = nextStorageStage(farm, kind);
@@ -31,10 +36,10 @@ export function StorageUpgrades({ only }: { only?: StorageKind } = {}) {
               <div>
                 <b>{name}</b>
                 <small>
-                  {current.name} · etapa {stage}
+                  {t("inventory.stage",{name:t("farm.stage."+stage),stage})}
                 </small>
                 <span>
-                  {used} / {storageCapacity(farm, kind)} espaços
+                  {t("inventory.spaces",{used,capacity:storageCapacity(farm,kind)})}
                 </span>
               </div>
             </div>
@@ -53,7 +58,7 @@ export function StorageUpgrades({ only }: { only?: StorageKind } = {}) {
                 >
                   <img
                     src={storageImage(kind, index + 1)}
-                    alt={name + " " + step.name}
+                    alt={name}
                   />
                   <small>{step.capacity}</small>
                   {index + 1 <= stage ? <Check size={9} /> : <Lock size={9} />}
@@ -63,11 +68,10 @@ export function StorageUpgrades({ only }: { only?: StorageKind } = {}) {
             {next ? (
               <>
                 <span className="storage-next">
-                  {current.capacity} → {next.capacity} espaços · nível{" "}
-                  {next.requiredLevel}
+                  {t("inventory.next",{current:current.capacity,next:next.capacity,level:next.requiredLevel})}
                 </span>
                 <button
-                  aria-label={"Melhorar " + name}
+                  aria-label={t("inventory.upgradeNamed",{name})}
                   className="primary"
                   disabled={busy || !unlocked || farm.coins < next.cost}
                   onClick={() =>
@@ -81,12 +85,12 @@ export function StorageUpgrades({ only }: { only?: StorageKind } = {}) {
                   {!unlocked ? (
                     <>
                       <Lock size={12} />
-                      Nível {next.requiredLevel}
+                      {t("common.level",{level:next.requiredLevel})}
                     </>
                   ) : (
                     <>
                       <img src="/assets/ui/coin.svg" alt="" />
-                      {next.cost} · Melhorar
+                      {t("common.coinValue",{coins:next.cost})} · {t("inventory.upgrade")}
                     </>
                   )}
                 </button>
@@ -94,7 +98,7 @@ export function StorageUpgrades({ only }: { only?: StorageKind } = {}) {
             ) : (
               <span className="storage-max">
                 <Check size={13} />
-                Etapa máxima disponível
+                {t("inventory.max")}
               </span>
             )}
           </article>

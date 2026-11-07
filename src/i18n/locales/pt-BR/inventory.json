@@ -1,0 +1,18 @@
+{
+  "title": "Silo & celeiro",
+  "used": "Espaços ocupados",
+  "upgrade": "Melhorar",
+  "upgradeNamed": "Melhorar {{name}}",
+  "back": "Voltar aos produtos",
+  "sell": "Vender",
+  "sellNamed": "Vender {{name}}",
+  "sellPrice": "Vender · {{coins}}",
+  "available": "{{count}} disponíveis",
+  "empty": "Suas próximas colheitas e coletas aparecerão aqui.",
+  "hint": "Toque para consultar ou vender. Guarde sementes para replantar.",
+  "reserved": "Reservado para os cuidados da fazenda.",
+  "stage": "{{name}} · etapa {{stage}}",
+  "spaces": "{{used}} / {{capacity}} espaços",
+  "next": "{{current}} → {{next}} espaços · nível {{level}}",
+  "max": "Etapa máxima disponível"
+}

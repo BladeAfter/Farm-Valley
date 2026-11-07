@@ -1,0 +1,14 @@
+{
+  "title": "Loja do vale",
+  "fieldDescription": "{{count}} canteiros. Cultive e mova cada um livremente.",
+  "seedName": "Sementes de {{name}}",
+  "seedsDescription": "3 sementes · estoque {{count}} · cresce em {{time}}.",
+  "machineDescription": "2 espaços de produção. Escolha o lugar e confirme a compra.",
+  "machineOwned": "{{slots}} espaços · {{queued}} produtos na fila.",
+  "animalDescription": "{{name}} produz {{product}}. Ração: {{feed}}.",
+  "fruitDescription": "{{count}} por colheita · ciclo {{cycle}} · crescimento {{growth}}.",
+  "storageDescription": "{{count}} espaços. Consulte os produtos e a próxima melhoria.",
+  "feedDescription": "3 rações · estoque {{count}}. Fabrique sua ração no moinho.",
+  "flowersDescription": "Um pequeno detalhe para decorar sua fazenda.",
+  "unavailable": "Novas compras desta espécie ainda não estão disponíveis."
+}

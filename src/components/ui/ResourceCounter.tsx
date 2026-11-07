@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { number } from "../../i18n/core";
 
 export function ResourceCounter({
   value,
@@ -35,7 +36,7 @@ export function ResourceCounter({
   return (
     <div className="resource-counter" aria-label={label + ": " + value}>
       <img src={image} alt="" />
-      <strong>{display.toLocaleString("pt-BR")}</strong>
+      <strong>{number(display)}</strong>
     </div>
   );
 }

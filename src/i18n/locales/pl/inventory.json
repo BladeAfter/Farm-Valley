@@ -1,0 +1,18 @@
+{
+  "title": "Silos i stodoła",
+  "used": "Zajęte miejsce",
+  "upgrade": "Ulepsz",
+  "upgradeNamed": "Ulepsz {{name}}",
+  "back": "Wróć do produktów",
+  "sell": "Sprzedaj",
+  "sellNamed": "Sprzedaj {{name}}",
+  "sellPrice": "Sprzedaj · {{coins}}",
+  "available": "Dostępne: {{count}}",
+  "empty": "Tutaj pojawią się kolejne zbiory i produkty.",
+  "hint": "Dotknij, aby sprawdzić lub sprzedać. Zachowaj nasiona.",
+  "reserved": "Zarezerwowane do opieki nad farmą.",
+  "stage": "{{name}} · etap {{stage}}",
+  "spaces": "{{used}} / {{capacity}} miejsc",
+  "next": "{{current}} → {{next}} miejsc · poziom {{level}}",
+  "max": "Osiągnięto najwyższy etap"
+}

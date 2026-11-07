@@ -121,6 +121,7 @@ test("migracao v3 preserva fazenda melhorada e adiciona uma cabra e um porco", (
 test("pedidos utilizam leite de cabra e trufas do inventario", () => {
   const farm = initialFarm();
   farm.ordersCompleted = 4;
+  delete farm.orderBoard; // Saved progress before the persistent multi-order board.
   assert.throws(() =>
     applyCommand(farm, { type: "deliver-order", orderId: 4 }),
   );
@@ -129,6 +130,7 @@ test("pedidos utilizam leite de cabra e trufas do inventario", () => {
   assert.equal(milk.inventory.goatMilk, 0);
   assert.equal(milk.coins, 178);
   milk.inventory.truffle = 1;
+  delete milk.orderBoard; // Independently migrate the legacy snapshot at order 5.
   const truffle = applyCommand(milk, { type: "deliver-order", orderId: 5 });
   assert.equal(truffle.inventory.truffle, 0);
   assert.equal(truffle.coins, 210);

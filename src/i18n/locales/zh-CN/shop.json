@@ -1,0 +1,14 @@
+{
+  "title": "山谷商店",
+  "fieldDescription": "{{count}}块田，可独立种植和移动。",
+  "seedName": "{{name}}种子",
+  "seedsDescription": "3粒种子 · 库存{{count}} · {{time}}成熟。",
+  "machineDescription": "2个生产位，选择位置后确认购买。",
+  "machineOwned": "{{slots}}个位置 · {{queued}}份产品排队中。",
+  "animalDescription": "{{name}}产出{{product}}。饲料：{{feed}}。",
+  "fruitDescription": "每次收获{{count}}份 · 周期{{cycle}} · 成长{{growth}}。",
+  "storageDescription": "{{count}}个空间，查看产品和下一次升级。",
+  "feedDescription": "3份饲料 · 库存{{count}}，也可在饲料厂制作。",
+  "flowersDescription": "为农场增添一处小装饰。",
+  "unavailable": "暂不支持购买更多该种动物。"
+}
