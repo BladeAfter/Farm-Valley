@@ -4,9 +4,9 @@ import { initialFarm, applyCommand, migrateFarm } from "../services/farm.js";
 import type { Command, Farm } from "../../src/types/game.js";
 import { resolve } from "node:path";
 import { FileFarmRepository } from "./file-repository.js";
-export const pool = process.env.DATABASE_URL
-  ? new Pool({ connectionString: process.env.DATABASE_URL })
-  : null;
+import { databaseConfig } from "./config.js";
+const config = databaseConfig();
+export const pool = config ? new Pool(config) : null;
 const local = new FileFarmRepository(
   resolve(process.env.FARM_SAVE_PATH || ".data/farm-sessions.json"),
 );
@@ -22,7 +22,7 @@ export async function createSession(hash: string) {
   const farm = initialFarm();
   if (pool)
     await pool.query(
-      "INSERT INTO sessions VALUES($1,$2,now()+interval '30 days')",
+      "INSERT INTO sessions(token_hash,farm,expires_at) VALUES($1,$2,now()+interval '30 days')",
       [hash, JSON.stringify(farm)],
     );
   else await local.create(hash);

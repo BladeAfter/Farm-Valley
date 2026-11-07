@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "db:check": "tsx scripts/database.ts check",
+    "db:import": "tsx scripts/database.ts import",
     "dev": "concurrently -k \"vite --host 0.0.0.0\" \"tsx watch server/api/index.ts\"",
     "build": "tsc --noEmit && vite build",
     "test": "tsx --test tests/*.test.ts",
