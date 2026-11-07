@@ -36,6 +36,7 @@ import {
 import { defaultPenPositions } from "../../src/data/pens.js";
 import { applyProductionCommand, animalAction } from "./production.js";
 import { applyOrderCommand, synchronizeOrders } from "./orders.js";
+import { synchronizeMarketStand } from "./market-stand.js";
 export function initialFarm(options: { planted?: boolean } = {}): Farm {
   const now = Date.now();
   const farm: Farm = {
@@ -100,7 +101,7 @@ export function initialFarm(options: { planted?: boolean } = {}): Farm {
     revision: 0,
   };
   farm.obstacles = initialObstacles(farm.landSeed, farm);
-  return synchronizeOrders(farm, now);
+  return synchronizeMarketStand(synchronizeOrders(farm, now));
 }
 export function migrateFarm(value: Farm, now = Date.now()): Farm {
   if (
@@ -112,7 +113,7 @@ export function migrateFarm(value: Farm, now = Date.now()): Farm {
       Number.isFinite(value.inventory[id as keyof typeof items]),
     )
   )
-    return synchronizeOrders(value, now);
+    return synchronizeMarketStand(synchronizeOrders(value, now));
   const base = initialFarm({ planted: false });
   const animals = structuredClone(value.animals ?? base.animals);
   for (const animal of base.animals.filter(
@@ -124,6 +125,7 @@ export function migrateFarm(value: Farm, now = Date.now()): Farm {
   const migrated: Farm = {
     ...base,
     ...value,
+    marketStand: value.marketStand,
     version: 7,
     penPositions: { ...base.penPositions, ...value.penPositions },
     inventory: {
@@ -143,7 +145,7 @@ export function migrateFarm(value: Farm, now = Date.now()): Farm {
   };
   if (!Array.isArray(value.obstacles))
     migrated.obstacles = initialObstacles(migrated.landSeed, migrated);
-  return synchronizeOrders({ ...migrated, orderBoard: value.orderBoard }, now);
+  return synchronizeMarketStand(synchronizeOrders({ ...migrated, orderBoard: value.orderBoard }, now));
 }
 function fieldAction(
   farm: Farm,

@@ -58,6 +58,7 @@ export type Animal = {
   production?: { readyAt: number; product: Item } | null;
 };
 export type Farm = {
+  marketStand?: Cell | null;
   version: 7;
   machines: Machine[];
   penPositions: Record<AnimalKind, Cell>;

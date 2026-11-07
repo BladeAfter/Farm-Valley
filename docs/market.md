@@ -2,6 +2,10 @@
 
 Acesso: **Mais → Mercado**. Comprar mostra anúncios de outras sessões; Meus anúncios permite selecionar qualquer item real do inventário, informar quantidade/preço total e publicar. Machados, TNT, dinamite, frutas, leite, sementes e produtos fabricados usam os ícones e nomes existentes. Sincronizar atualiza anúncios e saldo, incluindo vendas feitas enquanto o vendedor está aberto.
 
+O mercado também possui uma banca física no cenário: toque no toldo verde e creme para abrir o mesmo mercado. A posição é escolhida pelo servidor numa área livre e fica salva em `marketStand`, sem remover objetos existentes. A área de 1,5 × 1,5 células bloqueia outras colocações. Se não houver espaço, o acesso pelo menu permanece disponível. Nesta versão a banca é fixa.
+
+Arte original gerada com a skill imagegen: banca isométrica de madeira, toldo verde/creme, frutas, leite e ferramentas; placa com símbolo de cesta sem texto. Fonte PNG e WebP em `public/assets/buildings/market`. `scripts/assets/prepare-market.py` apenas recorta a margem transparente e reduz o arquivo para 384 px; a cena exibe largura de 112 px. Verificação: `tests/market-stand.test.ts` e `node scripts/market-stand-visual.mjs`, com captura desktop/mobile e teste de abertura/persistência.
+
 Cada anúncio aceita 1–100 unidades, até 10 anúncios ativos por vendedor. O teto de preço total é dez vezes o valor de venda configurado por unidade (base 1 para itens sem preço de venda). Não há taxa, XP ou criação de moedas. O preço exibido é pelo lote inteiro.
 
 Publicar retira o lote do inventário e o reserva no anúncio. Comprar transfere o lote, desconta moedas e paga o vendedor numa única transação. Só há um comprador por anúncio; compras próprias, IDs repetidos, campos extras e estoque/saldo/capacidade insuficientes são rejeitados. Cancelar devolve o lote e exige espaço no armazém correspondente. Se não houver espaço, o anúncio permanece intacto.

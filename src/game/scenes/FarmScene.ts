@@ -16,6 +16,7 @@ import { CowSprite } from "../entities/CowSprite";
 import { FieldTerrain } from "../entities/FieldTerrain";
 import { OrderNoticeBoard } from "../entities/OrderNoticeBoard";
 import { DeliveryTruck } from "../entities/DeliveryTruck";
+import { MarketStand } from "../entities/MarketStand";
 import { FarmBuildings } from "../entities/FarmBuildings";
 import { PastureAnimal } from "../entities/PastureAnimal";
 
@@ -39,6 +40,7 @@ export class FarmScene extends Phaser.Scene {
   private factories!: FactoryBuildings;
   private noticeBoard!: OrderNoticeBoard;
   private deliveryTruck!: DeliveryTruck;
+  private marketStand!: MarketStand;
   private purchaseGhost?: Phaser.GameObjects.Image;
   private placementPointer: Cell | null = null;
   private sheepLoading = false;
@@ -59,6 +61,7 @@ export class FarmScene extends Phaser.Scene {
     super("farm");
   }
   preload() {
+    this.load.image("market-stand","/assets/buildings/market/stand-v1.webp");
     this.load.image("truck-out","/assets/vehicles/delivery-truck/out-v1.webp");
     this.load.image("truck-in","/assets/vehicles/delivery-truck/in-v1.webp");
     this.load.spritesheet(
@@ -150,6 +153,7 @@ export class FarmScene extends Phaser.Scene {
     this.factories = new FactoryBuildings(this);
     this.noticeBoard = new OrderNoticeBoard(this);
     this.deliveryTruck = new DeliveryTruck(this);
+    this.marketStand = new MarketStand(this);
     this.obstacles = new NaturalObstacles(this);
     this.fruitTrees = new FruitTrees(this);
     this.terrain = new FieldTerrain(this);
@@ -386,6 +390,7 @@ export class FarmScene extends Phaser.Scene {
               });
           return;
         }
+        if(this.marketStand.at(world.x,world.y)){state.open("market");return;}
         if (this.noticeBoard.at(world.x, world.y) || this.deliveryTruck.at(world.x,world.y)) { state.open("orders"); return; }
         const factory = this.factories.at(world.x, world.y);
         if (factory) {
@@ -807,6 +812,7 @@ export class FarmScene extends Phaser.Scene {
     this.terrain.sync(snapshot.farm.plots);
     this.buildings.sync(snapshot.farm);
     this.noticeBoard.sync(snapshot.farm);
+    this.marketStand.sync(snapshot.farm);
     const sheep = snapshot.farm.animals.find((a) => a.kind === "sheep");
     if (sheep && !this.animals.some((a) => a.id === sheep.id)) {
       if (

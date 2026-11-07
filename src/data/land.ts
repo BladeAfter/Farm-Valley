@@ -156,13 +156,15 @@ export function occupancyIssue(
     | "areas"
     | "fruitTrees"
   > &
-    Partial<Pick<Farm, "penPositions" | "machines" | "animals" | "orderBoard">>,
+    Partial<Pick<Farm, "penPositions" | "machines" | "animals" | "orderBoard" | "marketStand">>,
   rect: Rect,
   ignoreBuilding?: BuildingId,
   ignorePlacement?: Placement,
 ): string | null {
   const terrain = terrainIssue(rect, farm.areas);
   if (terrain) return terrain;
+  const market=farm.marketStand;
+  if(market&&intersects(rect,{x:market.x-.75,y:market.y-.75,w:1.5,h:1.5}))return "Este espaço pertence ao mercado.";
   const board = farm.orderBoard?.position;
   if (board && intersects(rect, { x: board.x - .5, y: board.y - .5, w: 1, h: 1 })) return "Este espaço pertence ao quadro de encomendas.";
   for (const kind of Object.keys(
