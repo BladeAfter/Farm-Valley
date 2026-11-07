@@ -307,6 +307,8 @@ export function applyOrderCommand(
   )
     throw new Error("O produto do pedido mudou.");
   if (command.type !== "discard-order") {
+    if (farm.orderBoard?.truck && now < farm.orderBoard.truck.returnsAt)
+      throw new Error("Aguarde o caminhão retornar para enviar outro pedido.");
     if (order.products.some((p) => farm.inventory[p.item] < p.amount))
       throw new Error("Faltam produtos para entregar este pedido.");
     for (const product of order.products)
@@ -314,6 +316,7 @@ export function applyOrderCommand(
     farm.coins += order.coins;
     farm.xp += order.xp;
     farm.ordersCompleted++;
+    farm.orderBoard!.truck = { orderId:order.id, departedAt:now, returnsAt:now+orderRules.truckTravelMs };
   }
   slot.order = null;
   slot.generation++;

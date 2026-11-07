@@ -20,6 +20,7 @@ export type OrderSlot = {
   refillAt: number | null;
 };
 export type OrderBoard = {
+  truck?: { orderId:string; departedAt:number; returnsAt:number };
   schema: 1;
   nextNumber: number;
   slots: OrderSlot[];
@@ -62,6 +63,7 @@ export const customers: Record<
   },
 };
 export const orderRules = {
+  truckTravelMs: 45_000,
   deliveryDelayMs: 45_000,
   discardDelayMs: 120_000,
   maxProducts: 2,

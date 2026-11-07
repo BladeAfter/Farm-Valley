@@ -1,0 +1,5 @@
+{
+  "ready": "Caminhão pronto para carregar",
+  "returning": "Caminhão retorna em {{time}}",
+  "send": "Carregar e enviar"
+}

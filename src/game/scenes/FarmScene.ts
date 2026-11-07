@@ -15,6 +15,7 @@ import { ChickenSprite } from "../entities/ChickenSprite";
 import { CowSprite } from "../entities/CowSprite";
 import { FieldTerrain } from "../entities/FieldTerrain";
 import { OrderNoticeBoard } from "../entities/OrderNoticeBoard";
+import { DeliveryTruck } from "../entities/DeliveryTruck";
 import { FarmBuildings } from "../entities/FarmBuildings";
 import { PastureAnimal } from "../entities/PastureAnimal";
 
@@ -37,6 +38,7 @@ export class FarmScene extends Phaser.Scene {
   private buildings!: FarmBuildings;
   private factories!: FactoryBuildings;
   private noticeBoard!: OrderNoticeBoard;
+  private deliveryTruck!: DeliveryTruck;
   private purchaseGhost?: Phaser.GameObjects.Image;
   private placementPointer: Cell | null = null;
   private sheepLoading = false;
@@ -57,6 +59,8 @@ export class FarmScene extends Phaser.Scene {
     super("farm");
   }
   preload() {
+    this.load.image("truck-out","/assets/vehicles/delivery-truck/out-v1.webp");
+    this.load.image("truck-in","/assets/vehicles/delivery-truck/in-v1.webp");
     this.load.spritesheet(
       "fruit-tree-apple",
       "/assets/trees/orchard/apple/stages-v1.webp",
@@ -145,6 +149,7 @@ export class FarmScene extends Phaser.Scene {
     this.buildings = new FarmBuildings(this);
     this.factories = new FactoryBuildings(this);
     this.noticeBoard = new OrderNoticeBoard(this);
+    this.deliveryTruck = new DeliveryTruck(this);
     this.obstacles = new NaturalObstacles(this);
     this.fruitTrees = new FruitTrees(this);
     this.terrain = new FieldTerrain(this);
@@ -381,7 +386,7 @@ export class FarmScene extends Phaser.Scene {
               });
           return;
         }
-        if (this.noticeBoard.at(world.x, world.y)) { state.open("orders"); return; }
+        if (this.noticeBoard.at(world.x, world.y) || this.deliveryTruck.at(world.x,world.y)) { state.open("orders"); return; }
         const factory = this.factories.at(world.x, world.y);
         if (factory) {
           state.openMachine(factory);
@@ -789,6 +794,8 @@ export class FarmScene extends Phaser.Scene {
     );
   }
   update(time: number, delta: number) {
+    const truckFarm=useFarm.getState().snapshot?.farm;
+    if(truckFarm)this.deliveryTruck.sync(truckFarm,farmNow());
     for (const animal of this.animals) animal.update(time, delta);
     if (time - this.lastDraw < 120) return;
     this.lastDraw = time;

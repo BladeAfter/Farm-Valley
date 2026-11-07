@@ -83,6 +83,7 @@ export function OrdersPanel({ now }: { now: number }) {
   const nextUnlock = orderRules.unlocks.find(
     (rule) => rule.level > playerLevel(farm),
   );
+  const truckAway=!!board.truck&&now<board.truck.returnsAt;
   const source = product ? orderProductSource(farm, product) : null;
   const focus = (position: { x: number; y: number }) =>
     window.dispatchEvent(new CustomEvent("farm-focus", { detail: position }));
@@ -145,7 +146,7 @@ export function OrdersPanel({ now }: { now: number }) {
           <span>
             <b>{t("orders.count",{count:board.slots.filter(s=>s.order).length})}</b>
             <small>
-              {t("orders.readyCount",{count:readyCount})}
+              {truckAway?t("truck.returning",{time:formatTime(board.truck!.returnsAt-now)}):t("truck.ready")}
             </small>
           </span>
         </div>
@@ -275,14 +276,14 @@ export function OrdersPanel({ now }: { now: number }) {
                 </button>
                 <button
                   className="primary deliver-order"
-                  disabled={busy || !!departure || !ready}
+                  disabled={busy || !!departure || !ready || truckAway}
                   aria-label={t("orders.deliverNamed",{number:order.number})}
                   onClick={() => void complete(slot.id, order, false)}
                 >
                   {ready ? (
                     <>
                       <Check size={16} />
-                      {t("orders.deliver")}
+                      {t("truck.send")}
                     </>
                   ) : (
                     t("orders.missing")

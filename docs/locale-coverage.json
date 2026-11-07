@@ -1,84 +1,84 @@
 {
-  "catalogKeys": 339,
+  "catalogKeys": 342,
   "languages": [
     {
       "locale": "pt-BR",
-      "keys": 339,
+      "keys": 342,
       "nativeReview": false
     },
     {
       "locale": "en",
-      "keys": 339,
+      "keys": 342,
       "nativeReview": false
     },
     {
       "locale": "es",
-      "keys": 339,
+      "keys": 342,
       "nativeReview": false
     },
     {
       "locale": "ru",
-      "keys": 339,
+      "keys": 342,
       "nativeReview": false
     },
     {
       "locale": "tr",
-      "keys": 339,
+      "keys": 342,
       "nativeReview": false
     },
     {
       "locale": "fa",
-      "keys": 339,
+      "keys": 342,
       "nativeReview": false
     },
     {
       "locale": "ar",
-      "keys": 339,
+      "keys": 342,
       "nativeReview": false
     },
     {
       "locale": "fr",
-      "keys": 339,
+      "keys": 342,
       "nativeReview": false
     },
     {
       "locale": "de",
-      "keys": 339,
+      "keys": 342,
       "nativeReview": false
     },
     {
       "locale": "it",
-      "keys": 339,
+      "keys": 342,
       "nativeReview": false
     },
     {
       "locale": "id",
-      "keys": 339,
+      "keys": 342,
       "nativeReview": false
     },
     {
       "locale": "hi",
-      "keys": 339,
+      "keys": 342,
       "nativeReview": false
     },
     {
       "locale": "zh-CN",
-      "keys": 339,
+      "keys": 342,
       "nativeReview": false
     },
     {
       "locale": "ja",
-      "keys": 339,
+      "keys": 342,
       "nativeReview": false
     },
     {
       "locale": "ko",
-      "keys": 339,
+      "keys": 342,
       "nativeReview": false
     },
     {
       "locale": "pl",
-      "keys": 339,
+      "keys": 342,
       "nativeReview": false
     }
   ]

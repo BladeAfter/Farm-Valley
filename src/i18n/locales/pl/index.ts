@@ -9,7 +9,8 @@ import n7 from "./market.json";
 import n8 from "./notifications.json";
 import n9 from "./orders.json";
 import n10 from "./shop.json";
-import n11 from "./tutorial.json";
+import n11 from "./truck.json";
+import n12 from "./tutorial.json";
 export default Object.assign({},
 Object.fromEntries(Object.entries(n0).map(([key,value])=>["common."+key,value])),
 Object.fromEntries(Object.entries(n1).map(([key,value])=>["animals."+key,value])),
@@ -22,4 +23,5 @@ Object.fromEntries(Object.entries(n7).map(([key,value])=>["market."+key,value]))
 Object.fromEntries(Object.entries(n8).map(([key,value])=>["notifications."+key,value])),
 Object.fromEntries(Object.entries(n9).map(([key,value])=>["orders."+key,value])),
 Object.fromEntries(Object.entries(n10).map(([key,value])=>["shop."+key,value])),
-Object.fromEntries(Object.entries(n11).map(([key,value])=>["tutorial."+key,value])));
+Object.fromEntries(Object.entries(n11).map(([key,value])=>["truck."+key,value])),
+Object.fromEntries(Object.entries(n12).map(([key,value])=>["tutorial."+key,value])));
