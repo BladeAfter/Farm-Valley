@@ -1,5 +1,7 @@
 import "dotenv/config";
 import express from "express";
+import { resolve } from "node:path";
+import { existsSync } from "node:fs";
 import {
   initialize,
   createSession,
@@ -12,8 +14,13 @@ import { newToken, hashToken } from "../auth/session.js";
 import { commandSchema } from "../validators/command.js";
 import { errorInfo } from "../../src/i18n/errors.js";
 const app = express();
+if(process.env.TRUST_PROXY==="1")app.set("trust proxy",1);
 app.disable("x-powered-by");
 app.use(express.json({ limit: "4kb" }));
+app.get("/healthz",async(_req,res)=>{
+ try { if(pool)await pool.query("SELECT 1");res.json({ok:true}); }
+ catch { res.status(503).json({ok:false}); }
+});
 app.use("/api", (req, res, next) => {
   if (req.method === "POST" && req.headers["sec-fetch-site"] === "cross-site") {
     res.status(403).json({ error: "Origem inválida" });
@@ -98,6 +105,13 @@ app.post("/api/farm/market",async(req,res)=>{
  try{res.json(await market(res.locals.hash,marketSchema.parse(req.body)));}
  catch(error){res.status(400).json({code:"errors.actionFailed"});}
 });
+app.use("/api",(_req,res)=>{res.status(404).json({code:"errors.invalid"});});
+if(process.env.NODE_ENV==="production"||process.env.SERVE_WEB==="true"){
+ const directory=resolve("dist");
+ if(!existsSync(resolve(directory,"index.html")))throw new Error("Execute npm run build antes de iniciar o servidor web.");
+ app.use(express.static(directory,{dotfiles:"deny"}));
+ app.get(/^\/(?!api(?:\/|$)).*/,(_req,res)=>{res.sendFile(resolve(directory,"index.html"));});
+}
 app.use(
   (
     error: Error,

@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: farm-valley
+    runtime: node
+    plan: free
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm run server
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: 22.16.0
+      - key: NODE_ENV
+        value: production
+      - key: TRUST_PROXY
+        value: "1"
+      - key: DATABASE_REQUIRED
+        value: "true"
+      - key: DATABASE_URL
+        sync: false

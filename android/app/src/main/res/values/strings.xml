@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Farm Valley</string>
+    <string name="title_activity_main">Farm Valley</string>
+    <string name="package_name">com.farmvalley.app</string>
+    <string name="custom_url_scheme">com.farmvalley.app</string>
+</resources>

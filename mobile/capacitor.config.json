@@ -1,0 +1,10 @@
+{
+  "appId": "com.farmvalley.app",
+  "appName": "Farm Valley",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  }
+}
