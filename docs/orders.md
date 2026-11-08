@@ -8,4 +8,4 @@ A migração preserva o primeiro pedido legado e o progresso existente. O quadro
 
 Arte original: cinco retratos e o quadro foram gerados com IA; Clara usa ilustração SVG original. Arquivos em `public/assets/ui/customers` e `public/assets/buildings/order-board`. Prompts registrados em `scripts/assets/order-prompts.json`; conversão de tamanho/formato em `prepare-orders.py`.
 
-Verificações: `tests/orders.test.ts` e `node --import tsx scripts/orders-visual.mjs`, com API e save isolados, cinco resoluções e entrega/descarte/reinício reais. A persistência PostgreSQL compartilha as regras transacionais, mas não foi validada contra uma instância PostgreSQL nesta sessão.
+Verificações: `tests/orders.test.ts` e `node --import tsx scripts/orders-visual.mjs`, com API e save isolados, cinco resoluções e entrega/descarte/reinício reais. Em 7 de novembro, `scripts/postgres-check.ts` também verificou no Supabase real a entrega concorrente, a recompensa única e a viagem persistida.

@@ -34,7 +34,7 @@ A fazenda nova inclui 24 campos, com uma colheita inicial real disponível, 8 tr
 
 Copie `.env.example` para `.env` e configure `DATABASE_URL` com um PostgreSQL existente. A API cria a tabela na inicialização e usa transação com bloqueio da fazenda nas operações. Sem PostgreSQL, o servidor usa **arquivo persistente de desenvolvimento** em `.data/farm-sessions.json`, com operações serializadas e gravação atômica. Esse arquivo permanece ao reiniciar a API; faça backup para mantê-lo em outra máquina. `FARM_SAVE_PATH` permite outro caminho. Esse adaptador é para um único processo local; em produção a API exige PostgreSQL. Não existe salvamento em localStorage. Estados do antigo modo somente em memória que já foram perdidos não podem ser recuperados.
 
-A sessão anônima usa cookie HttpOnly e hash do token no banco. Vinculação a uma conta recuperável, Telegram initData, hospedagem pública e pacote Android ainda não foram implementados. Os testes desta entrega não substituem a validação de PostgreSQL real ou Android físico.
+A sessão anônima usa cookie HttpOnly e hash do token no banco. O Supabase foi ativado e verificado no PostgreSQL real em 7 de novembro de 2026; veja [migração e testes](docs/supabase.md). Um APK de teste foi gerado; veja [Android](docs/android.md). Vinculação a uma conta recuperável, Telegram initData, hospedagem pública e validação em Android físico continuam pendentes.
 
 ## Verificar
 
@@ -86,5 +86,5 @@ node --import tsx scripts/feeding-visual.mjs
 
 ## Limitações de implantação
 
-Expansão de novas regiões, aquisição de rebanhos adicionais, amigos, conta recuperável, backend publicado, PostgreSQL real validado, integração autenticada Android/Telegram, pinch zoom, balanceamento com jogadores e medições em celular físico.
+Expansão de novas regiões, aquisição de rebanhos adicionais, amigos, conta recuperável, backend publicado, integração autenticada Android/Telegram, pinch zoom, balanceamento com jogadores e medições em celular físico.
 

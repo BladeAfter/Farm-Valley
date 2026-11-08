@@ -28,7 +28,9 @@ try {
   await mkdir("docs/screenshots", { recursive: true });
   await page.screenshot({ path: "docs/screenshots/premium-desktop.png" });
   const read = async () => (await page.request.get(base + "/api/farm")).json();
-  const before = (await read()).farm;
+  const initial = await read();
+  if(process.env.FARM_EXPECT_STORAGE)assert.equal(initial.storage,process.env.FARM_EXPECT_STORAGE);
+  const before = initial.farm;
   assert.equal(before.version, 7);
   const point = (x, y) => ({
     x: 640 + ((x - y) * 44 - 12) * 1,

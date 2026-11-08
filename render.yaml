@@ -15,5 +15,7 @@ services:
         value: "1"
       - key: DATABASE_REQUIRED
         value: "true"
+      - key: DATABASE_CA_PATH
+        value: server/database/certs/supabase-ca-2021.crt
       - key: DATABASE_URL
         sync: false

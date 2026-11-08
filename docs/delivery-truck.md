@@ -10,4 +10,4 @@ Arte original criada com a skill imagegen e a ferramenta de imagens integrada: c
 
 Validação: `tests/delivery-truck.test.ts`, suíte completa e build; `node scripts/truck-visual.mjs` confere envio real, bloqueio durante viagem, recarregamento, recompensa única, retorno e layout mobile. Capturas: `truck-idle.png`, `truck-departing.png`, `truck-returning.png`.
 
-A rota é fixa na estrada atual; o caminhão não é uma construção comprável/movível. O tempo de viagem é configurável em `orderRules.truckTravelMs`. A persistência usa o adaptador configurado do servidor; esta etapa não ativa a conexão Supabase ainda sem senha.
+A rota é fixa na estrada atual; o caminhão não é uma construção comprável/movível. O tempo de viagem é configurável em `orderRules.truckTravelMs`. A persistência usa o adaptador configurado do servidor. Em 7 de novembro de 2026, a viagem e a entrega concorrente também foram verificadas no Supabase real; veja `supabase.md`.
