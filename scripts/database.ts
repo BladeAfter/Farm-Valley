@@ -11,10 +11,13 @@ async function run() {
   const pool = new Pool(config!);
   try {
     if (process.argv[2] !== "import") {
-      const result = await pool.query(
-        "SELECT current_database() AS database, ssl FROM pg_stat_ssl WHERE pid=pg_backend_pid()",
-      );
-      console.log("PostgreSQL conectado:", result.rows[0]);
+      const client = await pool.connect();
+      try {
+        const result = await client.query("SELECT current_database() AS database");
+        const stream = (client as unknown as { connection: { stream: { encrypted?: boolean; authorized?: boolean } } }).connection.stream;
+        // pg_stat_ssl behind a pooler describes its database leg, not our TLS socket.
+        console.log("PostgreSQL conectado:", { database:result.rows[0].database, ssl:stream.encrypted===true, certificateVerified:stream.authorized===true });
+      } finally { client.release(); }
       return;
     }
     // Stop the API first. Read and validate the entire source before touching the database.
