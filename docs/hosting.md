@@ -1,5 +1,7 @@
 # Colocar o backend online
 
+Publicado em `https://farm-valley.onrender.com`. Em 8 de novembro de 2026, `/healthz`, página inicial e o teste de navegador completo passaram no endereço público, com `storage: "postgres"`. No Render, a conexão do Supabase usa **Session pooler** (IPv4); a senha fica somente na variável secreta do serviço.
+
 O backend Node/Express já existe em `server/`. O Supabase armazena os dados PostgreSQL; ainda é necessário um serviço que execute o Node. O `render.yaml` prepara um único Web Service que serve o jogo e a API na mesma origem HTTPS, mantendo os cookies de sessão.
 
 1. Crie/entre na conta em https://dashboard.render.com/ e escolha **New → Blueprint**.
